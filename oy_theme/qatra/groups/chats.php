@@ -117,12 +117,16 @@
                     </ul>
                 </div>
                 <div class="panel-footer">
+                    <form action="<?php echo HOME ?>?pg=inbox&send=<?php echo is_get('id') ?>" data-source="<?php echo HOME ?>?pg=inbox #datatbl" data-selector="#reportx > div > div > div.panel-body" ajaxform reset  enctype="application/x-www-form-urlencoded" name="add" method="post" ajaxform reset>
                     <div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="متن را اینجا بنویسید...." />
+                    <input type="hidden" value="<?php echo is_get('id') ?>"  name="to">
+                    <input type="hidden" value="group"  name="type">
+                        <input id="btn-input" type="text" name="body" class="form-control input-sm" placeholder="متن را اینجا بنویسید...." />
                         <span class="input-group-btn">
                             <button class="btn btn-warning btn-sm" id="btn-chat">
                                 ارسال</button>
                         </span>
                     </div>
+                    </form> 
                 </div>
       
