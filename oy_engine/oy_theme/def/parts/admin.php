@@ -1,0 +1,6 @@
+<div class="col-md-6"><a href="<?php echo get_link('add-poll','id',get_cat_id()); ?>" type="button" class="btn btn-primary btn-block"><?php echo g_lbl('edit'); ?> <i class="fa fa-edit" aria-hidden="true"></i></a></div> 
+ <div class="col-md-6"> <a href="<?php echo get_link('add-poll','id',get_cat_id()); ?>" type="button" class="btn btn-danger btn-block"><?php echo g_lbl('delete'); ?> <i class="fa fa-delete" aria-hidden="true"></i></a></div> 
+  <div class="col-md-6"> <a href="<?php echo get_link('add-poll','id',get_cat_id()); ?>" type="button" class="btn btn-warning btn-block"><?php echo g_lbl('addsection'); ?> <i class="fa fa-plus" aria-hidden="true"></i></a></div> 
+<div class="col-md-6"><a href="<?php echo get_link('add-poll','id',get_cat_id()); ?>" type="button" class="btn btn-default btn-block"><?php echo g_lbl('addattrib'); ?> <i class="fa fa-plus" aria-hidden="true"></i></a></div> 
+
+<div class="col-md-12"><a href="<?php echo get_link('add-poll','id',get_cat_id()); ?>" type="button" class="btn btn-danger btn-block"><?php echo g_lbl('createpoll'); ?></a></div>

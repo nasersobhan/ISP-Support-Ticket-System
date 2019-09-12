@@ -1,0 +1,18 @@
+RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_URI} !\.(?:css|js|jpe?g|gif|png)$ [NC]
+#RewriteCond %{REQUEST_FILENAME} !\.(css|js|png|jpg)$
+#RewriteBase /
+#image thumb
+#RewriteRule ^/i/([^/]*)-([^/]*)-([^/]*) oy_core/oy_developer/live/timthumb.php?w=$1&h=$2&src=$3 [L,NC]
+
+#RewriteRule %{DOCUMENT_ROOT}/oy_core/oy_developer/live/timthumb.php?w=([^/]*)&h=([^/]*)&src=([^/]*)$ img$1-$2-$3/ [R=301,L]
+
+#RewriteRule ^/([^/]*)-([^/]*)-([^/]*)/.jpg %{DOCUMENT_ROOT}/oy_core/oy_developer/live/timthumb.php?w=$1&h=$2&src=$3 [L]
+
+#Alias /img /ooytav1/oy_engine/oy_core/oy_developer/live/timthumb.php
+
+
+#thumbimg
+RewriteRule ^i/([^/]*)-([^/]*)(.*)$ ./oy_developer/live/timthumb.php?w=$1&h=$2&src=$3  [L]

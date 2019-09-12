@@ -1,0 +1,431 @@
+<?xml version='1.0'?>
+<messaging-emoticon-map>
+    <emoticon file="1.gif">
+        <string>:)</string>
+        <string>:-)</string>
+    </emoticon>
+    <emoticon file="2.gif">
+        <string>:(</string>
+        <string>:-(</string>
+    </emoticon>
+    <emoticon file="3.gif">
+        <string>;)</string>
+        <string>;-)</string>
+    </emoticon>
+    <emoticon file="4.gif">
+        <string>:D</string>
+        <string>:-D</string>
+        <string>:d</string>
+        <string>:-d</string>
+    </emoticon>
+    <emoticon file="5.gif">
+        <string>;;)</string>
+    </emoticon>
+    <emoticon file="6.gif">
+        <string>>:D&lt;</string>
+        <string>>:d&lt;</string>
+    </emoticon>
+    <emoticon file="7.gif">
+        <string>:-/</string>
+        <string>:-\\</string>
+    </emoticon>
+    <emoticon file="8.gif">
+        <string>:x</string>
+        <string>:-x</string>
+        <string>:X</string>
+        <string>:-X</string>
+    </emoticon>
+    <emoticon file="9.gif">
+        <string>:"></string>
+    </emoticon>
+    <emoticon file="10.gif">
+        <string>:-P</string>
+        <string>:P</string>
+        <string>:-p</string>
+        <string>:p</string>
+    </emoticon>
+    <emoticon file="11.gif">
+        <string>:-*</string>
+        <string>:*</string>
+    </emoticon>
+    <emoticon file="12.gif">
+        <string>=((</string>
+    </emoticon>
+    <emoticon file="13.gif">
+        <string>:-O</string>
+        <string>:O</string>
+        <string>:-o</string>
+        <string>:o</string>
+    </emoticon>
+    <emoticon file="14.gif">
+        <string>X-(</string>
+        <string>x-(</string>
+        <string>X(</string>
+        <string>x(</string>
+    </emoticon>
+    <emoticon file="15.gif">
+        <string>:-></string>
+        <string>:></string>
+    </emoticon>
+    <emoticon file="16.gif">
+        <string>B-)</string>
+        <string>b-)</string>
+    </emoticon>
+    <emoticon file="17.gif">
+        <string>:-S</string>
+        <string>:-s</string>
+    </emoticon>
+    <emoticon file="18.gif">
+        <string>#:-S</string>
+        <string>#:-s</string>
+    </emoticon>
+    <emoticon file="19.gif">
+        <string>>:)</string>
+    </emoticon>
+    <emoticon file="20.gif">
+        <string>:((</string>
+    </emoticon>
+    <emoticon file="21.gif">
+        <string>:))</string>
+        <string>:-))</string>
+    </emoticon>
+    <emoticon file="22.gif">
+        <string>:|</string>
+        <string>:-|</string>
+    </emoticon>
+    <emoticon file="23.gif">
+        <string>/:)</string>
+    </emoticon>
+    <emoticon file="24.gif">
+        <string>=))</string>
+    </emoticon>
+    <emoticon file="25.gif">
+        <string>O:-)</string>
+        <string>o:-)</string>
+        <string>0:-)</string>
+        <string>0:)</string>
+    </emoticon>
+    <emoticon file="26.gif">
+        <string>:-B</string>
+        <string>:-b</string>
+    </emoticon>
+    <emoticon file="27.gif">
+        <string>=;</string>
+    </emoticon>
+    <emoticon file="28.gif">
+        <string>I-)</string>
+        <string>i-)</string>
+        <string>|-)</string>
+    </emoticon>
+    <emoticon file="29.gif">
+        <string>8-|</string>
+    </emoticon>
+    <emoticon file="30.gif">
+        <string>L-)</string>
+        <string>l-)</string>
+    </emoticon>
+    <emoticon file="31.gif">
+        <string>:-&amp;</string>
+    </emoticon>
+    <emoticon file="32.gif">
+        <string>:-$</string>
+    </emoticon>
+    <emoticon file="33.gif">
+        <string>[-(</string>
+    </emoticon>
+    <emoticon file="34.gif">
+        <string>:o)</string>
+        <string>:O)</string>
+    </emoticon>
+    <emoticon file="35.gif">
+        <string>8-}</string>
+    </emoticon>
+    <emoticon file="36.gif">
+        <string>&lt;:-P</string>
+        <string>&lt;:-p</string>
+    </emoticon>
+    <emoticon file="37.gif">
+        <string>(:|</string>
+    </emoticon>
+    <emoticon file="38.gif">
+        <string>=P~</string>
+        <string>=p~</string>
+    </emoticon>
+    <emoticon file="39.gif">
+        <string>:-?</string>
+    </emoticon>
+    <emoticon file="40.gif">
+        <string>#-o</string>
+        <string>#-O</string>
+    </emoticon>
+    <emoticon file="41.gif">
+        <string>=D></string>
+        <string>=d></string>
+    </emoticon>
+    <emoticon file="42.gif">
+        <string>:-SS</string>
+        <string>:-Ss</string>
+        <string>:-sS</string>
+        <string>:-ss</string>
+    </emoticon>
+    <emoticon file="43.gif">
+        <string>@-)</string>
+    </emoticon>
+    <emoticon file="44.gif">
+        <string>:^O</string>
+        <string>:^o</string>
+    </emoticon>
+    <emoticon file="45.gif">
+        <string>:-w</string>
+        <string>:-W</string>
+    </emoticon>
+    <emoticon file="46.gif">
+        <string>:-&lt;</string>
+    </emoticon>
+    <emoticon file="47.gif">
+        <string>>:P</string>
+        <string>>:p</string>
+    </emoticon>
+    <emoticon file="48.gif">
+        <string>&lt;):)</string>
+    </emoticon>
+    <emoticon file="49.gif">
+        <string>:@)</string>
+    </emoticon>
+    <emoticon file="50.gif">
+        <string>3:-O</string>
+        <string>3:-o</string>
+    </emoticon>
+    <emoticon file="51.gif">
+        <string>:(|)</string>
+    </emoticon>
+    <emoticon file="52.gif">
+        <string>~:></string>
+    </emoticon>
+    <emoticon file="53.gif">
+        <string>@};-</string>
+    </emoticon>
+    <emoticon file="54.gif">
+        <string>%%-</string>
+    </emoticon>
+    <emoticon file="55.gif">
+        <string>**==</string>
+    </emoticon>
+    <emoticon file="56.gif">
+        <string>(~~)</string>
+    </emoticon>
+    <emoticon file="57.gif">
+        <string>~o)</string>
+        <string>~O)</string>
+    </emoticon>
+    <emoticon file="58.gif">
+        <string>*-:)</string>
+    </emoticon>
+    <emoticon file="59.gif">
+        <string>8-X</string>
+        <string>8-x</string>
+    </emoticon>
+    <emoticon file="60.gif">
+        <string>=:)</string>
+    </emoticon>
+    <emoticon file="61.gif">
+        <string>>-)</string>
+    </emoticon>
+    <emoticon file="62.gif">
+        <string>:-L</string>
+        <string>:-l</string>
+    </emoticon>
+    <emoticon file="63.gif">
+        <string>[-o&lt;</string>
+        <string>[-O&lt;</string>
+    </emoticon>
+    <emoticon file="64.gif">
+        <string>$-)</string>
+    </emoticon>
+    <emoticon file="65.gif">
+        <string>:-"</string>
+    </emoticon>
+    <emoticon file="66.gif">
+        <string>b-(</string>
+        <string>B-(</string>
+    </emoticon>
+    <emoticon file="67.gif">
+        <string>:)>-</string>
+    </emoticon>
+    <emoticon file="68.gif">
+        <string>[-X</string>
+        <string>[-x</string>
+    </emoticon>
+    <emoticon file="69.gif">
+        <string>\\:D/</string>
+        <string>\\:d/</string>
+    </emoticon>
+    <emoticon file="70.gif">
+        <string>>:/</string>
+    </emoticon>
+    <emoticon file="71.gif">
+        <string>;))</string>
+    </emoticon>
+    <emoticon file="72.gif">
+        <string>o-></string>
+        <string>O-></string>
+    </emoticon>
+    <emoticon file="73.gif">
+        <string>o=></string>
+        <string>O=></string>
+    </emoticon>
+    <emoticon file="74.gif">
+        <string>o-+</string>
+        <string>O-+</string>
+    </emoticon>
+    <emoticon file="75.gif">
+        <string>(%)</string>
+    </emoticon>
+    <emoticon file="76.gif">
+        <string>:-@</string>
+    </emoticon>
+    <emoticon file="77.gif">
+        <string>^:)^</string>
+    </emoticon>
+    <emoticon file="78.gif">
+        <string>:-j</string>
+        <string>:-J</string>
+    </emoticon>
+    <emoticon file="79.gif">
+        <string>(*)</string>
+    </emoticon>
+    <emoticon file="100.gif">
+        <string>:)]</string>
+    </emoticon>
+    <emoticon file="101.gif">
+        <string>:-c</string>
+    </emoticon>
+    <emoticon file="102.gif">
+        <string>~x(</string>
+        <string>~X(</string>
+    </emoticon>
+    <emoticon file="103.gif">
+        <string>:-h</string>
+    </emoticon>
+    <emoticon file="104.gif">
+        <string>:-t</string>
+        <string>:-T</string>
+    </emoticon>
+    <emoticon file="105.gif">
+        <string>8-></string>
+    </emoticon>
+    <emoticon file="106.gif">
+        <string>:-??</string>
+    </emoticon>
+    <emoticon file="107.gif">
+        <string>%-(</string>
+    </emoticon>
+    <emoticon file="108.gif">
+        <string>:O3</string>
+        <string>:o3</string>
+    </emoticon>
+    <emoticon file="109.gif">
+        <string>X_X</string>
+    </emoticon>
+    <emoticon file="110.gif">
+        <string>:!!</string>
+    </emoticon>
+    <emoticon file="111.gif">
+        <string>\\m/</string>
+    </emoticon>
+    <emoticon file="112.gif">
+        <string>:-q</string>
+    </emoticon>
+    <emoticon file="113.gif">
+        <string>:-bd</string>
+    </emoticon>
+    <emoticon file="114.gif">
+        <string>^#(^</string>
+    </emoticon>
+    <emoticon file="115.gif">
+        <string>:bz</string>
+    </emoticon>
+    <emoticon file="pirate_2.gif">
+        <string>:ar!</string>
+        <string>:pirate:</string>
+    </emoticon>
+    <emoticon file="transformer_v2.gif">
+        <string>[..]</string>
+        <string>:trans:</string>
+    </emoticon>
+    <emoticon file="120.gif">
+        <string>~^o^~</string>
+        <string>~^O^~</string>
+    </emoticon>
+    <emoticon file="121.gif">
+        <string>'@^@</string>
+    </emoticon>
+    <emoticon file="122.gif">
+        <string>[]---</string>
+    </emoticon>
+    <emoticon file="123.gif">
+        <string>^o^||3</string>
+        <string>^O^||3</string>
+    </emoticon>
+    <emoticon file="124.gif">
+        <string>:-(||></string>
+    </emoticon>
+    <emoticon file="125.gif">
+        <string>'+_+</string>
+    </emoticon>
+    <emoticon file="126.gif">
+        <string>:::^^:::</string>
+    </emoticon>
+    <emoticon file="127.gif">
+        <string>o|^_^|o</string>
+        <string>O|^_^|O</string>
+    </emoticon>
+    <emoticon file="128.gif">
+        <string>:puke!</string>
+        <string>:PUKE!</string>
+    </emoticon>
+    <emoticon file="129.gif">
+        <string>o|\\~</string>
+        <string>O|\\~</string>
+    </emoticon>
+    <emoticon file="130.gif">
+        <string>o|:-)</string>
+        <string>O|:-)</string>
+    </emoticon>
+    <emoticon file="131.gif">
+        <string>[]==[]</string>
+    </emoticon>
+    <emoticon file="132.gif">
+        <string>:-)/\\:-)</string>
+    </emoticon>
+    <emoticon file="133.gif">
+        <string>:(game)</string>
+        <string>:(GAME)</string>
+    </emoticon>
+    <emoticon file="134.gif">
+        <string>'@-@</string>
+    </emoticon>
+    <emoticon file="135.gif">
+        <string>:->~~</string>
+    </emoticon>
+    <emoticon file="136.gif">
+        <string>?@_@?</string>
+    </emoticon>
+    <emoticon file="137.gif">
+        <string>:(tv)</string>
+        <string>:(TV)</string>
+    </emoticon>
+    <emoticon file="138.gif">
+        <string>&lt;[]</string>
+    </emoticon>
+    <emoticon file="139.gif">
+        <string>%||:-{</string>
+    </emoticon>
+    <emoticon file="140.gif">
+        <string>%*-{</string>
+    </emoticon>
+    <emoticon file="141.gif">
+        <string>:(fight)</string>
+        <string>:(FIGHT)</string>
+    </emoticon>
+</messaging-emoticon-map>

@@ -1,0 +1,17 @@
+    #ss-comments {
+    position: relative;
+    //padding-bottom: 56.25%; /* proportion value to aspect ratio 16:9 (9 / 16 = 0.5625 or 56.25%) */
+    padding-top: 10px;
+     // height: 100%;
+    overflow: hidden;//height: auto;
+}
+
+#ss-comments iframe {
+    position: absolute;
+    top: 0; 
+    left: 0;
+   // width: 100%;
+  overflow: hidden;
+  //height: 100hv;
+
+}
