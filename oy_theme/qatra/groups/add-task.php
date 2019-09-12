@@ -4,7 +4,7 @@ data-selector="#listtodo"
 ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="addtodolist" lang="fa">
 
 <div class="modal-header">
-  <h4 class="modal-title" id="myModalLabel">ایجاد جدید</h4>
+  <h4 class="modal-title" id="myModalLabel">باید انجام شود</h4>
 </div>
     <div class="modal-body">
 
@@ -14,9 +14,8 @@ ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="addt
             </div>
 
   
-              <input type="hidden"  value="g:<?php echo is_get('id');?>"  name="team" id="team">
-        
-
+              <input type="hidden"  value="<?php echo is_get('id');?>"  name="group">
+              <input type="hidden"  value="group"  name="type">
             <div class="form-group">
               <label for="recipient-name" class="control-label"><?php e_lbl('note') ?>:</label>
               <textarea name="note" class="form-control autogrow" rows="3"></textarea>

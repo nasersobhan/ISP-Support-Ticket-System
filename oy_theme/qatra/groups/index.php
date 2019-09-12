@@ -8,8 +8,8 @@ $group_label = get_cate_name($group_id);
 <div class="panel panel-default" >
         <div class="panel-heading "><h3>تیم: <?php e_lbl($group_label); ?></h3></div>
         <div class="panel-body ">  
-<div class="col-md-8">
-
+<div id="groupbody" class="col-md-8">
+<?php theme_include('groups/home'); ?>
 </div>
     <div class="col-md-4">
       
@@ -20,8 +20,10 @@ $group_label = get_cate_name($group_id);
 
 
           <div class="well">
-            <h4>اضافه کردن شخص به تیم  <?php e_lbl($group_label); ?></h4>
-            <form method="post" reset data-source="<?php echo HOME ?>?pg=group&id=<?php echo $group_id; ?> #datatbl" data-selector="#reportx" action="<?php echo HOME ?>?pg=group&gid=<?php echo $group_id; ?>" ajaxform name="add"  id="currency_id" lang="fa">
+            <h4>لیست اعضا گروپ <?php e_lbl($group_label); ?></h4>
+            <form  method="post" reset 
+            data-source="<?php echo HOME ?>?pg=group&id=<?php echo $group_id; ?> #usertable" 
+            data-selector="#GroupUserList" action="<?php echo HOME ?>?pg=group&gid=<?php echo $group_id; ?>" ajaxform name="add"  id="currency_id" lang="fa">
    نام کاربر:
 
     <select required name="uid">
@@ -46,19 +48,13 @@ $group_label = get_cate_name($group_id);
  
   
   
-    <span id="reportx" >
+    <div id="GroupUserList" >
 
 <?php
 global $dbase;
 $type= $group_id;
 $result = $dbase->query("SELECT * FROM sob_ugroups where ugr_gid='{$type}' ORDER BY ugr_id DESC LIMIT 60");?>
-	<table class="table" id="datatbl">
-	<tr>
-    <th width="160px">نام</th>
-    <th width="160px">وظیفه</th>
-    <th  width="80px">حذف از تیم</th>
-    <th  width="80px">پیام</th>
-  </tr>
+	<table class="table" id="usertable">
 
 
 
@@ -70,13 +66,18 @@ while ($row = $dbase->fetch_array($result)) {
     ?>
 
   <tr>
-    <td width="140px"><?php echo user_name_ex($row['ugr_userid']) ?></td>
-    <td width="140px"><?php echo ($row['ugr_userid']) ?></td>
+    <td width="140px text-left">
+    <input data-source="<?php echo HOME ?>?pg=group&id=<?php echo $group_id; ?> #usertable" 
+    data-selector="#reportx" class="btn btn-danger btn-sm btn-ajax" 
+    url="<?php echo HOME ?>?pg=group&did=<?php echo $row['ugr_id'] ?>" 
+    type="button" confmsg="آیا مطمئن هستید این شخص را ازگروپ حذف میکنید؟" 
+    name="Send" value="x">
+    <?php echo user_name_ex($row['ugr_userid']) ?>
+    <a alt="ارسال پیام خصوصی" title="ارسال پیام خصوصی" href="<?php echo HOME.'?pg=inbox&toid=u:'.$row['ugr_userid']; ?>" class="tip"><i class="far fa-paper-plane"></i></a>
+    </td>
 
 
-    <td width="80px"><input data-source="<?php echo HOME ?>?pg=group&id=<?php echo $group_id; ?> #datatbl" 
-    data-selector="#reportx" class="btn btn-danger btn-sm btn-ajax" url="<?php echo HOME ?>?pg=group&did=<?php echo $row['ugr_id'] ?>" type="button" confmsg="آیا مطمئن هستید این شخص را ازگروپ حذف میکنید؟" name="Send" value="<?php echo g_lbl('delete') ?>"></td>
-    <td width="80px"><a href="<?php echo HOME.'?pg=inbox&toid=u:'.$row['ugr_userid']; ?>" class="btn btn-info btn-sm"><?php echo g_lbl('sendmessage') ?></a></td>
+
   </tr>
 
 
@@ -87,11 +88,11 @@ while ($row = $dbase->fetch_array($result)) {
 
 
 </table>
-
-
+</div>
+</div>
 <hr/>
 
-
+<div class="well">
 <?php theme_include('groups/add-task'); ?>
      </div>
 </div>
