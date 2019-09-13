@@ -8,7 +8,7 @@
                     <?php
         $id = is_get('id');
         global $dbase;
-        $rows = $dbase->tbl2array2('sob_message','*'," WHERE mes_group = ". $id." ORDER BY mes_time DESC");
+        $rows = $dbase->tbl2array2('sob_message','*'," WHERE mes_group = ". $id." ORDER BY mes_time DESC LIMIT 60");
 
         $rows = array_reverse($rows);
         foreach($rows as $row){

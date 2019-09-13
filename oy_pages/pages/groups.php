@@ -4,8 +4,12 @@ loginrequired();
 
 if (is_get('id')) {
     $id = is_get('id');
+    load_jsplug('jquery-ui') ;
+    load_jsplug('uicomplete') ;    
     load_jsplug('form');
     addjs(HOME . "oy_custom/js/groups.js");
+
+
     theme_include('groups/index');
 } elseif (is_get('gid') && is_post('uid')) {
     if ($dbase->RowInsert('sob_ugroups', array('ugr_gid' => is_get('gid'), 'ugr_uid' => user_uid(), 'ugr_userid' => is_post('uid')))) {
@@ -14,6 +18,8 @@ if (is_get('id')) {
     } else {
         echo 'مشکلی وجود دارد.';
     }
+    print_r($_POST);
+
 } elseif (is_get('did')) {
     $where = ' WHERE ugr_id=' . is_get('did');
     $row = $dbase->tbl2array2('sob_ugroups', '*', $where)[0];

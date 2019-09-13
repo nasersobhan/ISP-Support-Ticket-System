@@ -464,3 +464,9 @@ color: #5cb85c;
 
 
 
+.form-inline label.form-control {
+
+}
+label.col-md-8 {
+    width: 66.66666667% !important;
+}

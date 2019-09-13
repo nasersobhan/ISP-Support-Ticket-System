@@ -1,6 +1,6 @@
 <form method="post" action="<?php echo HOME ?>?pg=todo&add=go" 
-data-source="<?php echo HOME ?>?pg=todo #todolists" 
-data-selector="#listtodo" 
+data-source="<?php echo HOME ?>?pg=groups&id=<?php echo is_get('id'); ?> #todotable" 
+data-selector="#todolist" 
 ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="addtodolist" lang="fa">
 
 <div class="modal-header">

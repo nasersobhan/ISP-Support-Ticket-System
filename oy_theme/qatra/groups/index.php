@@ -16,48 +16,37 @@ $group_label = get_cate_name($group_id);
 
 
 
-
-
-
-          <div class="well">
-            <h4>لیست اعضا گروپ <?php e_lbl($group_label); ?></h4>
-            <form  method="post" reset 
-            data-source="<?php echo HOME ?>?pg=group&id=<?php echo $group_id; ?> #usertable" 
-            data-selector="#GroupUserList" action="<?php echo HOME ?>?pg=group&gid=<?php echo $group_id; ?>" ajaxform name="add"  id="currency_id" lang="fa">
-   نام کاربر:
-
-    <select required name="uid">
-<?php
-  $users =  get_userList();
-  foreach ($users as $user) {
-      echo '<option value="'.$user['sob_id'].'">'.$user['sob_name'].'</option>';
-  }
-?>
-</select>    
-      <input class="btn btn-success btn-sm " id="load_reportx" type="submit" name="Send" value="<?php echo g_lbl('add') ?>">
-
-
-</form>
-<br>
+<div class="row well">
 <a class="btn btn-info pull-right btn-block" href="<?php echo HOME.'?pg=inbox&toid=g:'.$group_id; ?>">ارسال پیام به گروپ</a>
 
 <a class="btn btn-danger pull-right btn-block" href="<?php echo HOME.'?pg=inbox&toid=g:'.$group_id; ?>">تعیین وظیفه</a>
-        <hr>
-  
-  
- 
+</div>
+<hr>
+   
+
+
+          <div class="well">
+            <h4> اعضا گروپ <?php e_lbl($group_label); ?></h4>
+            <form  method="post" ajaxform reset name="addusertogroup"  id="addusertogroup" class="form-inline"
+            data-source="<?php echo HOME ?>?pg=groups&id=<?php echo $group_id; ?> #usertable" 
+            data-selector="#GroupUserList" action="<?php echo HOME ?>?pg=groups&gid=<?php echo $group_id; ?>">
+            <div class="form-group col-md-8">
+<label for="username" class="col-md-4 control-label"> کابر جدید :</label>
+<input data-only="u" class="form-control col-md-8 input-sm usergroupList" required type="text" id="username" name="uid">
+</div>
+<div class="col-md-4">
+<button class="btn btn-success btn-sm btn-block" id="adduser" type="submit" ><?php echo g_lbl('add') ?></button>
+</div>
+</form>
+<br><br><br><br>
   
   
     <div id="GroupUserList" >
-
+    <table class="table" id="usertable">
 <?php
 global $dbase;
 $type= $group_id;
 $result = $dbase->query("SELECT * FROM sob_ugroups where ugr_gid='{$type}' ORDER BY ugr_id DESC LIMIT 60");?>
-	<table class="table" id="usertable">
-
-
-
 
 
 	<?php
@@ -67,9 +56,9 @@ while ($row = $dbase->fetch_array($result)) {
 
   <tr>
     <td width="140px text-left">
-    <input data-source="<?php echo HOME ?>?pg=group&id=<?php echo $group_id; ?> #usertable" 
+    <input data-source="<?php echo HOME ?>?pg=groups&id=<?php echo $group_id; ?> #usertable" 
     data-selector="#reportx" class="btn btn-danger btn-sm btn-ajax" 
-    url="<?php echo HOME ?>?pg=group&did=<?php echo $row['ugr_id'] ?>" 
+    url="<?php echo HOME ?>?pg=groups&did=<?php echo $row['ugr_id'] ?>" 
     type="button" confmsg="آیا مطمئن هستید این شخص را ازگروپ حذف میکنید؟" 
     name="Send" value="x">
     <?php echo user_name_ex($row['ugr_userid']) ?>

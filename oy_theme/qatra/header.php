@@ -45,8 +45,8 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-flask" aria-hidden="true"></i> خدمات مشتریان<?php //e_lbl('buysell'); ?><span class="arrow"></span></a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="?pg=impexp&eoe=2"><span><i class="fa fa-reply Pull-left" aria-hidden="true"></i><?php e_lbl('buy'); ?></span></a></li>
-                            <li><a href="?pg=impexp&eoe=1"><span><i class="fa fa-share Pull-left" aria-hidden="true"></i> <?php e_lbl('sell'); ?></span></a></li>
+                            <li><a href="?pg=impexp&eoe=2"><span><i class="fa fa-reply Pull-left" aria-hidden="true"></i>نصب جدید</span></a></li>
+                            <li><a href="?pg=impexp&eoe=1"><span><i class="fa fa-share Pull-left" aria-hidden="true"></i> خدمات تخنیکی</span></a></li>
 
 
                             <li><a href="?pg=impexp"><span><i class="fa fa-list-ol Pull-left" aria-hidden="true"></i> <?php e_lbl('list'); ?></span></a></li>
@@ -113,6 +113,19 @@
                            
                             <li><a href="<?php echo get_link('users'); ?>">مدیریت کاربران<i class="fa fa-users pull-left" aria-hidden="true"></i></a></li>
 
+
+                        </ul>
+
+
+                        <li>
+
+
+                        <li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> <?php e_lbl('hr'); ?><span class="arrow"></span></a>
+                        <ul class="dropdown-menu"> 
+                           
+                            <li><a href="<?php echo get_link('users'); ?>">فرم درخواست رخصتی<i class="fa fa-users pull-left" aria-hidden="true"></i></a></li>
+                            <li><a href="<?php echo get_link('users'); ?>">فرم اضافه کار <i class="fa fa-users pull-left" aria-hidden="true"></i></a></li>
 
                         </ul>
 

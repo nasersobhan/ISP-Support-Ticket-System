@@ -59,23 +59,3 @@ $(".location2").each(function(){var $this = $(this);
             console.log(ui.item.label); 
             $this.val(ui.item.value); return false; }, autoFocus:true, source:function(request, response){var term = request.term; if (term in cache){response(cache[term]); return; }
 $.getJSON(url, request, function(data, status, xhr){cache[term] = data; response(data); }); }}); });
-
-
-
-
-
-$(".usergroupList").each(function(){var $this = $(this); 
-    var url = homeURL + "?API=userList"; 
-    var inputclass = $this.attr('class'); 
-    var cache = {}; 
-    $this.autocomplete({minLength:3, select:function(event, ui)
-        {
-             $this.hide(); 
-            var new_ele = $('<label class="' + inputclass + '" >' + ui.item.label + '</label>'); 
-            new_ele.removeClass("sacui"); 
-            new_ele.click(function(){
-                $this.val('').show().focus(); 
-                $(this).hide(); }); 
-            $this.after(new_ele); 
-            $this.val(ui.item.value); return false; }, autoFocus:true, source:function(request, response){var term = request.term; if (term in cache){response(cache[term]); return; }
-$.getJSON(url, request, function(data, status, xhr){cache[term] = data; response(data); }); }}); });
