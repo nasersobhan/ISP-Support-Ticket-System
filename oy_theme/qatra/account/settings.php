@@ -32,13 +32,10 @@
         
         <!-- action="<?php //echo get_link('account','pwd','change') ?>" -->
     
-<form disabled class="form-horizontal " ACTION="#"   name="chng_pass" id="chng_pass" method="post" role="form" >
+<form disabled class="form-horizontal " action="<?php echo get_link('account','pwd','change') ?>"   name="chng_pass" id="chng_pass" method="post" role="form" >
 
    <div class="form-group">
      <?php get_message() ?>
-      <span class="text-danger">
-     این فرم غیر فعال است. این نسخه آزمایشی نرم افزار میباشد.
-    </span>
   </div>
   
   
@@ -97,13 +94,11 @@
             
   <?php //echo get_link('account','eml','change') ?>
     
-    <form class="form-horizontal" action="#" name="chng_email" id="chng_email" method="post" role="form" >
+    <form class="form-horizontal" action="<?php echo get_link('account','eml','change') ?>" name="chng_email" id="chng_email" method="post" role="form" >
 
    <div class="form-group">
      <?php get_message() ?>
-      <span class="text-danger">
-         این فرم غیر فعال است. این نسخه آزمایشی نرم افزار میباشد.
-         </span>
+
   </div>
   
    <div class="form-group">

@@ -28,37 +28,38 @@
         
           <div class="form-group">
                     <label for="recipient-name" class="control-label">نام مکمل :</label>
-                    <input type="text" class="form-control" name="name" id="name" >
+                    <input type="text" class="form-control col-md-12" name="name" id="name" >
                   </div>
 
 
                   <div class="form-group">
                     <label for="recipient-name" class="control-label">نام کاربری :</label>
-                    <input type="text" class="form-control" name="uname" id="username">
+                    <input type="text" class="form-control col-md-12" name="uname" id="username">
                   </div>
 
                   <div class="form-group">
                     <label for="recipient-name" class="control-label">ایمیل :</label>
-                    <input type="email" class="form-control" name="email" id="email">
+                    <input type="email" class="form-control col-md-12" name="email" id="email">
                   </div>
 
   
                   <div class="form-group">
                     <label for="recipient-name" class="control-label">رمز عبور :</label>
-                    <input type="password" class="form-control" name="password" id="password">
+                    <input type="password" class="form-control col-md-12" name="password" id="password">
                   </div>
 
                   <div class="form-group">
                     <label for="recipient-name" class="control-label">رمز عبور  تکرار:</label>
-                    <input type="password" class="form-control" name="passwordre" id="passwordre">
+                    <input type="password" class="form-control col-md-12" name="passwordre" id="passwordre">
                   </div>
   
                   <div class="form-group">
                     <label for="recipient-name" class="control-label">نوع کاربر:</label>
                     
-                    <select class="form-control" name="rank">
+                    <select class="form-control col-md-12" name="rank">
                       <option value="1">کارمند عادی</option>
                       <option value="2">مدیر</option>
+                      <option value="3">رئیس</option>
                       <?php if(user_rank()==99){ ?>
                         <option value="99">مدیر کل</option>
                       <?php } ?> 
@@ -68,7 +69,7 @@
                   <div class="form-group">
                     <label for="recipient-name" class="control-label"><?php e_lbl('site') ?>:</label>
                     
-                    <select class="form-control" name="site">
+                    <select class="form-control col-md-12" name="site">
             
                         <?php
                         $oild =  cat_2arr_l('site',0,'fa_AF');
@@ -85,7 +86,7 @@
                   <div class="form-group">
                     <label for="recipient-name" class="control-label"><?php e_lbl('dep') ?>:</label>
                     
-                    <select class="form-control" name="dep">
+                    <select class="form-control col-md-12" name="dep">
             
                         <?php
                         $oild =  cat_2arr_l('dep',0,'fa_AF');
@@ -100,7 +101,7 @@
 
                   <div class="form-group">
                     <label for="recipient-name" class="control-label"><?php e_lbl('title') ?>:</label>
-                    <input type="text" class="form-control" name="title" id="title">
+                    <input type="text" class="form-control col-md-12" name="title" id="title">
                   </div>
 
 
@@ -193,8 +194,8 @@ while($row = $dbase->fetch_array($result))
         ?></td>
 
 <td width="100px"><?Php echo $row[$pfx.'title'] ?></td>
-<td width="100px"><?Php echo $row[$pfx.'dep'] ?></td>
-<td width="100px"><?Php echo $row[$pfx.'site'] ?></td>
+<td width="100px"><?Php echo get_cate_name($row[$pfx.'dep']) ?></td>
+<td width="100px"><?Php echo get_cate_name($row[$pfx.'site']) ?></td>
 
    <td width="100px"><?Php echo $row[$pfx.'email'] ?></td>
  
