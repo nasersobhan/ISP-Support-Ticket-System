@@ -27,10 +27,29 @@
 
       <tr>
         <td>
+          <label for="tic_category" class="control-label">دسته بندی :</label>
+        </td>
+        <td>
+          <select class="form-control col-md-6" name="tic_category">
+               
+          <?php
+             $oild =  cat_2arr_l('tickets',0,'fa_AF');
+             //$koo_now = get_imp_koo();
+             $selected = ''; //($koo_now==$id ? 'selected' : '')
+            foreach($oild as $id => $label){
+                 echo '<option '.$selected.' value="'.$id.'">'.$label.'</option>';
+            }
+            ?>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
           <label for="tic_priority" class="control-label">اولویت :</label>
         </td>
         <td>
-          <select class="form-control" name="tic_priority">
+          <select class="form-control col-md-6" name="tic_priority">
                
           <?php
              $oild =  cat_2arr_l('priority',0,'fa_AF');
