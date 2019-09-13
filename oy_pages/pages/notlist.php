@@ -11,7 +11,7 @@ if (is_get('id')) {
 }elseif(is_get('num')){
     $numb = $dbase->num_rows('SELECT not_id FROM sob_notifications'. $where);
     if($numb)
-        echo '<span class="red-att"><i class="fas fa-bell"></i><sup id="notnumbers"> '. $numb .' </sup></span>';
+        echo '<span class="red-att"><i class="fas fa-bell"></i><sup id="notnumbers" class="blink bold"> '. $numb .' </sup></span>';
     else
         echo '<i class="far fa-bell"></i>';
 }else {

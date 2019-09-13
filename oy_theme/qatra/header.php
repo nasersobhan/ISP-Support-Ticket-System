@@ -13,6 +13,8 @@
         <link rel="stylesheet" type="text/css" href="<?php theme_path() ?>/css/<?php echo  get_lang() ?>.css" />
     </head>
     <body>
+
+    <div id="ati10" class="atl"></div>
     <div class="loadingbox hidden-print">
       <div id="fountainG">
           <img alt="Ooyta Logo" class="loading-logo blink" src="<?php  echo theme_path('',0).'/img/logo.png' ?>" />
@@ -45,8 +47,8 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-flask" aria-hidden="true"></i> خدمات مشتریان<?php //e_lbl('buysell'); ?><span class="arrow"></span></a>
 
                         <ul class="dropdown-menu">
-                            <li><a href="?pg=impexp&eoe=2"><span><i class="fa fa-reply Pull-left" aria-hidden="true"></i>نصب جدید</span></a></li>
-                            <li><a href="?pg=impexp&eoe=1"><span><i class="fa fa-share Pull-left" aria-hidden="true"></i> خدمات تخنیکی</span></a></li>
+                            <li><a href="?pg=customer"><span><i class="fa fa-reply Pull-left" aria-hidden="true"></i>نصب جدید</span></a></li>
+                            <li><a href="<?php echo get_link('ticket'); ?>"><span><i class="fa fa-share Pull-left" aria-hidden="true"></i>ایجاد تکت</span></a></li>
 
 
                             <li><a href="?pg=impexp"><span><i class="fa fa-list-ol Pull-left" aria-hidden="true"></i> <?php e_lbl('list'); ?></span></a></li>
@@ -140,6 +142,9 @@
                                 <li><a href="<?php echo get_link('categories'); ?>&t=dep"> مدیریت دیپارتمنتها <i class="fa fa-building Pull-left" aria-hidden="true"></i></a></li>    
                                 <li><a href="<?php echo get_link('categories'); ?>&t=site"> مدیریت سایتها <i class="fa fa-building Pull-left" aria-hidden="true"></i></a></li>    
                                 <li><a href="<?php echo get_link('categories'); ?>&t=groups"> مدیریت گروپها <i class="fa fa-building Pull-left" aria-hidden="true"></i></a></li>   
+
+                                <li><a href="<?php echo get_link('categories'); ?>&t=priority"> مدیریت اولویتها <i class="fa fa-building Pull-left" aria-hidden="true"></i></a></li>   
+
                                 <!-- <li><a href="<?php echo get_link('house'); ?>"> مدیریت مخزنها <i class="fa fa-building Pull-left" aria-hidden="true"></i></a></li>
 
                                 <li><a href="<?php echo get_link('oiltype'); ?>"> مدیریت نوع روغنیات <i class="fa fa-tint Pull-left" aria-hidden="true"></i></a></li>
@@ -175,7 +180,7 @@
 $where = ' WHERE mes_read=0 AND mes_status = 1 AND mes_tid='.$uid;
 $numb = $dbase->num_rows('SELECT mes_id FROM sob_message'. $where);
     if($numb)
-        echo '<span class="red-att"><i class="fas fa-envelope"></i><sup id="notnumbers"> '. $numb .' </sup></span>';
+        echo '<span class="red-att "><i class="fas fa-envelope"></i><sup id="notnumbers" class="blink bold"> '. $numb .' </sup></span>';
     else
         echo '<i class="far fa-envelope"></i>';
 ?>

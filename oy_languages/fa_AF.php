@@ -4,9 +4,13 @@
 
 global $_LANG;
 
+// Categories
 $_LANG['dep']='دیپارتمنت';
 $_LANG['site']='سایت';
 $_LANG['groups']='تیم';
+$_LANG['priority']='اولیت';
+
+
 
 $_LANG['add']='اضافه کردن';
 $_LANG['delete']='حذف';

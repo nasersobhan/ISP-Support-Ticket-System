@@ -79,11 +79,11 @@ $("body").on( "click", '.show-hider', function() {
 $("body").on({
     
     "mousemove": (function (event) {
-               // console.log('mousemove');
+         
                 var a = $(this);
                 a.data('title', a.attr('title')).removeAttr('title');
                 showAnchorTitle(a, a.data('title'));
-                
+               
                     $('#ati10').css({
                         'top': (event.pageY - $('#ati10').outerHeight() - 10) + 'px',
                         'left': (event.pageX + 5) + 'px'
@@ -128,6 +128,7 @@ $( "body" ).on( "click", ".social-shares a", function(event) {
 });
 
 function blink(selector){
+  
 $(selector).fadeOut('slow', function(){
     $(this).fadeIn('slow', function(){
         blink(this);
@@ -136,11 +137,11 @@ $(selector).fadeOut('slow', function(){
 }
 
 //$(document).ready(function(){
+  $(function(){  blink('.blink'); });
 
-
-
-blink('.blink');
-
+  $( document ).ajaxComplete(function( event, request, settings ) {
+    blink('.blink');
+  });
 
 
 $(document).on('click', '#respn1', function(e){
@@ -374,7 +375,6 @@ $('#notify').click(function() {
             function showAnchorTitle(element, text) {
 
                 var offset = element.offset();
-
                 $('#ati10')
                 .css({
                     'top'  : (offset.top + element.outerHeight() + 4) + 'px',
