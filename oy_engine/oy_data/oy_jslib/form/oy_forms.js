@@ -429,6 +429,7 @@ $("form[ajaxform]" ).submit(function( event ) {
     var $form = $( this ),
      url = $form.attr( "action" );
   var reset = $form.attr('reset');
+  var noreturn = $form.attr('noreturn');
   var source = $form.attr('data-source');
   var selector = $form.attr('data-selector');
     var $fields = $("input[requireds]");
@@ -454,8 +455,9 @@ $("form[ajaxform]" ).submit(function( event ) {
     var posting = $.post( url, dataString  );
     posting.done(function( data ) {
       //var content = data;// $(data).find( "#content" );
-
-      alert_msg(data,'success', $form);
+      if (typeof noreturn === typeof undefined || noreturn === false) {
+        alert_msg(data,'success', $form);
+      }
 
       if (typeof reset !== typeof undefined && reset !== false) {
         $form.trigger("reset");

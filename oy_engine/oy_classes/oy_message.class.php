@@ -10,6 +10,7 @@
 class oy_message{
 
     function sendMessage($from, $to, $title, $body, $parent = 0){
+
       $data['mes_uid'] = $from;
       $data['mes_title'] = $title;
       $data['mes_body'] = $body;
@@ -24,6 +25,11 @@ class oy_message{
         $data['mes_group'] = 0;
         $this->AddMessage($data);
       } 
+      elseif(is_numeric($to)){
+        $data['mes_tid'] = $realto;
+        $data['mes_group'] = $realto;
+        $this->AddMessage($data);
+      }
       else {
         if(substr($to, 0, 2 ) === "g:") {
           $to = str_replace("g:",'',$to);
@@ -36,7 +42,9 @@ class oy_message{
         elseif(substr($to, 0, 2 ) === "s:") {
           $to = str_replace("s:",'',$to);
           $to = $this->get_usersfromsite($to);
+    
         }
+
         if(is_array($to)){
           foreach($to as $toid) {
             $data['mes_tid'] = $toid;
@@ -44,6 +52,7 @@ class oy_message{
             $this->AddMessage($data);
           }
         }
+
       }
 
   

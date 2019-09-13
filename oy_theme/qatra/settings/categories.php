@@ -146,10 +146,7 @@ $result = $dbase->query("SELECT * FROM sob_categories_oy where cat_type='{$type}
   </tr>
 
 
-
-
-
-	<?php
+<?php
 while($row = $dbase->fetch_array($result))
   {
     $stripcalss = '';
@@ -160,7 +157,7 @@ while($row = $dbase->fetch_array($result))
 ?>
 
   <tr>
-    <td width="140px"><?Php echo $row['cat_name'] ?></td>
+    <td width="140px"><a href="<?php echo HOME.'?pg='.$row['cat_type'].'&id='.$row['cat_id'] ?>"><?Php echo $row['cat_name'] ?></a></td>
 
     <td width="120px"><?Php echo ($row['cat_status']) ?></td>
     <td width="80px"><?Php echo $row['cat_time'] ?></td>

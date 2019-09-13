@@ -23,16 +23,15 @@ $message = new oy_message();
 if(is_get('view')){
    $vid= is_get('view');
     post_query("select * from sob_message where mon_id={$vid}");
-   
    theme_include('pages\money_view'); 
 }elseif(is_get('send')){
-    if(is_int(is_get('send')))
+    if(is_numeric(is_get('send')))
         $parent = is_get('send');
     else 
         $parent = 0;
 
     $message->sendMessage(user_uid(),is_post('to'),is_post('title'),is_post('body'), $parent);
-    echo 'ارسال شد';
+    echo 'پیام ارسال شد.';
     
 }elseif(is_get('replay')){
 

@@ -314,6 +314,19 @@ $('#notifications').click(function(){
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // $('#not-list').on('click','a',function(){
 //     var nid = $(this).attr('data-id');
 //     $('#not-list').load(homeURL + '/?pg=notlist&id=' + nid);
