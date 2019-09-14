@@ -75,11 +75,11 @@
 			                    <form role="form" action="<?php echo get_link('account','user','signin'); ?>" method="post" class="login-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
-			                        	<input value="demo1234" name="user" type="text" id="user" placeholder="Username..." class="form-username form-control" >
+			                        	<input name="user" type="text" id="user" placeholder="Username..." class="form-username form-control col-md-12" >
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input value="demo1234"  name="password" type="password" id="Password" placeholder="Password..." class="form-password form-control" >
+			                        	<input name="password" type="password" id="Password" placeholder="Password..." class="form-password form-control col-md-12" >
 			                        </div>
                                          
 			                        <button type="submit" class="btn"><?php e_lbl('login'); ?></button>
