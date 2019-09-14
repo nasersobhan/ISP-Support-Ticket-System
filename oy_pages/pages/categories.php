@@ -8,10 +8,10 @@ load_jsplug('bootstrap') ;
 class_include('jdatetime');
 load_jsplug('form');
  $tbl = TBL_PIX.'categories_oy';
-
+$uid = user_uid();
  if(is_get('add')){
     $val = is_post('st_name');
-    $value = cate2db($val,is_get('add'));
+    $value = add_cate($val,is_get('add'),0,$uid);
    // add_cate($val,'currency',0,user_uid());
    echo 'ایجاد شد';
 }elseif(is_get('del')){

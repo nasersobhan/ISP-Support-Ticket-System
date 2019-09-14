@@ -134,7 +134,16 @@ $type_label = is_get('t');
 <?php
 global $dbase;
 $type= $type_label;
-$result = $dbase->query("SELECT * FROM sob_categories_oy where cat_type='{$type}' ORDER BY cat_id DESC LIMIT 12");?>
+$uid = user_uid();
+$where = '';
+if(user_rank() == 2)
+  $where = " AND cat_uid='{$uid}'";
+if(user_rank() == 3){
+  $site = user_site();
+  $where = " AND (cat_uid='{$uid}' OR cat_uid IN (SELECT sob_id from sob_users WHERE sob_site='{$site}'))";
+}
+
+$result = $dbase->query("SELECT * FROM sob_categories_oy where cat_type='{$type}' {$where} ORDER BY cat_id DESC LIMIT 12");?>
 	<table style="table-layout:fixed" id="datatbl" width="550" >
 	<tr>
     <th width="160px">نام</th>

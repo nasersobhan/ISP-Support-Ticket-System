@@ -16,9 +16,7 @@ function add_cate($val,$type,$parent=0,$uid=0){
     $dta['cat_slug'] = get_slug($dta['cat_name'], $tbl, 'cat_slug');
     if(is_arabic($val))
        $dta['cat_lang'] = 'fa_AF';
-   
-    
-    
+
     $dbase->RowInsert($tbl,$dta);
     return $dbase->lastinserted_id();
 }

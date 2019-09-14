@@ -78,7 +78,7 @@ $id = is_get('id');
         
     
     <?php if (is_get('id')) {
-    theme_include('inbox/conversation');
+    theme_pg_include('view');
 }
 else {
     theme_pg_include('add');
