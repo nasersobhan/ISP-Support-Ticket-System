@@ -524,4 +524,7 @@ input[type="range"]::-ms-fill-lower {
       height: 20px;
   }
 
-
+hr.smallhr{
+    margin-top: 10px;
+    margin-bottom: 7px;
+}

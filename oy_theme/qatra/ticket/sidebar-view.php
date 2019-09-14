@@ -67,7 +67,7 @@
 
         if(empty($row['tic_assigned']) OR $row['tic_assigned']=='0'){ ?>
 <div class="form-group">
-<label for="tic_body" class="control-label"> سپردن مسئولیت:</label>
+<label for="tic_assigned" class="control-label"> سپردن مسئولیت:</label>
   
   <select name="tic_assigned" id="tic_assigned" class="col-md-9 form-control">
 
@@ -116,11 +116,6 @@
 
         <?php } ?>
     
-<!-- <div class="form-group">
-<label for="tic_body" class="control-label">توضیح دهید:</label>
-  
-  <textarea name="tic_body" class="form-control autogrow" rows="5"></textarea>
-</div> -->
 
        
       </div><br>
@@ -166,6 +161,8 @@
       </div>
     </div>
   </div>
+
+  <?php if($row['tic_progress'] < 100) { ?>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">
@@ -176,7 +173,7 @@
     </div>
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
-      <form method="post" action="<?php echo HOME ?>?pg=ticket&add=new" name="add"  id="addticket">
+      <form method="post" action="<?php echo HOME ?>?pg=ticket&manage=<?php echo is_get('id');?>" name="manag"  id="manageticket">
       
       <div class="modal-header">
         <h4 class="modal-title" id="myModalLabel">تکمیلی کار </h4>
@@ -185,10 +182,9 @@
       <div class="modal-body">
     
 
-            <label for="tic_body" class="control-label">توضیح دهید:</label>
+            <label for="tic_completenote" class="control-label">توضیح دهید:</label>
   
-            <textarea name="tic_body" class="form-control autogrow" rows="5"></textarea>
-       
+            <textarea name="tic_completenote" class="form-control autogrow" rows="5">طبق نیاز انجام شد.</textarea>
       </div>
       <div class="modal-footer">
         <button class="btn btn-success btn-sm"  type="submit">بستن تکت</button>
@@ -197,4 +193,5 @@
       </div>
     </div>
   </div>
+  <?php } ?>
 </div>

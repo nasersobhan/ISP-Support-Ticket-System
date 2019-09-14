@@ -34,6 +34,12 @@ elseif(is_get('manage')){
     if(isset($data['tic_assigned'])) {
         $data['tic_sdate'] = date('Y-m-d H:i:s');
     }
+  
+    if(isset($data['tic_completenote'])) {
+        $data['tic_ddate'] = date('Y-m-d H:i:s');
+        $data['tic_progress'] = 100;
+    }
+  
 
     if ($dbase->RowUpdate($tbl, $data, "WHERE tic_id=".$id)) {
         if(isset($data['tic_assigned'])){
@@ -49,11 +55,24 @@ elseif(is_get('manage')){
                 add_notification('وظیفه به شما محول شد:' . $data['tic_title'] , $userid, 'ticket', $id);
             }
         }
-        if(isset($data['tic_tag'])){
+        if(isset($data['tic_progress']) && isset($data['tic_tag'])){
             $userid = get_owner($id,'tickets');
             $ticket_title = get_ticket($id, 'title');
-            add_notification('<strong>'.$ticket_title.'</strong><br><strong>پیشرفت:</strong> '.$data['tic_progress']. '%<br><strong>وضعیت:</strong> '.get_cate_name($data['tic_tag']) , $userid, 'ticket', is_get('manage'));
+            if(isset($data['tic_progress']))
+                $progress= $data['tic_progress'];
+            else {
+                $progress= get_ticket($id, 'progress');
+            }
+            add_notification('<strong>'.$ticket_title.'</strong><br><strong>پیشرفت:</strong> '.$progress. '%<br><strong>وضعیت:</strong> '.get_cate_name($data['tic_tag']) , $userid, 'ticket', is_get('manage'));
+        
         }
+        if (isset($data['tic_completenote'])) {
+            $userid = get_owner($id,'tickets');
+            $ticket_title = get_ticket($id, 'title');
+            add_notification('<strong>'.$ticket_title.'</strong><br><strong>پیشرفت:</strong> 100% ' , $userid, 'ticket', is_get('manage'));
+        
+        }
+
             
         redirect_to(HOME.'?pg=ticket&id='.$id);
         
