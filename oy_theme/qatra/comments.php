@@ -3,11 +3,11 @@ $tbl = 'sob_comments_oy';
 global $dbase;
 $comment_path = md5(is_get('pg').is_get('id')); ?>
 
-<div id="posted-comments" class="">
+<div id="posted-comments" class="comment-list">
     <div id="comments">
     <?php 
 
-$comments = $dbase->tbl2array2($tbl, '*', "WHERE com_id_post='".$comment_path."'");
+$comments = $dbase->tbl2array2($tbl, '*', "WHERE com_id_post='".$comment_path."' LIMIT 100");
 foreach($comments as $comment){
 
 ?>
@@ -19,7 +19,11 @@ foreach($comments as $comment){
 <?php } ?>
 </div>
 
+
 </div>
+
+<br>
+
 <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">

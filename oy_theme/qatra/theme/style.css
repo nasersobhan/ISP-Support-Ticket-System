@@ -528,3 +528,11 @@ hr.smallhr{
     margin-top: 10px;
     margin-bottom: 7px;
 }
+
+
+.comment-list {
+    max-height: 800px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-left:20px;
+}
