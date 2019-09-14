@@ -431,3 +431,41 @@ function user_site(){
 function user_dep(){
     return $_SESSION[UKEY]['dep'];
 }
+
+
+function get_usersfromgroup($gid){
+    global $dbase;
+    $gid = str_replace("g:",'',$gid);
+    $userlist = [];
+    $rows = $dbase->tbl2array2('sob_ugroups','ugr_userid', " WHERE ugr_status=1 AND ugr_gid={$gid}");
+    foreach($rows as $user)
+    $userlist[] = $user['ugr_userid'];
+    return $userlist;
+  }
+
+  function personlistype($id){
+    if (substr($id, 0, 2) === "u:") {
+        return 'user';
+    }elseif(substr($id, 0, 2) === "g:"){
+        return 'group';
+    }elseif(substr($id, 0, 2) === "s:"){
+        return 'site';
+    }elseif(substr($id, 0, 2) === "d:"){
+        return 'dep';
+    }
+  }
+
+
+
+  /// tickets
+
+  function get_ticket($pid, $field){
+
+    global $dbase;
+    $tbl = 'tickets';
+    $uid = user_uid();
+    $fld_pre = get_pre(str_ireplace(TBL_PIX, '', $tbl));
+    $tbl = TBL_PIX.str_ireplace(TBL_PIX, '', $tbl);
+    $field_value = $dbase->get_single($tbl, $fld_pre.'id', $pid, $fld_pre.$field); 
+    return $field_value;
+  }

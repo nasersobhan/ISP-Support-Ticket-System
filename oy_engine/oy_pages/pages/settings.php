@@ -1,4 +1,6 @@
 <?php
+
+
 //global $dbase,$excp;
 //$tbl = TBL_PIX.'settings';
 //$SQL_TBL = "

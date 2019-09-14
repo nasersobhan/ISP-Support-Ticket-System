@@ -321,7 +321,13 @@ $('#notifications').click(function(){
 
 
 
+$('#tic_progress').change(function(){
+    $('#tic_progress_value').html($(this).val() + '%' );
+    // var num = 'rgba(255,0,0,'+ ($(this).val()/100) +')';
+    // console.log(num);
+    // $(this).css('background-color', '#ff0000');
 
+});
 
 
 

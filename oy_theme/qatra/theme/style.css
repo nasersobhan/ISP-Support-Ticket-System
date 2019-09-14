@@ -382,7 +382,12 @@ color: #5cb85c;
     color: #5cb85c;
 }
 #not-list>li>a {
-    line-height:1.8;
+    line-height:1.4;
+    white-space: normal; 
+    font-family: tahoma;
+}
+#not-list .text-right {
+font-size: 10px;
 }
 
 .bold{
@@ -468,3 +473,55 @@ color: #5cb85c;
 label.col-md-8 {
     width: 66.66666667% !important;
 }
+
+.panel-default>.panel-heading {
+    padding: 10px;
+}
+
+
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      -webkit-appearance: none;
+      background-color: #5cb85c;
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      color: #5cb85c;
+      margin-top: -1px;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 10px;
+      -webkit-appearance: none;
+      height: 10px;
+      cursor: ew-resize;
+      background: #C3D1EC;
+      box-shadow: -180px 0 0 180px #C00;
+    }
+
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: #C00; 
+}
+input[type="range"]::-moz-range-track {  
+  background-color: #5cb85c;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+    background-color: #C00; 
+  }
+  input[type="range"]::-ms-fill-upper {  
+    background-color: #5cb85c;
+  }
+
+
+  #tic_progress {
+      height: 20px;
+  }
+
+

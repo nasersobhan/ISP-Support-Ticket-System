@@ -2,6 +2,9 @@
 loginrequired();
 global $dbase;
 $tbl = 'sob_tickets';
+
+
+
 if(is_get('add')){
 
     $data = $_POST;
@@ -23,6 +26,40 @@ if(is_get('add')){
         redirect_to(HOME.'?pg=ticket&id='.$id);
     } else {
         set_message('Something Wrong');
+    }
+}
+elseif(is_get('manage')){
+    $id = is_get('manage');
+    $data = $_POST;
+    if(isset($data['tic_assigned'])) {
+        $data['tic_sdate'] = date('Y-m-d H:i:s');
+    }
+
+    if ($dbase->RowUpdate($tbl, $data, "WHERE tic_id=".$id)) {
+        if(isset($data['tic_assigned'])){
+            if(personlistype($data['tic_assigned']) == 'group'){
+                $users = get_usersfromgroup($data['tic_assigned']);
+                if(count($users)){
+                    foreach($users as $user){
+                        add_notification('وظیفه به تیم شما محول شد:' . $data['tic_title'] , $user, 'ticket', $id);
+                    }
+                }
+            }else{
+                $userid = str_replace("u:",'',$data['tic_assigned']);
+                add_notification('وظیفه به شما محول شد:' . $data['tic_title'] , $userid, 'ticket', $id);
+            }
+        }
+        if(isset($data['tic_tag'])){
+            $userid = get_owner($id,'tickets');
+            $ticket_title = get_ticket($id, 'title');
+            add_notification('<strong>'.$ticket_title.'</strong><br><strong>پیشرفت:</strong> '.$data['tic_progress']. '%<br><strong>وضعیت:</strong> '.get_cate_name($data['tic_tag']) , $userid, 'ticket', is_get('manage'));
+        }
+            
+        redirect_to(HOME.'?pg=ticket&id='.$id);
+        
+        echo 'ثبت شد';
+    }else{
+        echo 'مشکلی وجود دارد';
     }
 }
 else {

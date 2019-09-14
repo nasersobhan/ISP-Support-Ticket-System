@@ -9,6 +9,9 @@ $_LANG['dep']='دیپارتمنت';
 $_LANG['site']='سایت';
 $_LANG['groups']='تیم';
 $_LANG['priority']='اولیت';
+$_LANG['tickettags']='وضعیت';
+
+
 
 
 

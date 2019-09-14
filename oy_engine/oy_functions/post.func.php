@@ -30,6 +30,21 @@ function is_owner($pid, $tbl=''){
     }
 }
 
+
+function get_owner($pid, $tbl=''){
+
+        if($tbl=='')
+            $tbl=is_get('pg');
+        global $dbase;
+
+        $uid = user_uid();
+        $fld_pre = get_pre(str_ireplace(TBL_PIX, '', $tbl));
+        $tbl = TBL_PIX.str_ireplace(TBL_PIX, '', $tbl);
+        $uid = $dbase->get_single($tbl, $fld_pre.'id', $pid, $fld_pre.'uid'); 
+        return $uid;
+
+}
+
 function status2str($id){
     if($id=='0')
             $vl = '<span class="text-warning">Suspend</span>';

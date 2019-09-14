@@ -224,7 +224,39 @@ function cat_2arr_l_bcategory($type,$cate,$deflang='en_US'){
 
 
 
+function cat_2arr_luid($type,$parent=0,$deflang='en_US', $onlyuid = false){
+    global $dbase;
+    $uid = user_uid();
+    $uidw = '';
+    if($onlyuid)
+        $uidw = " AND cat_uid='{$uid}'";
+//    else
+//        $uidw = 'AND ((cat_uid=0) OR (cat_uid= ' . user_uid() .'))';
+    
+    if($parent!=0)
+        $parent = " AND cat_parent='{$parent}'";
+    else
+        $parent = '';
+    $lang = " AND cat_lang='{$deflang}'";
 
+
+    
+    $order = ' AND cat_status<>100 ORDER BY cat_order,cat_id ';
+    
+    $tbl = TBL_PIX.'categories_oy';
+    $cats = $dbase->tbl2array($tbl, 'cat_id', 'cat_name',  " WHERE cat_type='{$type}' " .$parent.$lang.$uidw.$order);
+    $lang = get_lang();
+    if($lang==$deflang)
+        $result = $cats;
+    else{
+        $result = array();
+        foreach ($cats as $key => $value){
+            $result[$key] = get_cate_name(get_actualID($key,$lang));
+        }      
+    }
+                
+    return $result;
+}
 
 
 function cat_2arr_l($type,$parent=0,$deflang='en_US'){
