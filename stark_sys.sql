@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 13, 2019 at 09:53 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Sep 14, 2019 at 01:56 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,23 +31,23 @@ SET time_zone = "+00:00";
 CREATE TABLE `sob_categories_oy` (
   `cat_id` int(11) NOT NULL,
   `cat_slug` varchar(150) NOT NULL,
-  `cat_uid` int(11) NOT NULL DEFAULT '0',
-  `cat_pid` int(11) NOT NULL DEFAULT '0',
-  `cat_parent` int(11) NOT NULL DEFAULT '0',
+  `cat_uid` int(11) NOT NULL DEFAULT 0,
+  `cat_pid` int(11) NOT NULL DEFAULT 0,
+  `cat_parent` int(11) NOT NULL DEFAULT 0,
   `cat_name` varchar(150) NOT NULL,
-  `cat_content` text,
-  `cat_category` int(11) NOT NULL DEFAULT '0',
+  `cat_content` text DEFAULT NULL,
+  `cat_category` int(11) NOT NULL DEFAULT 0,
   `cat_type` varchar(30) NOT NULL DEFAULT 'jobs',
   `cat_section` varchar(50) NOT NULL DEFAULT 'ss',
-  `cat_order` int(11) NOT NULL DEFAULT '0',
-  `cat_avatar` int(11) NOT NULL DEFAULT '1482',
-  `cat_cover` int(11) NOT NULL DEFAULT '1485',
+  `cat_order` int(11) NOT NULL DEFAULT 0,
+  `cat_avatar` int(11) NOT NULL DEFAULT 1482,
+  `cat_cover` int(11) NOT NULL DEFAULT 1485,
   `cat_lang` varchar(10) NOT NULL DEFAULT 'en_US',
-  `cat_hits` int(11) NOT NULL DEFAULT '0',
-  `cat_utime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `cat_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `cat_status` int(11) NOT NULL DEFAULT '1',
-  `cat_confirmed` int(1) NOT NULL DEFAULT '0'
+  `cat_hits` int(11) NOT NULL DEFAULT 0,
+  `cat_utime` timestamp NOT NULL DEFAULT current_timestamp(),
+  `cat_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `cat_status` int(11) NOT NULL DEFAULT 1,
+  `cat_confirmed` int(1) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -105,7 +105,17 @@ INSERT INTO `sob_categories_oy` (`cat_id`, `cat_slug`, `cat_uid`, `cat_pid`, `ca
 (1258, 'Ø¶Ø¹ÛŒÙÛŒ-Ù†Øª', 0, 0, 0, 'Ø¶Ø¹ÛŒÙÛŒ Ù†Øª', NULL, 0, 'tickets', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-13 19:19:42', '2019-09-13 19:19:42', 1, 0),
 (1259, 'Ù†Ø¨ÙˆØ¯-Ú©Ø§Ù…Ù„-Ù†Øª', 0, 0, 0, 'Ù†Ø¨ÙˆØ¯ Ú©Ø§Ù…Ù„ Ù†Øª', NULL, 0, 'tickets', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-13 19:20:06', '2019-09-13 19:20:06', 1, 0),
 (1260, 'Ø¨Ø±Ø³ÛŒ-ÙˆØ³Ø§ÛŒÙ„', 0, 0, 0, 'Ø¨Ø±Ø³ÛŒ ÙˆØ³Ø§ÛŒÙ„', NULL, 0, 'tickets', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-13 19:20:19', '2019-09-13 19:20:19', 1, 0),
-(1261, 'Ù†ØµØ¨-Ø¬Ø¯ÛŒØ¯', 0, 0, 0, 'Ù†ØµØ¨ Ø¬Ø¯ÛŒØ¯', NULL, 0, 'tickets', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-13 19:22:00', '2019-09-13 19:22:00', 1, 0);
+(1261, 'Ù†ØµØ¨-Ø¬Ø¯ÛŒØ¯', 0, 0, 0, 'Ù†ØµØ¨ Ø¬Ø¯ÛŒØ¯', NULL, 0, 'tickets', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-13 19:22:00', '2019-09-13 19:22:00', 1, 0),
+(1262, 'Ú¯Ø±ÙˆÙ¾-ÛŒÚ©', 0, 0, 0, 'Ú¯Ø±ÙˆÙ¾ ÛŒÚ©', NULL, 0, 'groups', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-14 05:55:56', '2019-09-14 05:55:56', 1, 0),
+(1263, 'Ú¯Ø±ÙˆÙ¾-Ø¯ÙˆÙ…', 0, 0, 0, 'Ú¯Ø±ÙˆÙ¾ Ø¯ÙˆÙ…', NULL, 0, 'groups', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-14 05:56:00', '2019-09-14 05:56:00', 1, 0),
+(1264, 'ØªÛŒØ§Ø±Ù‡-Ø¯Ú¯Ù‡', 0, 0, 0, 'ØªÛŒØ§Ø±Ù‡ Ø¯Ú¯Ù‡', NULL, 0, 'groups', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-14 05:58:35', '2019-09-14 05:58:35', 1, 0),
+(1265, 'ÛŒØ¨Ù„Ø³ÛŒØ¨Ù„', 0, 0, 0, 'ÛŒØ¨Ù„Ø³ÛŒØ¨Ù„', NULL, 0, 'groups', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-14 06:01:55', '2019-09-14 06:01:55', 1, 0),
+(1266, 'sadfasdf', 30, 0, 0, 'sadfasdf', NULL, 0, 'groups', 'ss', 0, 1482, 1485, 'en_US', 0, '2019-09-14 06:03:09', '2019-09-14 06:03:09', 1, 0),
+(1267, 'Ø§Ù†ÛŒ-Ø§ÛŒØªÙ‡', 30, 0, 0, 'Ø§Ù†ÛŒ Ø§ÛŒØªÙ‡', NULL, 0, 'groups', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-14 06:05:30', '2019-09-14 06:05:30', 1, 0),
+(1268, 'Ø¯Ø±Ø­Ø§Ù„-Ø§Ø¬Ø±Ø§Ø¡', 20, 0, 0, 'Ø¯Ø±Ø­Ø§Ù„ Ø§Ø¬Ø±Ø§Ø¡', NULL, 0, 'tickettags', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-14 07:50:02', '2019-09-14 07:50:02', 1, 0),
+(1269, 'Ù…Ù†ØªØ¸Ø±-Ù…Ø´ØªØ±ÛŒ', 20, 0, 0, 'Ù…Ù†ØªØ¸Ø± Ù…Ø´ØªØ±ÛŒ', NULL, 0, 'tickettags', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-14 07:51:30', '2019-09-14 07:51:30', 1, 0),
+(1270, 'Ø§Ù†Ø¬Ø§Ù…-Ø´Ø¯', 20, 0, 0, 'Ø§Ù†Ø¬Ø§Ù… Ø´Ø¯', NULL, 0, 'tickettags', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-14 07:51:39', '2019-09-14 07:51:39', 1, 0),
+(1271, 'Ù…Ø­ÙˆÙ„-Ø´Ø¯-Ø¨Ù‡-ÙˆÙ‚Øª-Ø¯ÛŒÚ¯Ø±', 20, 0, 0, 'Ù…Ø­ÙˆÙ„ Ø´Ø¯ Ø¨Ù‡ ÙˆÙ‚Øª Ø¯ÛŒÚ¯Ø±', NULL, 0, 'tickettags', 'ss', 0, 1482, 1485, 'fa_AF', 0, '2019-09-14 07:51:52', '2019-09-14 07:51:52', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -115,12 +125,27 @@ INSERT INTO `sob_categories_oy` (`cat_id`, `cat_slug`, `cat_uid`, `cat_pid`, `ca
 
 CREATE TABLE `sob_comments_oy` (
   `com_id` int(11) NOT NULL,
-  `com_name` varchar(40) NOT NULL,
-  `com_email` varchar(60) NOT NULL,
+  `com_uid` int(11) NOT NULL,
   `com_comment` text NOT NULL,
   `com_id_post` varchar(255) NOT NULL,
-  `com_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `com_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sob_comments_oy`
+--
+
+INSERT INTO `sob_comments_oy` (`com_id`, `com_uid`, `com_comment`, `com_id_post`, `com_time`) VALUES
+(1, 20, 'asdfasdf\r\nas\r\ndf\r\nasd\r\nfasdfasdf', 'c746a61434ae73397015ca6271436b9b', '2019-09-14 11:07:24'),
+(2, 20, 'dsfgsdfgsdfg\r\nsdf\r\ngs\r\ndfg\r\nsd\r\nfg', 'c746a61434ae73397015ca6271436b9b', '2019-09-14 11:16:22'),
+(3, 20, 'asdfasdfa\r\nsdf\r\nsdfsdfasdf', 'c746a61434ae73397015ca6271436b9b', '2019-09-14 11:17:58'),
+(4, 20, 'sdfasdfs\r\ndf\r\nasd\r\nfas\r\ndfsfd', 'c746a61434ae73397015ca6271436b9b', '2019-09-14 11:18:04'),
+(5, 20, 'dfasd\r\nfas\r\ndf\r\nas\r\ndfasfdsdf', 'c746a61434ae73397015ca6271436b9b', '2019-09-14 11:18:11'),
+(6, 20, 'Ú†Ø±Ø§ Ù‡Ù…Ø´ Ø¨Ù‡ Ù…ÛŒØ®ÙˆÙ†Ù‡ Ù…ÛŒØ±Ù… Ù…Ù† \r\nØ³ÛŒØ¨Ø´Ø³\r\nÛŒØ¨\r\nØ´Ø³\r\nÛŒØ¨Ø´\r\nØ³ÛŒ\r\nØ¨Ø´Ø³ÛŒØ¨', 'c746a61434ae73397015ca6271436b9b', '2019-09-14 11:18:37'),
+(7, 20, 'xcvzsgsdfgds\r\nfgsdsdfgsd\r\nfgsdfg', 'c746a61434ae73397015ca6271436b9b', '2019-09-14 11:39:42'),
+(8, 20, 'sdfgsdfg\r\nsdfgsd\r\nfg\r\nsd\r\nfg\r\nsdfgsdf', 'c746a61434ae73397015ca6271436b9b', '2019-09-14 11:39:47'),
+(9, 20, 'sdfgsd\r\nfgs\r\ndf\r\ngs\r\ndfgsd\r\nfg\r\nsd\r\nfgs\r\ndfg\r\nsd\r\nfgs\r\n\r\ndfgsdfg', 'c746a61434ae73397015ca6271436b9b', '2019-09-14 11:39:55'),
+(10, 20, 'dfasdf\r\nas\r\ndf\r\nasd\r\nfasdf', 'c746a61434ae73397015ca6271436b9b', '2019-09-14 11:40:56');
 
 -- --------------------------------------------------------
 
@@ -163,9 +188,9 @@ CREATE TABLE `sob_customerinfo` (
   `cus_pppoeip` varchar(32) NOT NULL,
   `cus_localip` varchar(32) NOT NULL,
   `cus_publicip` varchar(32) NOT NULL,
-  `cus_status` int(11) NOT NULL DEFAULT '1',
-  `cus_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `cus_uid` int(11) NOT NULL DEFAULT '0'
+  `cus_status` int(11) NOT NULL DEFAULT 1,
+  `cus_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `cus_uid` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -178,13 +203,13 @@ CREATE TABLE `sob_datafiles_oy` (
   `dat_id` int(11) NOT NULL,
   `dat_uid` int(11) NOT NULL,
   `dat_url` varchar(255) NOT NULL,
-  `dat_access` int(11) NOT NULL DEFAULT '1',
+  `dat_access` int(11) NOT NULL DEFAULT 1,
   `dat_type` varchar(15) NOT NULL,
   `dat_ext` varchar(5) NOT NULL,
   `dat_category` varchar(10) NOT NULL,
   `dat_title` varchar(50) NOT NULL DEFAULT 'Untitled',
-  `dat_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `dat_status` int(11) NOT NULL DEFAULT '1'
+  `dat_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `dat_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -198,8 +223,8 @@ CREATE TABLE `sob_groups` (
   `gro_title` varchar(200) NOT NULL,
   `gro_uid` int(11) NOT NULL,
   `gro_dep` varchar(50) NOT NULL,
-  `gro_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `gro_status` int(11) NOT NULL DEFAULT '1'
+  `gro_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `gro_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -210,7 +235,7 @@ CREATE TABLE `sob_groups` (
 
 CREATE TABLE `sob_historyuser_oy` (
   `his_id` int(11) NOT NULL,
-  `his_uid` int(11) NOT NULL DEFAULT '0',
+  `his_uid` int(11) NOT NULL DEFAULT 0,
   `his_pass` varchar(255) NOT NULL,
   `his_refurl` varchar(255) NOT NULL,
   `his_ip` varchar(38) NOT NULL,
@@ -219,8 +244,8 @@ CREATE TABLE `sob_historyuser_oy` (
   `his_tbl` varchar(10) DEFAULT NULL,
   `his_sessionkey` varchar(150) NOT NULL,
   `his_pid` varchar(255) DEFAULT NULL,
-  `his_status` int(3) NOT NULL DEFAULT '1',
-  `his_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `his_status` int(3) NOT NULL DEFAULT 1,
+  `his_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -420,7 +445,15 @@ INSERT INTO `sob_historyuser_oy` (`his_id`, `his_uid`, `his_pass`, `his_refurl`,
 (190, 20, '1', 'http://stark.test/?pg=account&user=signin', '127.0.0.1', 'Chrome', 'Windows 10', NULL, 'a37da9c4398ef0856405e2b38366951a', NULL, 1, '2019-09-13 14:17:09'),
 (191, 26, 'Password wrong', 'http://stark.test/?pg=account&user=signin', '127.0.0.1', 'Chrome', 'Windows 10', NULL, '', NULL, 1, '2019-09-13 14:54:34'),
 (192, 26, 'Password wrong', 'http://stark.test/?pg=account&user=signin', '127.0.0.1', 'Chrome', 'Windows 10', NULL, '', NULL, 1, '2019-09-13 14:55:02'),
-(193, 29, '1', 'http://stark.test/?pg=account&user=signin', '127.0.0.1', 'Chrome', 'Windows 10', NULL, 'b8a8cfe88887b05fbe7205b5febf1366', NULL, 1, '2019-09-13 14:56:21');
+(193, 29, '1', 'http://stark.test/?pg=account&user=signin', '127.0.0.1', 'Chrome', 'Windows 10', NULL, 'b8a8cfe88887b05fbe7205b5febf1366', NULL, 1, '2019-09-13 14:56:21'),
+(194, 20, '1', 'http://stark.test/?pg=account&user=signin', '127.0.0.1', 'Chrome', 'Windows 10', NULL, 'a90b8c7a1b7a7de664f257ec289d7342', NULL, 1, '2019-09-14 04:41:08'),
+(195, 20, '0', 'http://stark.test/?pg=categories&t=site', '127.0.0.1', 'Chrome', 'Windows 10', NULL, 'a90b8c7a1b7a7de664f257ec289d7342', NULL, 1, '2019-09-14 05:05:34'),
+(196, 20, '1', 'http://stark.test/?pg=account&user=signin', '127.0.0.1', 'Chrome', 'Windows 10', NULL, '254b7d902617c8fac1b8b5526389ddbb', NULL, 1, '2019-09-14 05:05:37'),
+(197, 30, 'Password wrong', 'http://stark.test/?pg=account&user=signin', '127.0.0.1', 'Chrome', 'Windows 10', NULL, '', NULL, 1, '2019-09-14 05:26:08'),
+(198, 30, 'Password wrong', 'http://stark.test/?pg=account&user=signin', '127.0.0.1', 'Chrome', 'Windows 10', NULL, '', NULL, 1, '2019-09-14 05:26:16'),
+(199, 30, '1', 'http://stark.test/?pg=account&user=signin', '127.0.0.1', 'Chrome', 'Windows 10', NULL, '8a685a878dfb19ec79b2a60d1090c3fd', NULL, 1, '2019-09-14 05:26:22'),
+(200, 30, 'Password wrong', 'http://stark.test/?pg=account&user=signin', '127.0.0.1', 'Chrome', 'Windows 10', NULL, '', NULL, 1, '2019-09-14 09:11:52'),
+(201, 30, '1', 'http://stark.test/?pg=account&user=signin', '127.0.0.1', 'Chrome', 'Windows 10', NULL, '7d11cddc1ff34ec6f04e2fb4944ba7ff', NULL, 1, '2019-09-14 09:11:58');
 
 -- --------------------------------------------------------
 
@@ -430,34 +463,34 @@ INSERT INTO `sob_historyuser_oy` (`his_id`, `his_uid`, `his_pass`, `his_refurl`,
 
 CREATE TABLE `sob_impexp` (
   `imp_id` int(11) NOT NULL,
-  `imp_uid` int(11) NOT NULL DEFAULT '0',
-  `imp_status` int(11) NOT NULL DEFAULT '1',
+  `imp_uid` int(11) NOT NULL DEFAULT 0,
+  `imp_status` int(11) NOT NULL DEFAULT 1,
   `imp_date` date NOT NULL,
   `imp_sdate` varchar(12) NOT NULL,
   `imp_eoe` int(11) NOT NULL,
   `imp_koo` int(11) NOT NULL,
-  `imp_amount` float NOT NULL DEFAULT '0',
-  `imp_price` float NOT NULL DEFAULT '0',
-  `imp_trucknum` int(15) NOT NULL DEFAULT '0',
+  `imp_amount` float NOT NULL DEFAULT 0,
+  `imp_price` float NOT NULL DEFAULT 0,
+  `imp_trucknum` int(15) NOT NULL DEFAULT 0,
   `imp_drivername` varchar(255) DEFAULT NULL,
-  `imp_total` int(20) NOT NULL DEFAULT '0',
+  `imp_total` int(20) NOT NULL DEFAULT 0,
   `imp_dis` text NOT NULL,
   `imp_name` varchar(255) NOT NULL,
-  `imp_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `imp_stat` int(1) NOT NULL DEFAULT '0',
-  `imp_st` int(1) NOT NULL DEFAULT '0',
+  `imp_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `imp_stat` int(1) NOT NULL DEFAULT 0,
+  `imp_st` int(1) NOT NULL DEFAULT 0,
   `imp_m_name` varchar(255) NOT NULL DEFAULT '0',
-  `imp_m_price` float NOT NULL DEFAULT '0',
-  `imp_m_total` float NOT NULL DEFAULT '0',
+  `imp_m_price` float NOT NULL DEFAULT 0,
+  `imp_m_total` float NOT NULL DEFAULT 0,
   `imp_o_name` varchar(255) NOT NULL DEFAULT '0',
-  `imp_o_price` float NOT NULL DEFAULT '0',
-  `imp_o_amont` float NOT NULL DEFAULT '0',
-  `imp_o_total` float NOT NULL DEFAULT '0',
+  `imp_o_price` float NOT NULL DEFAULT 0,
+  `imp_o_amont` float NOT NULL DEFAULT 0,
+  `imp_o_total` float NOT NULL DEFAULT 0,
   `imp_t_cname` varchar(255) NOT NULL DEFAULT '0',
-  `imp_t_price` float NOT NULL DEFAULT '0',
-  `imp_t_total` float NOT NULL DEFAULT '0',
-  `imp_s_amont` float NOT NULL DEFAULT '0',
-  `imp_s_total` float NOT NULL DEFAULT '0'
+  `imp_t_price` float NOT NULL DEFAULT 0,
+  `imp_t_total` float NOT NULL DEFAULT 0,
+  `imp_s_amont` float NOT NULL DEFAULT 0,
+  `imp_s_total` float NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -491,19 +524,19 @@ CREATE TABLE `sob_infouser_oy` (
   `inf_id` int(11) NOT NULL,
   `inf_name` varchar(50) DEFAULT NULL,
   `inf_sname` varchar(40) DEFAULT NULL,
-  `inf_about` text,
+  `inf_about` text DEFAULT NULL,
   `inf_dob` date DEFAULT NULL,
   `inf_phone` double DEFAULT NULL,
   `inf_gender` varchar(8) DEFAULT 'Male',
-  `inf_avatar` int(11) NOT NULL DEFAULT '1483',
-  `inf_cover` int(11) NOT NULL DEFAULT '1485',
+  `inf_avatar` int(11) NOT NULL DEFAULT 1483,
+  `inf_cover` int(11) NOT NULL DEFAULT 1485,
   `inf_martialstat` varchar(30) NOT NULL DEFAULT 'Single',
   `inf_hcity` int(11) DEFAULT NULL,
   `inf_hcountry` varchar(11) DEFAULT NULL,
   `inf_ccity` int(11) DEFAULT NULL,
   `inf_ccountry` varchar(11) DEFAULT NULL,
   `inf_email` varchar(255) DEFAULT NULL,
-  `inf_status` int(11) NOT NULL DEFAULT '1',
+  `inf_status` int(11) NOT NULL DEFAULT 1,
   `inf_lang` varchar(10) NOT NULL DEFAULT 'en'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -522,7 +555,8 @@ INSERT INTO `sob_infouser_oy` (`inf_id`, `inf_name`, `inf_sname`, `inf_about`, `
 (26, 'Ù†Ø§ØµØ± Ø³Ø¨Ø­Ø§Ù†', NULL, NULL, NULL, 0, 'Male', 1483, 1485, 'Single', NULL, NULL, NULL, NULL, 'me@nasersobhan.com', 1, 'fa_AF'),
 (27, '', NULL, NULL, NULL, 0, 'Male', 1483, 1485, 'Single', NULL, NULL, NULL, NULL, 'aham@gma.com', 1, 'en'),
 (28, '', NULL, NULL, NULL, 0, 'Male', 1483, 1485, 'Single', NULL, NULL, NULL, NULL, 'demo@demo.com', 1, 'en'),
-(29, 'Ú©Ø§Ø±Ø¨Ø± ØªØ³Øª', NULL, NULL, NULL, 0, 'Male', 1483, 1485, 'Single', NULL, NULL, NULL, NULL, 'test@test.com', 1, 'fa_AF');
+(29, 'Ú©Ø§Ø±Ø¨Ø± ØªØ³Øª', NULL, NULL, NULL, 0, 'Male', 1483, 1485, 'Single', NULL, NULL, NULL, NULL, 'test@test.com', 1, 'fa_AF'),
+(30, 'Ù…Ø¯ÛŒØ± Ø®Ø¯Ù…Ø§Øª Ù‡Ø±Ø§Øª', NULL, NULL, NULL, 0, 'Male', 1483, 1485, 'Single', NULL, NULL, NULL, NULL, 'mnt@sdfsdf.com', 1, 'fa_AF');
 
 -- --------------------------------------------------------
 
@@ -547,7 +581,7 @@ CREATE TABLE `sob_like` (
   `lik_id` int(11) NOT NULL,
   `lik_uid` int(11) NOT NULL,
   `lik_url` varchar(255) NOT NULL,
-  `lik_pid` int(11) NOT NULL DEFAULT '0',
+  `lik_pid` int(11) NOT NULL DEFAULT 0,
   `lik_type` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -580,11 +614,11 @@ CREATE TABLE `sob_message` (
   `mes_tid` int(11) NOT NULL,
   `mes_title` varchar(255) NOT NULL,
   `mes_body` text NOT NULL,
-  `mes_read` int(11) NOT NULL DEFAULT '0',
-  `mes_group` int(11) NOT NULL DEFAULT '0',
-  `mes_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `mes_status` int(11) NOT NULL DEFAULT '1',
-  `mes_parent` int(11) NOT NULL DEFAULT '0',
+  `mes_read` int(11) NOT NULL DEFAULT 0,
+  `mes_group` int(11) NOT NULL DEFAULT 0,
+  `mes_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `mes_status` int(11) NOT NULL DEFAULT 1,
+  `mes_parent` int(11) NOT NULL DEFAULT 0,
   `mes_type` varchar(10) NOT NULL DEFAULT 'chat'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -598,9 +632,9 @@ INSERT INTO `sob_message` (`mes_id`, `mes_uid`, `mes_tid`, `mes_title`, `mes_bod
 (155, 20, 26, 'Ø¹Ù†ÙˆØ§Ù†ÛŒ Ù…Ø³ÛŒØ¬', ' Ø¨Ø§ Ú©Ù…Ú© Ø¢Ù† Ù…ÛŒ ØªÙˆØ§Ù†ÛŒØ¯ Ø·Ø±Ø­ Ù‡Ø§ÛŒÛŒ Ù¾ÛŒØ§Ø¯Ù‡ Ú©Ù†ÛŒØ¯ Ú©Ù‡ Ø¨Ù‡ Ø±Ø§Ø­ØªÛŒ Ø¯Ø± Ù…ÙˆØ¨Ø§ÛŒÙ„ Ù‡Ø§ Ùˆ ØªØ¨Ù„Øª Ù‡Ø§ Ùˆ Ø±Ø§ÛŒØ§Ù†Ù‡ Ù‡Ø§ Ùˆ Ù‡Ù…ÛŒÙ†Ø·ÙˆØ± Ø¯Ø± ØªÙ…Ø§Ù…ÛŒ Ù…Ø±ÙˆØ±Ú¯Ø±Ù‡Ø§ÛŒ Ø±ÙˆØ² Ø¯Ù†ÛŒØ§ Ø¨Ù‡ Ø¯Ø±Ø³ØªÛŒ Ù†Ù…Ø§ÛŒØ´ Ø¯Ø§Ø¯Ù‡ Ø´ÙˆØ¯. Ø¨Ø±Ø§ÛŒ Ø§Ø³ØªÙØ§Ø¯Ù‡ ØªÙˆÛŒÛŒØªØ± Ø¯Ø± Ù¾Ø±ÙˆÚ˜Ù‡ Ù‡Ø§ÛŒ ÙˆØ¨ ÙØ§Ø±Ø³ÛŒ Ù…ÛŒ ØªÙˆØ§Ù†ÛŒØ¯ Ø§Ø² Ø§ÛŒÙ† ÙØ§ÛŒÙ„ Ø§Ø³ØªÙØ§Ø¯Ù‡ Ù†Ù…Ø§ÛŒÛŒØ¯. Ø¯Ø± Ø¢ÛŒÙ†Ø¯Ù‡ Ù†Ø³Ø®Ù‡ ÛŒ Ú©Ø§Ù…Ù„ØªØ±ÛŒ Ø§Ø² Ø§ÛŒÙ† ÙØ±ÛŒÙ… ÙˆØ±Ú© Ø¨ÛŒ Ù†Ø¸ÛŒØ± Ø±Ø§ Ø¯Ø± Ø§Ø®ØªÛŒØ§Ø± Ø´Ù…Ø§ Ù‚Ø±Ø§Ø± Ø®ÙˆØ§Ù‡ÛŒÙ… Ø¯Ø§Ø¯.\r\n\r\n[ Ø§ÛŒÙ† Ù¾Ø³Øª ØªÚ©Ù…ÛŒÙ„ Ù…ÛŒ Ø´ÙˆØ¯', 1, 1, '2019-09-08 06:47:01', 1, 0, 'message'),
 (157, 20, 20, 'Ù¾Ø§Ø³Ø®: Ø¹Ù†ÙˆØ§Ù†ÛŒ Ù…Ø³ÛŒØ¬', ' Ø¨Ø§ Ú©Ù…Ú© Ø¢Ù† Ù…ÛŒ ØªÙˆØ§Ù†ÛŒØ¯ Ø·Ø±Ø­ Ù‡Ø§ÛŒÛŒ Ù¾ÛŒØ§Ø¯Ù‡ Ú©Ù†ÛŒØ¯ Ú©Ù‡ Ø¨Ù‡ Ø±Ø§Ø­ØªÛŒ Ø¯Ø± Ù…ÙˆØ¨Ø§ÛŒÙ„ Ù‡Ø§ Ùˆ ØªØ¨Ù„Øª Ù‡Ø§ Ùˆ Ø±Ø§ÛŒØ§Ù†Ù‡ Ù‡Ø§ Ùˆ\r\n Ù‡Ù…ÛŒÙ†Ø·ÙˆØ± Ø¯Ø± ØªÙ…Ø§Ù…ÛŒ Ù…Ø±ÙˆØ±Ú¯Ø±Ù‡Ø§ÛŒ Ø±ÙˆØ² Ø¯Ù†ÛŒØ§ Ø¨Ù‡ Ø¯Ø±Ø³ØªÛŒ Ù†Ù…Ø§ÛŒØ´ Ø¯Ø§Ø¯Ù‡ Ø´ÙˆØ¯. \r\nØ¨Ø±Ø§ÛŒ Ø§Ø³ØªÙØ§Ø¯Ù‡ ØªÙˆÛŒÛŒØªØ± Ø¯Ø± Ù¾Ø±ÙˆÚ˜Ù‡ Ù‡Ø§ÛŒ ÙˆØ¨ ÙØ§Ø±Ø³ÛŒ Ù…ÛŒ ØªÙˆØ§Ù†ÛŒØ¯ Ø§Ø² Ø§ÛŒÙ† ÙØ§ÛŒÙ„ Ø§Ø³ØªÙØ§Ø¯Ù‡ Ù†Ù…Ø§ÛŒÛŒØ¯. Ø¯Ø± Ø¢ÛŒÙ†Ø¯Ù‡ Ù†Ø³Ø®Ù‡ ÛŒ Ú©Ø§Ù…Ù„ØªØ±ÛŒ Ø§Ø² Ø§ÛŒÙ† ÙØ±ÛŒÙ… ÙˆØ±Ú© Ø¨ÛŒ Ù†Ø¸ÛŒØ± Ø±Ø§ Ø¯Ø± Ø§Ø®ØªÛŒØ§Ø± Ø´Ù…Ø§ Ù‚Ø±Ø§Ø± Ø®ÙˆØ§Ù‡ÛŒÙ… Ø¯Ø§Ø¯.\r\n\r\n[ Ø§ÛŒÙ† Ù¾Ø³Øª ØªÚ©Ù…ÛŒÙ„ Ù…ÛŒ Ø´ÙˆØ¯', 1, 0, '2019-09-08 06:49:37', 1, 0, 'message'),
 (158, 20, 20, 'Ù¾Ø§Ø³Ø®: Ø¹Ù†ÙˆØ§Ù†ÛŒ Ù…Ø³ÛŒØ¬', '', 1, 0, '2019-09-08 06:56:02', 1, 0, 'message'),
-(159, 20, 19, 'mymodule_feeds_presave not running', 'Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨\r\nØ´Ø³\r\nÛŒØ¨\r\nØ´Ø³ÛŒ\r\nØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨', 0, 0, '2019-09-11 06:08:37', 1, 0, 'message'),
+(159, 20, 19, 'mymodule_feeds_presave not running', 'Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨\r\nØ´Ø³\r\nÛŒØ¨\r\nØ´Ø³ÛŒ\r\nØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨', 1, 0, '2019-09-11 06:08:37', 1, 0, 'message'),
 (160, 20, 20, 'mymodule_feeds_presave not running', 'Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨\r\nØ´Ø³\r\nÛŒØ¨\r\nØ´Ø³ÛŒ\r\nØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨', 1, 0, '2019-09-11 06:08:37', 1, 0, 'message'),
-(161, 20, 26, 'mymodule_feeds_presave not running', 'Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨\r\nØ´Ø³\r\nÛŒØ¨\r\nØ´Ø³ÛŒ\r\nØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨', 0, 0, '2019-09-11 06:08:37', 1, 0, 'message'),
+(161, 20, 26, 'mymodule_feeds_presave not running', 'Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨\r\nØ´Ø³\r\nÛŒØ¨\r\nØ´Ø³ÛŒ\r\nØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨', 1, 0, '2019-09-11 06:08:37', 1, 0, 'message'),
 (162, 20, 19, 'Ø®ÛŒÙ„ÛŒ Ú©Ø§Ø±Ù‡', 'Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³\r\nÛŒØ¨\r\nØ´Ø³ÛŒ\r\nØ¨\r\nØ´Ø³\r\nÛŒØ¨Ø´\r\nØ³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨', 0, 1252, '2019-09-11 06:10:14', 1, 0, 'message'),
 (163, 20, 20, 'Ø®ÛŒÙ„ÛŒ Ú©Ø§Ø±Ù‡', 'Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³\r\nÛŒØ¨\r\nØ´Ø³ÛŒ\r\nØ¨\r\nØ´Ø³\r\nÛŒØ¨Ø´\r\nØ³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨', 1, 1252, '2019-09-11 06:10:14', 1, 0, 'message'),
 (164, 20, 26, 'Ø®ÛŒÙ„ÛŒ Ú©Ø§Ø±Ù‡', 'Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³\r\nÛŒØ¨\r\nØ´Ø³ÛŒ\r\nØ¨\r\nØ´Ø³\r\nÛŒØ¨Ø´\r\nØ³ÛŒØ¨Ø´Ø³ÛŒØ¨Ø´Ø³ÛŒØ¨', 0, 1252, '2019-09-11 06:10:14', 1, 0, 'message'),
@@ -720,7 +754,15 @@ INSERT INTO `sob_message` (`mes_id`, `mes_uid`, `mes_tid`, `mes_title`, `mes_bod
 (278, 20, 1253, 'groupchat-1253', 'Ø´Ø³ÛŒØ¨Ø³ÛŒØ¨', 0, 1253, '2019-09-13 15:53:53', 1, 1253, 'message'),
 (279, 20, 1253, 'groupchat-1253', 'Ø´ÛŒØ³Ø¨Ø³Ø´ÛŒØ¨', 0, 1253, '2019-09-13 15:53:54', 1, 1253, 'message'),
 (280, 20, 1253, 'groupchat-1253', 'asdfasdfasd', 0, 1253, '2019-09-13 16:16:41', 1, 1253, 'message'),
-(281, 20, 1253, 'groupchat-1253', 'sadfsadfsadf', 0, 1253, '2019-09-13 16:16:45', 1, 1253, 'message');
+(281, 20, 1253, 'groupchat-1253', 'sadfsadfsadf', 0, 1253, '2019-09-13 16:16:45', 1, 1253, 'message'),
+(282, 20, 1253, 'groupchat-1253', 'Ù…ØªÙ† Ø¨Ø§Ù„Ø§ Ø±Ø§ Ø¨Ø®ÙˆØ§Ù†ÛŒØ¯', 0, 1253, '2019-09-14 04:41:24', 1, 1253, 'message'),
+(283, 20, 1253, 'groupchat-1253', 'Ø¨Ù„Ø³ÛŒØ¨Ù„ÛŒØ³Ø¨Ù„', 0, 1253, '2019-09-14 04:41:33', 1, 1253, 'message'),
+(284, 20, 1253, 'groupchat-1253', 'Ø·Ø²Ø±Ø·Ø²Ø±Ø·Ø²', 0, 1253, '2019-09-14 04:41:40', 1, 1253, 'message'),
+(285, 20, 1253, 'groupchat-1253', 'Ø³ÛŒØ¨Ù„Ø³ÛŒØ¨Ù„', 0, 1253, '2019-09-14 04:41:42', 1, 1253, 'message'),
+(286, 20, 1253, 'groupchat-1253', 'ÛŒØ³Ø¨Ø´Ø³ÛŒØ¨', 0, 1253, '2019-09-14 04:41:44', 1, 1253, 'message'),
+(287, 20, 1253, 'groupchat-1253', 'Ø¨Ø´Ø³ÛŒØ¨Ø³Ø¨', 0, 1253, '2019-09-14 04:41:46', 1, 1253, 'message'),
+(288, 20, 1253, 'groupchat-1253', 'Ø´Ø³ÛŒØ¨Ø³Ø´ÛŒØ¨Ø³Ø´ÛŒØ¨', 0, 1253, '2019-09-14 04:41:48', 1, 1253, 'message'),
+(289, 20, 1253, 'groupchat-1253', 'Ø³ÛŒØ¨Ø³ÛŒØ¨Ø³ÛŒØ¨', 0, 1253, '2019-09-14 04:41:51', 1, 1253, 'message');
 
 -- --------------------------------------------------------
 
@@ -731,19 +773,19 @@ INSERT INTO `sob_message` (`mes_id`, `mes_uid`, `mes_tid`, `mes_title`, `mes_bod
 CREATE TABLE `sob_money` (
   `mon_id` int(11) NOT NULL,
   `mon_name` varchar(255) NOT NULL,
-  `mon_rmoney` decimal(10,0) NOT NULL DEFAULT '0',
-  `mon_account` int(11) NOT NULL DEFAULT '1147',
+  `mon_rmoney` decimal(10,0) NOT NULL DEFAULT 0,
+  `mon_account` int(11) NOT NULL DEFAULT 1147,
   `mon_rated` varchar(10) NOT NULL DEFAULT '0',
-  `mon_doller` decimal(10,0) NOT NULL DEFAULT '0',
+  `mon_doller` decimal(10,0) NOT NULL DEFAULT 0,
   `mon_discription` text NOT NULL,
-  `mon_eoe` int(1) NOT NULL DEFAULT '1',
+  `mon_eoe` int(1) NOT NULL DEFAULT 1,
   `mon_mt` varchar(255) NOT NULL,
   `mon_sdate` date NOT NULL DEFAULT '1391-07-19',
   `mon_date` date NOT NULL DEFAULT '2012-10-10',
-  `mon_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `mon_stat` int(1) NOT NULL DEFAULT '0',
-  `mon_uid` int(11) NOT NULL DEFAULT '0',
-  `mon_status` int(11) NOT NULL DEFAULT '1'
+  `mon_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `mon_stat` int(1) NOT NULL DEFAULT 0,
+  `mon_uid` int(11) NOT NULL DEFAULT 0,
+  `mon_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -758,9 +800,9 @@ CREATE TABLE `sob_notifications` (
   `not_title` varchar(255) NOT NULL,
   `not_type` varchar(50) NOT NULL,
   `not_url` varchar(500) NOT NULL,
-  `not_status` int(11) NOT NULL DEFAULT '1',
-  `not_seen` int(1) NOT NULL DEFAULT '0',
-  `not_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `not_status` int(11) NOT NULL DEFAULT 1,
+  `not_seen` int(1) NOT NULL DEFAULT 0,
+  `not_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -889,7 +931,39 @@ INSERT INTO `sob_notifications` (`not_id`, `not_uid`, `not_title`, `not_type`, `
 (147, 20, 'Ø´Ù…Ø§ Ø§Ø² Ú¯Ø±ÙˆÙ¾ Ù…Ø²Ø§Ø± Ø´Ø±ÛŒÙ Ø­Ø°Ù Ø´Ø¯ÛŒØ¯', 'group', '1253', 2, 1, '2019-09-13 17:07:49'),
 (148, 20, 'Ø´Ù…Ø§ Ø§Ø² Ú¯Ø±ÙˆÙ¾ Ù…Ø²Ø§Ø± Ø´Ø±ÛŒÙ Ø­Ø°Ù Ø´Ø¯ÛŒØ¯', 'group', '1253', 2, 1, '2019-09-13 17:07:50'),
 (149, 26, 'Ø´Ù…Ø§ Ø¨Ù‡ Ú¯Ø±ÙˆÙ¾ Ù…Ø²Ø§Ø± Ø´Ø±ÛŒÙ Ø§Ø¶Ø§ÙÙ‡ Ø´Ø¯ÛŒØ¯', 'groups', '1253', 1, 0, '2019-09-13 17:36:33'),
-(150, 20, 'Ø´Ù…Ø§ Ø§Ø² Ú¯Ø±ÙˆÙ¾ Ù…Ø²Ø§Ø± Ø´Ø±ÛŒÙ Ø­Ø°Ù Ø´Ø¯ÛŒØ¯', 'groups', '1253', 2, 1, '2019-09-13 17:36:58');
+(150, 20, 'Ø´Ù…Ø§ Ø§Ø² Ú¯Ø±ÙˆÙ¾ Ù…Ø²Ø§Ø± Ø´Ø±ÛŒÙ Ø­Ø°Ù Ø´Ø¯ÛŒØ¯', 'groups', '1253', 2, 1, '2019-09-13 17:36:58'),
+(151, 1253, 'Ù¾ÛŒØ§Ù… Ø¬Ø¯ÛŒØ¯ Ø§Ø² Ø·Ø±Ù Ú©Ø§Ø±Ø¨Ø± Ù†Ù…ÙˆÙ†Ù‡', 'inbox', '282', 1, 0, '2019-09-14 04:41:24'),
+(152, 1253, 'Ù¾ÛŒØ§Ù… Ø¬Ø¯ÛŒØ¯ Ø§Ø² Ø·Ø±Ù Ú©Ø§Ø±Ø¨Ø± Ù†Ù…ÙˆÙ†Ù‡', 'inbox', '283', 1, 0, '2019-09-14 04:41:33'),
+(153, 1253, 'Ù¾ÛŒØ§Ù… Ø¬Ø¯ÛŒØ¯ Ø§Ø² Ø·Ø±Ù Ú©Ø§Ø±Ø¨Ø± Ù†Ù…ÙˆÙ†Ù‡', 'inbox', '284', 1, 0, '2019-09-14 04:41:40'),
+(154, 1253, 'Ù¾ÛŒØ§Ù… Ø¬Ø¯ÛŒØ¯ Ø§Ø² Ø·Ø±Ù Ú©Ø§Ø±Ø¨Ø± Ù†Ù…ÙˆÙ†Ù‡', 'inbox', '285', 1, 0, '2019-09-14 04:41:42'),
+(155, 1253, 'Ù¾ÛŒØ§Ù… Ø¬Ø¯ÛŒØ¯ Ø§Ø² Ø·Ø±Ù Ú©Ø§Ø±Ø¨Ø± Ù†Ù…ÙˆÙ†Ù‡', 'inbox', '286', 1, 0, '2019-09-14 04:41:44'),
+(156, 1253, 'Ù¾ÛŒØ§Ù… Ø¬Ø¯ÛŒØ¯ Ø§Ø² Ø·Ø±Ù Ú©Ø§Ø±Ø¨Ø± Ù†Ù…ÙˆÙ†Ù‡', 'inbox', '287', 1, 0, '2019-09-14 04:41:46'),
+(157, 1253, 'Ù¾ÛŒØ§Ù… Ø¬Ø¯ÛŒØ¯ Ø§Ø² Ø·Ø±Ù Ú©Ø§Ø±Ø¨Ø± Ù†Ù…ÙˆÙ†Ù‡', 'inbox', '288', 1, 0, '2019-09-14 04:41:48'),
+(158, 1253, 'Ù¾ÛŒØ§Ù… Ø¬Ø¯ÛŒØ¯ Ø§Ø² Ø·Ø±Ù Ú©Ø§Ø±Ø¨Ø± Ù†Ù…ÙˆÙ†Ù‡', 'inbox', '289', 1, 0, '2019-09-14 04:41:51'),
+(159, 20, 'ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø´Ù…Ø§ Ø«Ø¨Øª Ø´Ø¯: Ú†Ú© Ú©Ø±Ø¯Ù† ØªÚ©Øª Ø¬Ø¯ÛŒØ¯', 'inbox', 'ticket', 2, 1, '2019-09-14 05:19:27'),
+(160, 20, 'ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø´Ù…Ø§ Ø«Ø¨Øª Ø´Ø¯: Ú†Ú© Ú©Ø±Ø¯Ù† ØªÚ©Øª Ø¬Ø¯ÛŒØ¯', 'inbox', 'ticket', 2, 1, '2019-09-14 05:26:42'),
+(161, 30, 'ØªÚ©Øª Ø¬Ø¯ÛŒØ¯: Ú†Ú© Ú©Ø±Ø¯Ù† ØªÚ©Øª Ø¬Ø¯ÛŒØ¯', 'inbox', 'ticket', 2, 1, '2019-09-14 05:26:42'),
+(162, 20, 'ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø´Ù…Ø§ Ø«Ø¨Øª Ø´Ø¯: ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª', 'ticket', '7', 2, 1, '2019-09-14 05:30:50'),
+(163, 30, 'ØªÚ©Øª Ø¬Ø¯ÛŒØ¯: ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª', 'ticket', '7', 2, 1, '2019-09-14 05:30:50'),
+(164, 20, ' Ù¾Ø´Ø±ÙØª: 78 ÙˆØ¶Ø¹ÛŒØª: Ø§Ù†Ø¬Ø§Ù… Ø´Ø¯', 'ticket', '7', 2, 1, '2019-09-14 09:34:26'),
+(165, 20, ' Ù¾Ø´Ø±ÙØª:  ÙˆØ¶Ø¹ÛŒØª: Ù…Ù†ØªØ¸Ø± Ù…Ø´ØªØ±ÛŒ', 'ticket', '7', 2, 1, '2019-09-14 09:36:54'),
+(166, 20, ' Ù¾Ø´Ø±ÙØª: ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª ÙˆØ¶Ø¹ÛŒØª: Ù…Ø­ÙˆÙ„ Ø´Ø¯ Ø¨Ù‡ ÙˆÙ‚Øª Ø¯ÛŒÚ¯Ø±', 'ticket', '7', 2, 1, '2019-09-14 09:37:38'),
+(167, 20, ' Ù¾Ø´Ø±ÙØª: ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª ÙˆØ¶Ø¹ÛŒØª: Ù…Ø­ÙˆÙ„ Ø´Ø¯ Ø¨Ù‡ ÙˆÙ‚Øª Ø¯ÛŒÚ¯Ø±', 'ticket', '7', 2, 1, '2019-09-14 09:37:59'),
+(168, 20, 'ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª Ù¾Ø´Ø±ÙØª: 78 ÙˆØ¶Ø¹ÛŒØª: Ù…Ù†ØªØ¸Ø± Ù…Ø´ØªØ±ÛŒ', 'ticket', '7', 2, 1, '2019-09-14 09:38:38'),
+(169, 20, 'ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª<br><strong>Ù¾ÛŒØ´Ø±ÙØª:</strong> 20<br><strong>ÙˆØ¶Ø¹ÛŒØª:</strong> Ø¯Ø±Ø­Ø§Ù„ Ø§Ø¬Ø±Ø§Ø¡', 'ticket', '7', 2, 1, '2019-09-14 09:45:42'),
+(170, 20, '<strong>ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª</strong><br><strong>Ù¾ÛŒØ´Ø±ÙØª:</strong> 20%<br><strong>ÙˆØ¶Ø¹ÛŒØª:</strong> Ø§Ù†Ø¬Ø§Ù… Ø´Ø¯', 'ticket', '7', 2, 1, '2019-09-14 09:46:18'),
+(171, 20, '<strong>ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª</strong><br><strong>Ù¾ÛŒØ´Ø±ÙØª:</strong> 63%<br><strong>ÙˆØ¶Ø¹ÛŒØª:</strong> Ø¯Ø±Ø­Ø§Ù„ Ø§Ø¬Ø±Ø§Ø¡', 'ticket', '7', 2, 1, '2019-09-14 09:55:09'),
+(172, 20, '<strong>ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª</strong><br><strong>Ù¾ÛŒØ´Ø±ÙØª:</strong> 100%<br><strong>ÙˆØ¶Ø¹ÛŒØª:</strong> ', 'ticket', '7', 1, 1, '2019-09-14 10:07:13'),
+(173, 20, '<strong>ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª</strong><br><strong>Ù¾ÛŒØ´Ø±ÙØª:</strong> 100%<br><strong>ÙˆØ¶Ø¹ÛŒØª:</strong> ', 'ticket', '7', 2, 1, '2019-09-14 10:07:23'),
+(174, 30, 'ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø´Ù…Ø§ Ø«Ø¨Øª Ø´Ø¯: ', 'ticket', '8', 1, 1, '2019-09-14 10:09:25'),
+(175, 30, 'ØªÚ©Øª Ø¬Ø¯ÛŒØ¯: ', 'ticket', '8', 1, 1, '2019-09-14 10:09:25'),
+(176, 30, '<strong></strong><br><strong>Ù¾ÛŒØ´Ø±ÙØª:</strong> 100% ', 'ticket', '8', 2, 1, '2019-09-14 10:09:37'),
+(177, 20, '<strong>ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª</strong><br><strong>Ù¾ÛŒØ´Ø±ÙØª:</strong> 100% ', 'ticket', '7', 2, 1, '2019-09-14 10:09:48'),
+(178, 20, '<strong>ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª</strong><br><strong>Ù¾ÛŒØ´Ø±ÙØª:</strong> 100% ', 'ticket', '7', 2, 1, '2019-09-14 10:09:54'),
+(179, 20, '<strong>ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª</strong><br><strong>Ù¾ÛŒØ´Ø±ÙØª:</strong> 67%<br><strong>ÙˆØ¶Ø¹ÛŒØª:</strong> Ù…Ø­ÙˆÙ„ Ø´Ø¯ Ø¨Ù‡ ÙˆÙ‚Øª Ø¯ÛŒÚ¯Ø±', 'ticket', '7', 2, 1, '2019-09-14 10:12:02'),
+(180, 20, '<strong>ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª</strong><br><strong>Ù¾ÛŒØ´Ø±ÙØª:</strong> 99%<br><strong>ÙˆØ¶Ø¹ÛŒØª:</strong> Ø§Ù†Ø¬Ø§Ù… Ø´Ø¯', 'ticket', '7', 2, 1, '2019-09-14 10:13:01'),
+(181, 20, '<strong>ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª</strong><br><strong>Ù¾ÛŒØ´Ø±ÙØª:</strong> 100% ', 'ticket', '7', 2, 1, '2019-09-14 10:13:50'),
+(182, 30, '<strong></strong><br><strong>Ù¾ÛŒØ´Ø±ÙØª:</strong> 24%<br><strong>ÙˆØ¶Ø¹ÛŒØª:</strong> Ø¯Ø±Ø­Ø§Ù„ Ø§Ø¬Ø±Ø§Ø¡', 'ticket', '8', 1, 0, '2019-09-14 10:33:50');
 
 -- --------------------------------------------------------
 
@@ -899,10 +973,10 @@ INSERT INTO `sob_notifications` (`not_id`, `not_uid`, `not_title`, `not_type`, `
 
 CREATE TABLE `sob_searchquery` (
   `sea_id` int(11) NOT NULL,
-  `sea_uid` int(11) NOT NULL DEFAULT '0',
+  `sea_uid` int(11) NOT NULL DEFAULT 0,
   `sea_pg` varchar(25) NOT NULL,
   `sea_key` varchar(150) NOT NULL,
-  `sea_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `sea_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -913,11 +987,11 @@ CREATE TABLE `sob_searchquery` (
 
 CREATE TABLE `sob_settings_oy` (
   `set_id` int(11) NOT NULL,
-  `set_uid` int(11) NOT NULL DEFAULT '0',
+  `set_uid` int(11) NOT NULL DEFAULT 0,
   `set_option` varchar(50) NOT NULL,
   `set_value` varchar(500) NOT NULL,
-  `set_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `set_status` int(11) NOT NULL DEFAULT '1'
+  `set_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `set_status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -934,7 +1008,8 @@ INSERT INTO `sob_settings_oy` (`set_id`, `set_uid`, `set_option`, `set_value`, `
 (8, 0, 'licence', '11245', '2016-11-13 09:58:57', 1),
 (9, 0, 'TRIAL', '2019-12-03', '2018-05-28 05:46:56', 1),
 (10, 0, 'ssmsg', 'Ø³Ø¨Ø­Ø§Ù†Ø³Ø§ÙØª Ù‡Ù…ÛŒØ´Ù‡ Ø¯Ø± Ù¾ÛŒ Ø¨Ø±Ù‚Ø±Ø§ÛŒ Ø§Ø±ØªØ¨Ø§Ø· Ø¨Ø§ Ù…Ø´ØªØ±ÛŒØ§Ù† Ø®ÙˆØ¯ Ù‡Ø³Øª ØªØ§ Ù‡ÛŒÚ† ÙˆÙ‚Øª Ø§Ø­Ø³Ø§Ø³ ØªÙ†Ù‡Ø§ Ù†Ú©Ù†Ù†Ø¯ Ùˆ Ø¨Ø¯Ø§Ù†Ù†Ø¯ Ø³Ø¨Ø­Ø§Ù†Ø³Ø§ÙØª Ù‡Ù…ÛŒØ´Ù‡ Ø¯Ø± Ú©Ù†Ø§Ø´Ø§Ù† Ù‡Ø³Øª Ùˆ Ø§Ø² Ù†Ø±Ù… Ø§ÙØ²Ø§Ø± Ù‡Ø§ÛŒ Ø®ÙˆØ¯ Ù¾Ø´ØªÛŒØ¨Ø§Ù†ÛŒ ØªØ®Ù†ÛŒÚ©ÛŒ Ù…ÛŒÚ©Ù†Ø¯.', '2018-12-18 09:25:00', 1),
-(11, 0, 'companyname', 'Ù†Ø³Ø®Ù‡ Ø¢Ø²Ù…Ø§ÛŒØ´ÛŒ ØªØ­Øª ÙˆØ¨', '2016-11-13 11:44:24', 1);
+(11, 0, 'companyname', 'Ù†Ø³Ø®Ù‡ Ø¢Ø²Ù…Ø§ÛŒØ´ÛŒ ØªØ­Øª ÙˆØ¨', '2016-11-13 11:44:24', 1),
+(12, 0, 'techdep', '1243', '2019-09-14 05:23:01', 1);
 
 -- --------------------------------------------------------
 
@@ -944,9 +1019,9 @@ INSERT INTO `sob_settings_oy` (`set_id`, `set_uid`, `set_option`, `set_value`, `
 
 CREATE TABLE `sob_statistics` (
   `sta_id` int(11) NOT NULL,
-  `sta_uid` int(11) NOT NULL DEFAULT '0',
-  `sta_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `sta_status` int(11) NOT NULL DEFAULT '1',
+  `sta_uid` int(11) NOT NULL DEFAULT 0,
+  `sta_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `sta_status` int(11) NOT NULL DEFAULT 1,
   `sta_ip` varchar(50) NOT NULL,
   `sta_browser` varchar(150) NOT NULL,
   `sta_os` varchar(150) NOT NULL,
@@ -963,10 +1038,10 @@ CREATE TABLE `sob_statistics` (
 CREATE TABLE `sob_stc` (
   `stc_id` int(11) NOT NULL,
   `stc_name` varchar(255) NOT NULL,
-  `stc_stat` int(11) NOT NULL DEFAULT '1',
+  `stc_stat` int(11) NOT NULL DEFAULT 1,
   `stc_status` int(1) NOT NULL,
   `stc_uid` int(11) NOT NULL,
-  `stc_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `stc_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -989,13 +1064,13 @@ INSERT INTO `sob_stc` (`stc_id`, `stc_name`, `stc_stat`, `stc_status`, `stc_uid`
 CREATE TABLE `sob_tbl2rank_oy` (
   `tbl_id` int(11) NOT NULL,
   `tbl_name` varchar(50) NOT NULL,
-  `tbl_action` int(1) NOT NULL DEFAULT '1',
-  `tbl_rank` int(3) NOT NULL DEFAULT '1',
-  `tbl_uid` int(11) NOT NULL DEFAULT '0',
-  `tbl_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `tbl_status` int(11) NOT NULL DEFAULT '1',
-  `tbl_pid` int(11) NOT NULL DEFAULT '0',
-  `tbl_owner` int(11) NOT NULL DEFAULT '0'
+  `tbl_action` int(1) NOT NULL DEFAULT 1,
+  `tbl_rank` int(3) NOT NULL DEFAULT 1,
+  `tbl_uid` int(11) NOT NULL DEFAULT 0,
+  `tbl_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `tbl_status` int(11) NOT NULL DEFAULT 1,
+  `tbl_pid` int(11) NOT NULL DEFAULT 0,
+  `tbl_owner` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1007,20 +1082,34 @@ CREATE TABLE `sob_tbl2rank_oy` (
 CREATE TABLE `sob_tickets` (
   `tic_id` int(11) NOT NULL,
   `tic_title` varchar(255) NOT NULL,
-  `tic_uid` int(11) NOT NULL DEFAULT '0',
-  `tic_site` int(11) NOT NULL DEFAULT '0',
-  `tic_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `tic_status` int(11) NOT NULL DEFAULT '1',
+  `tic_uid` int(11) NOT NULL DEFAULT 0,
+  `tic_site` int(11) NOT NULL DEFAULT 0,
+  `tic_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `tic_status` int(11) NOT NULL DEFAULT 1,
   `tic_cid` int(11) NOT NULL,
   `tic_priority` int(11) NOT NULL,
   `tic_body` text NOT NULL,
-  `tic_type` int(11) NOT NULL DEFAULT '0',
+  `tic_type` int(11) NOT NULL DEFAULT 0,
   `tic_category` int(11) NOT NULL,
-  `tic_sdate` date NOT NULL,
-  `tic_ddate` date NOT NULL,
-  `tic_tag` int(11) NOT NULL DEFAULT '0',
-  `tic_completenote` text NOT NULL
+  `tic_sdate` datetime NOT NULL,
+  `tic_ddate` datetime NOT NULL,
+  `tic_tag` int(11) NOT NULL DEFAULT 0,
+  `tic_assigned` varchar(12) NOT NULL,
+  `tic_completenote` text NOT NULL,
+  `tic_progress` int(3) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sob_tickets`
+--
+
+INSERT INTO `sob_tickets` (`tic_id`, `tic_title`, `tic_uid`, `tic_site`, `tic_time`, `tic_status`, `tic_cid`, `tic_priority`, `tic_body`, `tic_type`, `tic_category`, `tic_sdate`, `tic_ddate`, `tic_tag`, `tic_assigned`, `tic_completenote`, `tic_progress`) VALUES
+(3, 'Ú†Ú© Ú©Ø±Ø¯Ù† ØªÚ©Øª Ø¬Ø¯ÛŒØ¯', 20, 1248, '2019-09-14 05:06:03', 1, 45645, 1255, 'sdfgsdfg', 2, 1258, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '', '', 0),
+(4, 'sdfgsdfgsdfgsdfgsdfgs', 20, 1248, '2019-09-14 05:07:59', 1, 445454, 1255, 'dfgsdfgsdfgsdfg', 2, 1258, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '', '', 0),
+(5, 'Ú†Ú© Ú©Ø±Ø¯Ù† ØªÚ©Øª Ø¬Ø¯ÛŒØ¯', 20, 1248, '2019-09-14 05:19:27', 1, 345345, 1255, 'sdfgsdfgsdfgs\r\ndfg\r\nsd\r\nfg\r\nsdfg', 2, 1258, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '', '', 0),
+(6, 'Ú†Ú© Ú©Ø±Ø¯Ù† ØªÚ©Øª Ø¬Ø¯ÛŒØ¯', 20, 1248, '2019-09-14 05:26:42', 1, 345345, 1255, 'sdfgsdfgsdfgs\r\ndfg\r\nsd\r\nfg\r\nsdfg', 2, 1258, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, '', '', 0),
+(7, 'ØªÚ©Øª Ø¬Ø¯ÛŒØ¯ Ø¨Ø±Ø§ÛŒ ØªØ³Øª', 20, 1248, '2019-09-14 05:30:50', 1, 323, 1255, 'Ø³ÛŒØ¨Ø³ÛŒØ¨Ø³Ø´ÛŒØ¨\r\nØ³Ø´ÛŒØ¨\r\nØ´Ø³\r\nÛŒØ¨\r\nØ´Ø³ÛŒ\r\nØ¨Ø´\r\nØ³ÛŒØ¨\r\nØ´Ø³ÛŒØ¨Ø´Ø³Ø¨ÛŒ', 2, 1258, '2019-09-14 14:01:10', '2019-09-14 14:43:50', 1270, 'g:1267', 'Ø·Ø¨Ù‚ Ù†ÛŒØ§Ø² Ø§Ù†Ø¬Ø§Ù… Ø´Ø¯.', 100),
+(8, '', 30, 1248, '2019-09-14 10:09:25', 1, 0, 0, 'asdfasdfasdf', 0, 0, '2019-09-14 15:03:45', '2019-09-14 14:39:37', 1268, 'g:1267', 'asdfasdf', 24);
 
 -- --------------------------------------------------------
 
@@ -1030,14 +1119,14 @@ CREATE TABLE `sob_tickets` (
 
 CREATE TABLE `sob_todolist` (
   `tod_id` int(11) NOT NULL,
-  `tod_uid` int(11) NOT NULL DEFAULT '0',
-  `tod_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `tod_status` int(11) NOT NULL DEFAULT '0',
+  `tod_uid` int(11) NOT NULL DEFAULT 0,
+  `tod_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `tod_status` int(11) NOT NULL DEFAULT 0,
   `tod_title` varchar(255) NOT NULL,
   `tod_note` text NOT NULL,
   `tod_edate` date NOT NULL,
-  `tod_level` int(11) NOT NULL DEFAULT '0',
-  `tod_groupshare` int(11) NOT NULL DEFAULT '0',
+  `tod_level` int(11) NOT NULL DEFAULT 0,
+  `tod_groupshare` int(11) NOT NULL DEFAULT 0,
   `tod_type` varchar(10) NOT NULL DEFAULT 'user',
   `tod_category` varchar(50) NOT NULL DEFAULT 'normal'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1069,10 +1158,10 @@ INSERT INTO `sob_todolist` (`tod_id`, `tod_uid`, `tod_time`, `tod_status`, `tod_
 CREATE TABLE `sob_ugroups` (
   `ugr_id` int(11) NOT NULL,
   `ugr_uid` int(11) NOT NULL,
-  `ugr_userid` int(11) NOT NULL DEFAULT '0',
+  `ugr_userid` int(11) NOT NULL DEFAULT 0,
   `ugr_gid` int(11) NOT NULL,
-  `ugr_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `ugr_status` int(11) NOT NULL DEFAULT '1',
+  `ugr_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `ugr_status` int(11) NOT NULL DEFAULT 1,
   `ugr_comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1101,13 +1190,13 @@ CREATE TABLE `sob_users` (
   `sob_email` varchar(255) NOT NULL,
   `sob_name` varchar(50) DEFAULT NULL,
   `sob_password` varchar(255) NOT NULL,
-  `sob_rank` int(1) NOT NULL DEFAULT '1',
-  `sob_dep` int(11) NOT NULL DEFAULT '0',
-  `sob_site` int(11) NOT NULL DEFAULT '0',
+  `sob_rank` int(1) NOT NULL DEFAULT 1,
+  `sob_dep` int(11) NOT NULL DEFAULT 0,
+  `sob_site` int(11) NOT NULL DEFAULT 0,
   `sob_title` varchar(500) NOT NULL,
-  `sob_status` int(1) NOT NULL DEFAULT '1',
+  `sob_status` int(1) NOT NULL DEFAULT 1,
   `sob_token` varchar(250) NOT NULL,
-  `sob_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `sob_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1116,7 +1205,7 @@ CREATE TABLE `sob_users` (
 
 INSERT INTO `sob_users` (`sob_id`, `sob_user`, `sob_phone`, `sob_email`, `sob_name`, `sob_password`, `sob_rank`, `sob_dep`, `sob_site`, `sob_title`, `sob_status`, `sob_token`, `sob_time`) VALUES
 (19, 'admin', '0', 'nasersobhan@outlook.com', 'admin', '128d429f963d3366f2f31c3b923da66e', 99, 0, 0, '', 1, '0', '2016-10-20 10:04:13'),
-(20, 'demo1234', '0797280900', 'demo@sobhansoft.com', 'Ú©Ø§Ø±Ø¨Ø± Ù†Ù…ÙˆÙ†Ù‡', '6e9bece1914809fb8493146417e722f6', 99, 1243, 0, '', 1, '017f64b2234737be238c3133ffe19e8085fa0af038d17f5ec485df0a066f2a84', '2016-11-13 11:28:02'),
+(20, 'demo1234', '0797280900', 'demo@sobhansoft.com', 'Ú©Ø§Ø±Ø¨Ø± Ù†Ù…ÙˆÙ†Ù‡', '6e9bece1914809fb8493146417e722f6', 99, 1243, 1248, '', 1, '80961b6e9beac808703d443a23d0ef3cd51c286038c1522b1adc6ff53d203c36', '2016-11-13 11:28:02'),
 (21, 'fjoya', '0', 'fawadjoyaa@gmail.com', 'fawad', '49721ae36c2b52354c6a72df708032ea', 99, 0, 0, '', 100, '75c5dfe74643f61cb0b32e2f8f395b0eefa95013', '2016-11-14 04:08:47'),
 (22, 'ahmad123', '0', 'ahmad@gmail.com', 'ahmad', 'e10adc3949ba59abbe56e057f20f883e', 99, 0, 0, '', 100, '4d1b9d93b1be28cd50b442733a60e7cfc297c5a2', '2018-02-01 05:21:18'),
 (23, 'sdfgsdfg', '0', 'afghanict@outlook.com', 'sdfgsdfg', 'cde47ef73a184838340aafce4b402c97', 1, 0, 0, '', 100, '3535ca519a2a8d591dee72625b5dbc295002afca', '2019-09-05 06:02:52'),
@@ -1125,7 +1214,8 @@ INSERT INTO `sob_users` (`sob_id`, `sob_user`, `sob_phone`, `sob_email`, `sob_na
 (26, 'nasersobhan', '0', 'me@nasersobhan.com', 'Ù†Ø§ØµØ± Ø³Ø¨Ø­Ø§Ù†', 'a906449d5769fa7361d7ecc6aa3f6d28', 1, 1243, 1248, '', 1, '4d03a00589a109965c2343b2582b0c600b1d283af79048002d03ada33eefb83a', '2019-09-05 07:33:27'),
 (27, 'ahamadsha', '0', 'aham@gma.com', '', 'e99a18c428cb38d5f260853678922e03', 2, 1244, 1251, '', 100, 'cec788eea6e005ffd58da6aa958ebf79ffb1fe93', '2019-09-07 12:01:34'),
 (28, 'demo200', '', 'demo@demo.com', '', 'e99a18c428cb38d5f260853678922e03', 2, 1245, 1251, '', 100, '7eca0bba7dc0aaf88e2384ebbc4082ecefbe4cba', '2019-09-08 04:08:42'),
-(29, 'test1', '', 'test@test.com', 'Ú©Ø§Ø±Ø¨Ø± ØªØ³Øª', '128d429f963d3366f2f31c3b923da66e', 1, 1243, 1248, 'Tester', 1, '21ec427a41268c990d04b04ae6bef24768e718c76501696b1bb0add59c215f75', '2019-09-13 14:56:06');
+(29, 'test1', '', 'test@test.com', 'Ú©Ø§Ø±Ø¨Ø± ØªØ³Øª', '128d429f963d3366f2f31c3b923da66e', 1, 1243, 1248, 'Tester', 1, '21ec427a41268c990d04b04ae6bef24768e718c76501696b1bb0add59c215f75', '2019-09-13 14:56:06'),
+(30, 'manht', '', 'mnt@sdfsdf.com', 'Ù…Ø¯ÛŒØ± Ø®Ø¯Ù…Ø§Øª Ù‡Ø±Ø§Øª', 'e99a18c428cb38d5f260853678922e03', 2, 1243, 1248, 'tech Manager', 1, 'ecd934aa93c81ce3e6c5ba584d0fe6a8883f8acb6117948a4d569479461f7e91', '2019-09-14 05:25:33');
 
 --
 -- Indexes for dumped tables
@@ -1243,7 +1333,13 @@ ALTER TABLE `sob_users`
 -- AUTO_INCREMENT for table `sob_categories_oy`
 --
 ALTER TABLE `sob_categories_oy`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1262;
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1272;
+
+--
+-- AUTO_INCREMENT for table `sob_comments_oy`
+--
+ALTER TABLE `sob_comments_oy`
+  MODIFY `com_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `sob_customerinfo`
@@ -1261,7 +1357,7 @@ ALTER TABLE `sob_groups`
 -- AUTO_INCREMENT for table `sob_historyuser_oy`
 --
 ALTER TABLE `sob_historyuser_oy`
-  MODIFY `his_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=194;
+  MODIFY `his_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 
 --
 -- AUTO_INCREMENT for table `sob_impexp`
@@ -1273,7 +1369,7 @@ ALTER TABLE `sob_impexp`
 -- AUTO_INCREMENT for table `sob_message`
 --
 ALTER TABLE `sob_message`
-  MODIFY `mes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=282;
+  MODIFY `mes_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=290;
 
 --
 -- AUTO_INCREMENT for table `sob_money`
@@ -1285,19 +1381,19 @@ ALTER TABLE `sob_money`
 -- AUTO_INCREMENT for table `sob_notifications`
 --
 ALTER TABLE `sob_notifications`
-  MODIFY `not_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `not_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
 
 --
 -- AUTO_INCREMENT for table `sob_settings_oy`
 --
 ALTER TABLE `sob_settings_oy`
-  MODIFY `set_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `set_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `sob_tickets`
 --
 ALTER TABLE `sob_tickets`
-  MODIFY `tic_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `sob_todolist`
@@ -1315,7 +1411,7 @@ ALTER TABLE `sob_ugroups`
 -- AUTO_INCREMENT for table `sob_users`
 --
 ALTER TABLE `sob_users`
-  MODIFY `sob_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `sob_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

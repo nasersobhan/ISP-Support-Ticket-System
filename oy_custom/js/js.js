@@ -240,8 +240,11 @@ $(document).ready(function () {
 
 setInterval(function() {
     $('#notifications').load(homeURL + '/?pg=notlist&num=1');
-}, 20 * 1000);
+}, 90 * 1000);
 
+$('#notifications').click(function(){
+    $('#not-list').load(homeURL + '/?pg=notlist');
+});
 
 
 function alert_msg(data, res, inside = 'body'){
@@ -309,9 +312,6 @@ $('#usermodalclick').click(function(e) {
 // });
 
 
-$('#notifications').click(function(){
-    $('#not-list').load(homeURL + '/?pg=notlist');
-});
 
 
 
