@@ -86,7 +86,10 @@ $site = user_site();
                     ?>
                 </div>
                 <div class = "panel-footer text-center">
-                    <a href="">تکت جدید</a>
+                    <!-- Large modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addticket">تکت جدید</button>
+<?php theme_pg_include('tech'); ?>
+              
                 </div>
                 
             </div>
