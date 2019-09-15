@@ -1,5 +1,11 @@
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-<?php global $row; ?>
+<?php global $row, $customer;
+
+ if($row['tic_type']==1) {
+  theme_pg_include('closenew');
+ }  ?>
+
+
 <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="ticketstatus">
       <h4 class="panel-title">
@@ -9,32 +15,50 @@
       </h4>
     </div>
     <div id="ticketstatusid" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="ticketstatus">
-      <div class="panel-body">
-        <table class="table">
+
+        <table id="tic_status" class="table">
             <tr>
                 <th>وضعیت</th>
-                <td><?php echo get_cate_name($row['tic_tag']); ?></td>
+                <td>
+                <?php 
+                $progressbarclass = 'progress-bar-warning';
+                if($row['tic_progress']==100){
+                  echo '<span class="label label-success">انجام شده</span>';
+                  $progressbarclass = 'progress-bar-success';
+                }else {
+                  echo '<span class="label label-info">'.get_cate_name($row['tic_tag']).'</span>';
+                }
+                
+                 ?>
+                </td>
             </tr>
             <tr>
                 <th>پیشرفت کار</th>
-                <td><?php echo $row['tic_progress']; ?>%</td>
+                <td><div class="progress">
+  <div class="progress-bar <?=$progressbarclass?>" role="progressbar" aria-valuenow="<?php echo $row['tic_progress']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $row['tic_progress']; ?>%;">
+  <?php echo $row['tic_progress']; ?>% </div>
+</div>
+                
+                
+                
+                </td>
             </tr>
             <tr>
                 <th>مسئول برسی</th>
                 <td><?php echo toidlabel($row['tic_assigned']); ?></td>
             </tr>
             <tr>
-                <th>تاریخ شروع کار</th>
-                <td><?php echo $row['tic_sdate']; ?></td>
+                <th>زمان شروع کار</th>
+                <td><?php echo date('Y-m-d h:i a',strtotime($row['tic_sdate'])); ?></td>
             </tr>
-            <tr>
+            <?php if($row['tic_type']!=1){ ?>
+              <tr>
                 <th>دسته بندی</th>
                 <td><?php echo get_cate_name($row['tic_category']); ?></td>
             </tr>
-            <tr>
-                <th>نوعیت</th>
-                <td><?php echo $row['tic_type']; ?></td>
-            </tr>
+            <?Php } ?>
+        
+
             <tr>
                 <th>اولویت</th>
                 <td><?php echo get_cate_name($row['tic_priority']); ?></td>
@@ -42,9 +66,46 @@
 
             <tr>
                 <th>زمان ثبت تکت</th>
-                <td><?php echo $row['tic_time'] ?> توسط <?php echo user_name_ex($row['tic_uid']) ?></td>
+                <td><?php echo date('Y-m-d h:i a',strtotime($row['tic_time'])) ?> توسط <?php echo user_name_ex($row['tic_uid']) ?></td>
             </tr>
      
+        </table>
+
+    </div>
+  </div>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          مشخصات مشتری
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+      <table class="table">
+            <tr>
+                <th>نام</th>
+                <td><?php echo $customer['cus_name']; ?></td>
+            </tr>
+            <tr>
+                <th>تماس</th>
+                <td><?php echo $customer['cus_phone'].'  '.$customer['cus_phone2']; ?></td>
+            </tr>
+            <tr>
+                <th>تاریخ شروع</th>
+                <td><?php echo $customer['cus_sdate']; ?></td>
+            </tr>
+            <tr>
+                <th>پهنای باند</th>
+                <td><?php echo $customer['cus_bw']; ?></td>
+            </tr>
+            <tr>
+                <th>تاریخ فعال</th>
+                <td><?php echo $customer['cus_sdate']; ?></td>
+            </tr>
         </table>
       </div>
     </div>
@@ -120,49 +181,17 @@
        
       </div><br>
       <div class="modal-footer">
-        <button class="btn btn-success btn-sm"  type="submit">بستن تکت</button>
+        <button class="btn btn-success btn-sm"  type="submit">اعمال</button>
       </div>
     </form>
       </div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          مشخصات مشتری
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-      <table class="table">
-            <tr>
-                <th>نام</th>
-                <td>در حال اجراء</td>
-            </tr>
-            <tr>
-                <th>نام کاربردی</th>
-                <td>78%</td>
-            </tr>
-            <tr>
-                <th>پکیج</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>پهنای باند</th>
-                <td></td>
-            </tr>
-            <tr>
-                <th>تاریخ فعال</th>
-                <td></td>
-            </tr>
-        </table>
-      </div>
-    </div>
-  </div>
+
 
   <?php if($row['tic_progress'] < 100) { ?>
+  
+
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">
@@ -193,5 +222,8 @@
       </div>
     </div>
   </div>
-  <?php } ?>
+
+
+   
+  <?Php } ?>
 </div>

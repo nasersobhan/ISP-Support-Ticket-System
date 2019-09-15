@@ -381,6 +381,13 @@ color: #5cb85c;
 #notifications:hover i, #messagebox:hover i {
     color: #5cb85c;
 }
+
+
+#not-list {
+    overflow-y: scroll; 
+    max-height: 600px;
+    width: 350px;
+}
 #not-list>li>a {
     line-height:1.4;
     white-space: normal; 
@@ -535,4 +542,8 @@ hr.smallhr{
     overflow-x: hidden;
     overflow-y: scroll;
     padding-left:20px;
+}
+
+#tic_status .progress{
+    margin-bottom: 0;
 }

@@ -8,6 +8,12 @@ $tbl = 'sob_tickets';
 if(is_get('add')){
 
     $data = $_POST;
+    if(is_get('cid')){
+        $data['tic_cid'] = is_get('cid');
+        $data['tic_type'] = 1;
+        $data['tic_category'] = 0;
+        //$data['tic_uid'] = user_uid();
+    }
     $data['tic_uid'] = user_uid();
     $data['tic_site'] = user_site();
     if($dbase->RowInsert($tbl, $data)){

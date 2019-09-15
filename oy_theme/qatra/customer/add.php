@@ -1,4 +1,4 @@
-<form method="post" action="<?php echo HOME ?>?pg=inbox&send=go" data-source="<?php echo HOME ?>?pg=inbox #datatbl" data-selector="#reportx > div > div > div.panel-body" ajaxform reset name="add"  id="addcustomer">
+<form method="post" action="<?php echo HOME ?>?pg=customer&add=go" name="add"  id="addcustomer">
       
   <div class="modal-header">
     <h4 class="modal-title" id="myModalLabel">فرم ثبت مشتری جدید</h4>
@@ -176,6 +176,6 @@
 
   </div>
   <div class="modal-footer">
-    <button class="btn btn-success btn-sm"  type="submit" name="Send">ذخیره و جدید</button>
+    <button class="btn btn-success btn-sm"  type="submit">ذخیره و جدید</button>
   </div>
 </form>
