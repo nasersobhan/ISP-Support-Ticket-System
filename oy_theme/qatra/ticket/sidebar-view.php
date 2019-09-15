@@ -38,8 +38,7 @@
   <div class="progress-bar <?=$progressbarclass?>" role="progressbar" aria-valuenow="<?php echo $row['tic_progress']; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $row['tic_progress']; ?>%;">
   <?php echo $row['tic_progress']; ?>% </div>
 </div>
-                
-                
+
                 
                 </td>
             </tr>

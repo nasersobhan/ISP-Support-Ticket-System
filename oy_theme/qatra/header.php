@@ -36,7 +36,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img alt="Ooyta Logo" class="top-logo2" height="24" src="<?php  echo theme_path('',0).'/img/logo.png' ?>" /></a>
+      <a class="navbar-brand" href="<?php echo get_link('my'); ?>"><img alt="Ooyta Logo" class="top-logo2" height="24" src="<?php  echo theme_path('',0).'/img/logo.png' ?>" /></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

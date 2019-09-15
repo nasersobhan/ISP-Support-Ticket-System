@@ -92,19 +92,7 @@ if(is_get('cid')){
         </td>
       </tr>
       <?php if(!$customer){ ?>
-      <tr>
-        <td>
-          <label for="tic_type" class="control-label"> نوعیت:</label>
-        </td>
-        <td>
-          <div class="radio">
-            <label><input type="radio" value="1" name="tic_type">نصب جدید</label>
-          </div>
-          <div class="radio">
-            <label><input type="radio" value="2" name="tic_type" checked>خدمات</label>
-          </div>
-        </td>
-      </tr>
+          <input type="hidden" value="2" name="tic_type">
       <?Php } ?>
     </table>
 
