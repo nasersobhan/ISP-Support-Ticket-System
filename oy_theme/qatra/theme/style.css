@@ -547,3 +547,16 @@ hr.smallhr{
 #tic_status .progress{
     margin-bottom: 0;
 }
+
+
+.not-success {
+    border-right: 6px solid #5cb85c;
+}
+
+.not-info {
+    border-right: 6px solid #719ECE;
+}
+
+.not-danger {
+    border-right: 6px solid #C00;
+}

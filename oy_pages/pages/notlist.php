@@ -17,6 +17,7 @@ if (is_get('id')) {
 }else {
   
     $rows = $dbase->tbl2array2('sob_notifications', '*', $where);
+    $rows = array_reverse($rows);
 if(count($rows)){
     foreach ($rows as $row) {
         $seen = $row['not_seen'] == 1 ? true : false;
@@ -24,7 +25,10 @@ if(count($rows)){
             $url = HOME.'?pg='.$row['not_type'].'&id='.$row['not_url'].'&nrid='.$row['not_id'];
         else
             $url = '&nrid='.$row['not_id'];
-        echo '<li><a data-id="'.$row['not_id'].'" class="" href="'.$url.'"><small>'.$row['not_title'].'
+            $color = $row['not_color'];
+        if(empty($color))
+            $color = 'info';
+        echo '<li class="not-' . $color . '"><a data-id="'.$row['not_id'].'" class="" href="'.$url.'"><small>'.$row['not_title'].'
     <div class="block text-right">'.Agotime_fa($row['not_time']).'</div></small>
     </a></li>
     <li class="divider"></li>';

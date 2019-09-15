@@ -382,9 +382,14 @@ function get_userList($dep = 0, $site = 0, $rank = 0, $term = false){
 }
 
 
-function add_notification($title, $uid, $type, $url){
+function add_notification($title, $uid, $type, $url, $color = 'info', $label = false){
     $tbl = 'sob_notifications';
     global $dbase;
+    if($color)
+        $data['not_color'] = $color;
+    if($label)
+        $data['not_label'] = $label;
+
     $data['not_title'] = $title;
     $data['not_uid'] = $uid;
     $data['not_type'] = $type;

@@ -75,7 +75,7 @@ elseif(is_get('manage')){
         if (isset($data['tic_completenote'])) {
             $userid = get_owner($id,'tickets');
             $ticket_title = get_ticket($id, 'title');
-            add_notification('<strong>'.$ticket_title.'</strong><br><strong>پیشرفت:</strong> 100% ' , $userid, 'ticket', is_get('manage'));
+            add_notification('<strong>'.$ticket_title.'</strong><br><strong>پیشرفت:</strong> 100% ' , $userid, 'ticket', is_get('manage'), 'success');
         
         }
 
