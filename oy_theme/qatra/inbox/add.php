@@ -18,14 +18,14 @@
                       ?>
  
  <label for="recipient-name" class="control-label">شخص/ گروپ/ دیپارتمنت/ سایت:</label>
-                    <input type="text" class="form-control usergroupList"  name="to" id="to">
+                    <input type="text" class="form-control col-md-12 usergroupList"  name="to" id="to">
                     <?php } ?>
                   </div>
 
 
                   <div class="form-group com-md-12">
                     <label for="recipient-name" class="control-label">عنوان :</label>
-                    <input type="text" class="form-control" name="title" id="title">
+                    <input type="text" class="form-control col-md-12" name="title" id="title">
                   </div>
 
                   <div class="form-group">

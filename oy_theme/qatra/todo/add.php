@@ -32,9 +32,9 @@ ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="addt
             <div class="form-group row">
               <label for="recipient-name" class="control-label">اولویت:</label>
               <select name="level" class="form-control col-md-12">
-                  <option value="0">عادلی</option>
-                  <option value="1">متوسط</option>
-                  <option value="2">بالا</option>
+                  <option value="0">نورمال</option>
+                  <option value="1">کم اهمیت</option>
+                  <option value="2">مهم</option>
               </select>
             </div>
 

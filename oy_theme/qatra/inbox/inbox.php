@@ -74,7 +74,7 @@ $id = is_get('id');
 <div class="col-md-8">
     <div class="panel panel-default" >
 
-    <div class="panel-body ">   
+    <div id="addbox" class="panel-body ">   
         
     
     <?php if (is_get('id')) {

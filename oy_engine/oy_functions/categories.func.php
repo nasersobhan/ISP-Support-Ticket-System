@@ -114,6 +114,9 @@ function cate2db($var,$type,$parent=0,$uid=0){
 }
 
 function get_cate_name($id,$lang=true){
+    if($id==0){
+        return 'تعیین نشده';
+    }
     global $dbase;
     
     if(!empty($id) AND is_numeric($id)){

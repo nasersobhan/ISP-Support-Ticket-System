@@ -6,18 +6,19 @@ $id = is_get('id');
 global $row, $customer;
 $rows = $dbase->tbl2array2('sob_tickets','*',' WHERE tic_id='.$id);
 $customer = false;
-$rows = array_reverse($rows);
-$row = $rows[0];
-if(!empty($row['tic_cid'])){
-    $id = $row['tic_cid'];
-    $tbl = 'sob_customerinfo';
-    $customer = $dbase->tbl2array2($tbl,'*',' WHERE cus_id='.$id)[0];
-    if (count($customer)) {
-        $title = 'نصب جدید مشتری '. $customer['cus_name'];
-    } else {
-      $customer = FALSE;
+if(isset($rows[0])) {
+  $row = $rows[0];
+  if(!empty($row['tic_cid'])){
+      $id = $row['tic_cid'];
+      $tbl = 'sob_customerinfo';
+      $customers = $dbase->tbl2array2($tbl,'*',' WHERE cus_id='.$id);
+      if(isset($customers[0])){
+        $customer = $customers[0];
+        //$title = 'نصب جدید مشتری '. $customer['cus_name'];
+      }
     }
-  }
+}
+
 
     ?>
 <h1><?php echo ($row['tic_title']);?></h1>

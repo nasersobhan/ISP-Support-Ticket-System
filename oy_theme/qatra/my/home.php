@@ -4,6 +4,7 @@ $id = is_get('id');
 $uid = user_uid();
 $pfx_uid = 'u:'.$uid;
 $site = user_site();
+$dep = user_dep();
 ?>
 <div class="content-box">
 
@@ -22,6 +23,32 @@ $site = user_site();
        
                
                 <div class="list-group">
+
+
+                <?php
+                    global $dbase;
+                    $where = " WHERE ove_status=0 AND ove_uid <> {$uid} AND ove_site='{$site}' AND ove_dep ='{$dep}' ORDER BY ove_id LIMIT 5";
+                    $rows = $dbase->tbl2array2('sob_overtime','*',$where);
+                    foreach($rows as $row){
+                        echo '<span class="list-group-item">
+                        <a href="'.HOME.'?pg=overtime&id='.$row['ove_id'].'" >رخصتی: '.user_name_ex($row['ove_uid']).'</a>
+                        <span class="label label-warning">نیاز به تایید شما.</span>
+                        </span>';
+                    } 
+                    ?>
+
+                <?php
+                    global $dbase;
+                    $where = " WHERE lea_status=0 AND lea_uid <> {$uid} AND lea_site='{$site}' AND lea_dep ='{$dep}' ORDER BY lea_id LIMIT 5";
+                    $rows = $dbase->tbl2array2('sob_leaves','*',$where);
+                    foreach($rows as $row){
+                        echo '<span class="list-group-item">
+                        <a href="'.HOME.'?pg=leaves&id='.$row['tic_id'].'" >رخصتی: '.user_name_ex($row['lea_uid']).'</a>
+                        <span class="label label-warning">نیاز به تایید شما.</span>
+                        </span>';
+                    } 
+                    ?>
+
                     <?php
                     global $dbase;
                     $where = " WHERE tic_progress<>100 AND tic_site='{$site}' AND tic_assigned ='' ORDER BY tic_priority DESC LIMIT 5";
@@ -47,13 +74,44 @@ $site = user_site();
                 <div class="panel-heading">
                 <h4 class="panel-title">
                     <a>
-                    فعالیتهای شما
+                    آخرین کاربران
                     </a>
                 </h4>
                 </div>
-                <div class = "panel-footer">
-            Panel footer
-         </div>
+             
+                
+                <div id="userlist" class="list-group">
+                <div id="in-userlist">
+                    <?php
+                    global $dbase;
+                    $where = '';
+                    if(is_get('us')){
+                        $q = is_get('us');
+                        $where = " AND (sob_name LIKE '%{$q}%' OR sob_title LIKE '%{$q}%') ";
+                    }
+                    $rows = $dbase->tbl2array2('sob_users','*'," WHERE sob_status=1 {$where} ORDER BY sob_id DESC LIMIT 10");
+
+                    foreach($rows as $row){
+                        echo '<span data-id="' . $row['sob_id'] . '" id="user' . $row['sob_id'] . '" class="list-group-item">
+                        <span class="todotitle">'.$row['sob_name'].' ('.$row['sob_title'].')</span>
+                        <span class="pull-right">
+                        <a href="'.HOME.'?pg=users&id='. $row['sob_id'].'" data-toggle="modal" data-target="#Uni-modal" class="tip" title="نمایش کارت"><i class="fas fa-id-card"></i></a>&nbsp;
+                        <a href="'.HOME.'?pg=inbox&toid=u:'. $row['sob_id'].' #addbox"  data-toggle="modal" data-target="#Uni-modal" class="tip" title="ارسال پیام خصوصی"><i class="far fa-envelope"></i></a>
+                        </span>
+                        
+                      </span>';
+                    } 
+                    ?>
+                </div>
+                </div>
+
+                <div class ="panel-footer text-center ">
+                    <div class="input-group col-md-12">
+                    <input autocomplete="off" placeholder="جستجو" type="text" name="us" id="myUserSearch" class="form-control input-sm" >  
+                    </div>
+                </div>
+
+
 
             </div>
         </div>
@@ -65,13 +123,13 @@ $site = user_site();
                 <div class="panel-heading">
                 <h4 class="panel-title">
                     <a>
-                   تکتهای باز
+                   تکتهای فعال
                     </a>
                 </h4>
                 </div>
        
                       
-                <div class="list-group">
+                <div id="opentickets" class="list-group">
                     <?php
                     global $dbase;
                     $where = " WHERE tic_progress<>100 AND tic_site='{$site}' AND (tic_assigned ='{$pfx_uid}' OR tic_assigned IN (SELECT concat('g:',ugr_gid) FROM sob_ugroups WHERE ugr_userid={$uid})) ORDER BY tic_priority DESC LIMIT 6";
@@ -80,16 +138,13 @@ $site = user_site();
                         echo '<span class="list-group-item">
                         <a href="'.HOME.'?pg=ticket&id='.$row['tic_id'].'" >'.$row['tic_title'].'</a>
                         <span class="label label-info">'.get_cate_name($row['tic_tag']).'</span>
-                        <div style="margin-top:5px;" class="progress"><div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="'.$row['tic_progress'].'" aria-valuemin="0" aria-valuemax="100" style="width: '.$row['tic_progress'].'%;">'.$row['tic_progress'].'% </div></div>
+                        <div style="margin-top:5px;" class="progress"><div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$row['tic_progress'].'" aria-valuemin="0" aria-valuemax="100" style="width: '.$row['tic_progress'].'%;"></div></div>
                         </span>';
                     } 
                     ?>
                 </div>
                 <div class = "panel-footer text-center">
-                    <!-- Large modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addticket">تکت جدید</button>
-<?php theme_pg_include('tech'); ?>
-              
+                <button href="<?php echo HOME.'?pg=ticket #mainticket'; ?>" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Uni-modal" >تکت جدید</button>
                 </div>
                 
             </div>
@@ -146,7 +201,7 @@ $site = user_site();
 
                     foreach($rows as $row){
                         $classes = ($row['mes_read'] == 0 ? 'txt-bold' : '').' '.($row['mes_id'] == $id ? 'active' : '');
-                        echo '<a href="'.HOME.'?pg=inbox&id='.$row['mes_id'].'" class="list-group-item '.($classes).'">'.$row['mes_title'] .' - '.user_name_ex($row['mes_uid']).'</a>';
+                        echo '<a href="'.HOME.'?pg=inbox&id='.$row['mes_id'].' #addbox" data-toggle="modal" data-target="#Uni-modal" class="list-group-item '.($classes).'">'.$row['mes_title'] .' - '.user_name_ex($row['mes_uid']).'</a>';
                     } 
                     ?>
                 </div>
@@ -177,13 +232,20 @@ $site = user_site();
                     $rows = $dbase->tbl2array2('sob_todolist','*'," WHERE tod_status=0 AND tod_groupshare=0 AND tod_uid = ".user_uid()." ORDER BY tod_level,tod_id DESC LIMIT 6");
 
                     foreach($rows as $row){
-                        echo '<label data-id="' . $row['tod_id'] . '" id="todo' . $row['tod_id'] . '" class="list-group-item">
-                        <input type="checkbox" value="option1"> <span class="todotitle">'.$row['tod_title'].'</span>
+                        $level = '';
+                        if($row['tod_level']==1){
+                            $level = '<span class="label label-default">کم اهمیت</span> ';
+                        }elseif($row['tod_level']==2) {
+                            $level = '<span class="label label-danger">مهم</span> ';
+                        }
+                        echo '<label title="' . $row['tod_note'] . '" data-id="' . $row['tod_id'] . '" id="todo' . $row['tod_id'] . '" class="list-group-item tip">
+                        <input type="checkbox" value="option1"> <span class="todotitle">'.$level.$row['tod_title'].'</span>
                       </label>';
                     } 
                     ?>
                 </div>
                 </div>
+
                 <div class ="panel-footer text-center ">
                 <form method="post" action="<?php echo HOME ?>?pg=todo&add=go" 
                     noreturn
@@ -191,9 +253,9 @@ $site = user_site();
                     data-selector="#todolist" 
                     ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="addtodolist">
                     <div class="input-group col-md-12">
-                    <input placeholder="ایجاد جدید..." type="text" name="title" id="title" class="form-control input-sm" > 
-                   
+                    <input placeholder="ایجاد جدید..." type="text" name="title" id="title" class="form-control input-sm" >  
                     </div>
+
                     </form>
                 </div>
 
@@ -201,5 +263,12 @@ $site = user_site();
         </div>
     </div>
 </div> 
+
+
+
+
+
+
+
 
 <?php get_footer() ?>

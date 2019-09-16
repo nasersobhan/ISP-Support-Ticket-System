@@ -29,7 +29,7 @@ if(is_get('cid')){
           <label for="tic_title" class="control-label">عنوان :</label>
         </td>
         <td>
-          <input type="text" class="form-control col-md-7" value="<?=$title?>" name="tic_title" id="tic_title">
+          <input type="text" class="form-control col-md-12" value="<?=$title?>" name="tic_title" id="tic_title">
         </td>
       </tr>
 
@@ -41,7 +41,7 @@ if(is_get('cid')){
           <label for="tic_cid" title="بسیار عالی" class="control-label tip">شناسه مشتری :</label>
         </td>
         <td>
-          <input type="text" class="form-control " name="tic_cid" id="tic_cid">
+          <input type="text" class="form-control col-md-12" name="tic_cid" id="tic_cid">
         </td>
       </tr>
    
@@ -50,7 +50,7 @@ if(is_get('cid')){
           <label for="tic_category" class="control-label">دسته بندی :</label>
         </td>
         <td>
-          <select class="form-control col-md-6" name="tic_category">  
+          <select class="form-control col-md-12" name="tic_category">  
           <?php
              $oild =  cat_2arr_l('tickets',0,'fa_AF');
              //$koo_now = get_imp_koo();
@@ -68,7 +68,7 @@ if(is_get('cid')){
           <label for="tic_priority" class="control-label">اولویت :</label>
         </td>
         <td>
-          <select class="form-control col-md-6" name="tic_priority">
+          <select class="form-control col-md-12" name="tic_priority">
                
           <?php
              $oild =  cat_2arr_l('priority',0,'fa_AF');

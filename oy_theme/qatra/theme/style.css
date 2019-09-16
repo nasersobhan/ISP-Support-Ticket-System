@@ -547,6 +547,11 @@ hr.smallhr{
 #tic_status .progress{
     margin-bottom: 0;
 }
+#opentickets .progress {
+    margin-bottom: 0;
+    height: 5px;
+    background: #C00;
+}
 
 
 .not-success {

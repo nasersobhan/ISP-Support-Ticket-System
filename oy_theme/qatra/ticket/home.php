@@ -6,7 +6,7 @@ $id = is_get('id');
 <div class="col-md-8">
     <div class="panel panel-default" >
 
-    <div class="panel-body ">   
+    <div id="mainticket" class="panel-body ">   
         
     
     <?php if (is_get('id')) {

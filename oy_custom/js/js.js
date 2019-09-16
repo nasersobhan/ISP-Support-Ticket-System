@@ -313,13 +313,29 @@ $('#usermodalclick').click(function(e) {
 
 
 
+ $('[data-target="#Uni-modal"]').click(function(e) {
+    $('#Uni-modal').find("#modal-content").load($(this).attr("href"), function() {
+        $('#Uni-modal').modal('show');
+        $('#Uni-modal').find('.modal-footer').append('<button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>');
+      });
+});
 
+function throttle(f, delay){
+    var timer = null;
+    return function(){
+        var context = this, args = arguments;
+        clearTimeout(timer);
+        timer = window.setTimeout(function(){
+            f.apply(context, args);
+        },
+        delay || 500);
+    };
+}
 
-
-
-
-
-
+$('#myUserSearch').keyup(throttle(function(){
+    var query = $(this).val();
+    $( "#userlist" ).load( homeURL + "?pg=my&us=" + query + " #in-userlist" );
+}, 1000));
 
 $('#tic_progress').change(function(){
     $('#tic_progress_value').html($(this).val() + '%' );

@@ -2,7 +2,7 @@
 
 global $dbase;
 
-$tbl = TBL_PFX.'inventory';
+$tbl = 'sob_inventory';
 
 theme_pg_include('home');
 

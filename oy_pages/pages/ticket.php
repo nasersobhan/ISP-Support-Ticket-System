@@ -48,22 +48,22 @@ elseif(is_get('manage')){
   
 
     if ($dbase->RowUpdate($tbl, $data, "WHERE tic_id=".$id)) {
+        $ticket_title = get_ticket($id, 'title');
         if(isset($data['tic_assigned'])){
             if(personlistype($data['tic_assigned']) == 'group'){
                 $users = get_usersfromgroup($data['tic_assigned']);
                 if(count($users)){
                     foreach($users as $user){
-                        add_notification('وظیفه به تیم شما محول شد:' . $data['tic_title'] , $user, 'ticket', $id);
+                        add_notification('وظیفه به تیم شما محول شد:' . $ticket_title , $user, 'ticket', $id);
                     }
                 }
             }else{
                 $userid = str_replace("u:",'',$data['tic_assigned']);
-                add_notification('وظیفه به شما محول شد:' . $data['tic_title'] , $userid, 'ticket', $id);
+                add_notification('وظیفه به شما محول شد:' . $ticket_title , $userid, 'ticket', $id);
             }
         }
         if(isset($data['tic_progress']) && isset($data['tic_tag'])){
             $userid = get_owner($id,'tickets');
-            $ticket_title = get_ticket($id, 'title');
             if(isset($data['tic_progress']))
                 $progress= $data['tic_progress'];
             else {
@@ -74,7 +74,6 @@ elseif(is_get('manage')){
         }
         if (isset($data['tic_completenote'])) {
             $userid = get_owner($id,'tickets');
-            $ticket_title = get_ticket($id, 'title');
             add_notification('<strong>'.$ticket_title.'</strong><br><strong>پیشرفت:</strong> 100% ' , $userid, 'ticket', is_get('manage'), 'success');
         
         }

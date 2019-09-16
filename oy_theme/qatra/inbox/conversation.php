@@ -3,9 +3,9 @@
 <?php
 global $dbase;
 $id = is_get('id');
-
+$uid = user_uid();
 $rows = $dbase->tbl2array2('sob_message','*',' WHERE mes_id='.$id);
-$dbase->RowUpdate('sob_message',['mes_read'=>1],' WHERE mes_id='.$id);
+$dbase->RowUpdate('sob_message',['mes_read'=>1],' WHERE mes_tid = '.$uid.' AND mes_id='.$id);
 $rows = array_reverse($rows);
 $row = $rows[0];
     ?>
@@ -22,12 +22,12 @@ $row = $rows[0];
 <div class="messagebox messagebox-me">
 <form reset ajaxform id="replayMessage" action="<?php echo HOME.'?pg=inbox&send='.is_get('id') ?>" method="POST">
 <input name="to" type="hidden" value="u:<?php echo ($row['mes_uid']);?>">
-    <div class="form-group">
-        <input name="title" class="form-input" type="text" value="پاسخ: <?php echo ($row['mes_title']);?>">
+    <div class="form-group row">
+        <input name="title" class="form-control col-md-12" type="text" value="پاسخ: <?php echo ($row['mes_title']);?>">
     </div>
-  
+  <br>
     <div class="form-group">
-        <textarea name="body" class="form-input"></textarea>
+        <textarea name="body" rows="4" class="form-control"></textarea>
     </div>
 <button type="submit" class="btn btn-sm">ارسال</button>
 
