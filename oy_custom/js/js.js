@@ -233,18 +233,7 @@ function hoverdiv(e, divid) {
 
 
 
-$(document).ready(function () {
-    $('.dropdown-toggle').dropdown();
-    $('#notifications').load(homeURL + '/?pg=notlist&num=1');
-});
 
-setInterval(function() {
-    $('#notifications').load(homeURL + '/?pg=notlist&num=1');
-}, 90 * 1000);
-
-$('#notifications').click(function(){
-    $('#not-list').load(homeURL + '/?pg=notlist');
-});
 
 
 function alert_msg(data, res, inside = 'body'){
@@ -312,12 +301,13 @@ $('#usermodalclick').click(function(e) {
 // });
 
 
-
- $('[data-target="#Uni-modal"]').click(function(e) {
+// $('#todolist').on('change','#in-todolist input[type="checkbox"]'
+ $('body').on('click','[data-target="#Uni-modal"]',function(e) {
     $('#Uni-modal').find("#modal-content").load($(this).attr("href"), function() {
+        $('#Uni-modal').find('.modal-title').addClass('text-center');
         $('#Uni-modal').modal('show');
         $('#Uni-modal').find('.modal-footer').append('<button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>');
-      });
+    });
 });
 
 function throttle(f, delay){
@@ -386,25 +376,46 @@ $('#todolist').on('change','#in-todolist input[type="checkbox"]', function(event
 // });
 
 
+function loadusergrouplist(){
 
-$(".usergroupList").each(function(){var $this = $(this); 
+    $(".usergroupList").each(function(){var $this = $(this); 
 
-    var inputclass = $this.attr('class'); 
-    var onlydata = $this.attr('data-only'); 
-    if (typeof onlydata !== typeof undefined && onlydata !== false) {
-        var url = homeURL + "?API=userList&only=" + onlydata; 
-    } else {
-        var url = homeURL + "?API=userList"; 
-    }
-    var cache = {}; 
-    $this.autocomplete({minLength:3, select:function(event, ui)
-        {
-             $this.hide(); 
-            var new_ele = $('<label class="' + inputclass + '" >' + ui.item.label + '</label>'); 
-            new_ele.removeClass("sacui"); 
-            new_ele.click(function(){
-                $this.val('').show().focus(); 
-                $(this).hide(); }); 
-            $this.after(new_ele); 
-            $this.val(ui.item.value); return false; }, autoFocus:true, source:function(request, response){var term = request.term; if (term in cache){response(cache[term]); return; }
-$.getJSON(url, request, function(data, status, xhr){cache[term] = data; response(data); }); }}); });
+        var inputclass = $this.attr('class'); 
+        var onlydata = $this.attr('data-only'); 
+        if (typeof onlydata !== typeof undefined && onlydata !== false) {
+            var url = homeURL + "?API=userList&only=" + onlydata; 
+        } else {
+            var url = homeURL + "?API=userList"; 
+        }
+        var cache = {}; 
+        $this.autocomplete({minLength:3, select:function(event, ui)
+            {
+                 $this.hide(); 
+                var new_ele = $('<label class="' + inputclass + '" >' + ui.item.label + '</label>'); 
+                new_ele.removeClass("sacui"); 
+                new_ele.click(function(){
+                    $this.val('').show().focus(); 
+                    $(this).hide(); }); 
+                $this.after(new_ele); 
+                $this.val(ui.item.value); return false; }, autoFocus:true, source:function(request, response){var term = request.term; if (term in cache){response(cache[term]); return; }
+    $.getJSON(url, request, function(data, status, xhr){cache[term] = data; response(data); }); }}); });
+}
+
+$( document ).ajaxComplete(function( event, xhr, settings ) {
+    loadusergrouplist();
+
+});
+
+$(document).ready(function () {
+    $('.dropdown-toggle').dropdown();
+    $('#notifications').load(homeURL + '/?pg=notlist&num=1');
+    loadusergrouplist()
+});
+
+setInterval(function() {
+    $('#notifications').load(homeURL + '/?pg=notlist&num=1');
+}, 90 * 1000);
+
+$('#notifications').click(function(){
+    $('#not-list').load(homeURL + '/?pg=notlist');
+});

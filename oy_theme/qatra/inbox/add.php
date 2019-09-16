@@ -1,14 +1,9 @@
 <form method="post" action="<?php echo HOME ?>?pg=inbox&send=go" data-source="<?php echo HOME ?>?pg=inbox #datatbl" data-selector="#reportx > div > div > div.panel-body" ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="adduser" lang="fa">
 
       <div class="modal-header">
-        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
         <h4 class="modal-title" id="myModalLabel">ارسال پیام</h4>
       </div>
           <div class="modal-body">
-
-        
-
-
 
                   <div class="form-group">
                     <?php if(is_get('toid')){ ?>
@@ -33,16 +28,6 @@
                     <textarea name="body" class="form-control autogrow" rows="9"></textarea>
                 
                   </div>
-
-
-
-  
-
-
-   
-
-
-
 
           </div>
       <div class="modal-footer">

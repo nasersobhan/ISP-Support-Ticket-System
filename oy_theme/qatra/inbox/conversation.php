@@ -9,8 +9,15 @@ $dbase->RowUpdate('sob_message',['mes_read'=>1],' WHERE mes_tid = '.$uid.' AND m
 $rows = array_reverse($rows);
 $row = $rows[0];
     ?>
-<h1><?php echo ($row['mes_title']);?></h1>
-<div class="col-md-12">
+
+
+<div class="modal-header">
+    <h4 class="modal-title"><?php echo ($row['mes_title']);?></h4>
+</div>
+ <div class="modal-body">
+
+
+
 <div class="messagebox">
 <?php echo nl2br($row['mes_body']);?>
 
@@ -29,8 +36,12 @@ $row = $rows[0];
     <div class="form-group">
         <textarea name="body" rows="4" class="form-control"></textarea>
     </div>
-<button type="submit" class="btn btn-sm">ارسال</button>
-
 </form>
 </div>
+
+
 </div>
+<div class="modal-footer">
+<button type="submit" class="btn btn-success">ارسال</button>
+</div>
+</form>

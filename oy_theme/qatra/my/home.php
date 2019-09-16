@@ -143,8 +143,8 @@ $dep = user_dep();
                     } 
                     ?>
                 </div>
-                <div class = "panel-footer text-center">
-                <button href="<?php echo HOME.'?pg=ticket #mainticket'; ?>" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Uni-modal" >تکت جدید</button>
+                <div class = "panel-footer">
+                <button href="<?php echo HOME.'?pg=ticket #mainticket'; ?>" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#Uni-modal" >تکت جدید</button>
                 </div>
                 
             </div>
@@ -197,7 +197,7 @@ $dep = user_dep();
                 <div class="list-group">
                     <?php
                     global $dbase;
-                    $rows = $dbase->tbl2array2('sob_message','*'," WHERE mes_tid = ".user_uid()." ORDER BY mes_time DESC LIMIT 6");
+                    $rows = $dbase->tbl2array2('sob_message','*'," WHERE mes_tid = ".user_uid()." ORDER BY mes_time DESC LIMIT 8");
 
                     foreach($rows as $row){
                         $classes = ($row['mes_read'] == 0 ? 'txt-bold' : '').' '.($row['mes_id'] == $id ? 'active' : '');
@@ -206,8 +206,10 @@ $dep = user_dep();
                     ?>
                 </div>
 
-                <div class = "panel-footer text-center">
-                    <a href="">کل پیامها</a>
+                <div class = "panel-footer text-left">
+   
+                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-success btn-sm" href="<?Php echo HOME.'?pg=inbox'; ?> #addbox">ارسال پیام</a>
+                    <a class="pull-right btn btn-info btn-sm" href="">کل پیامها</a>
                 </div>
             </div>
         </div>

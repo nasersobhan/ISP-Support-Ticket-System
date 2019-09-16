@@ -171,7 +171,9 @@ select, .select2-container{
 }
 
 
-.modal-dialog{ z-index: 10000000000000000;}
+ul.ui-autocomplete{
+    z-index: 10000;
+}
 
 .avatar-view, #crop-cover {margin:0; padding:0; z-index: 10000000000;}
 #coverimgbox{ width:100%; max-height: 300px;}
