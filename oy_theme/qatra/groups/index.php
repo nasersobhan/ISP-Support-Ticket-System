@@ -8,10 +8,61 @@ $group_label = get_cate_name($group_id);
 <div class="panel panel-default" >
         <div class="panel-heading "><h3>تیم: <?php e_lbl($group_label); ?></h3></div>
         <div class="panel-body ">  
-<div id="groupbody" class="col-md-8">
+
+
+
+
+        <div class="col-md-4">
+
+
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a href="<?Php echo HOME.'?pg=todo'; ?>">
+                     کارهای قابل اجرا
+                    </a>
+                </h4>
+                </div>
+       
+                <div id="todolist" class="list-group">
+                <div id="in-todolist">
+                    <?php
+                    global $dbase;
+                    $rows = $dbase->tbl2array2('sob_todolist','*'," WHERE tod_status=0 AND tod_groupshare = ".$group_id." ORDER BY tod_level,tod_id DESC LIMIT 15");
+
+                    foreach($rows as $row){
+                        echo '<label data-id="' . $row['tod_id'] . '" id="todo' . $row['tod_id'] . '" class="list-group-item">
+                        <input type="checkbox" value="option1"> <span class="todotitle">'.$row['tod_title'].'</span>
+                      </label>';
+                    } 
+                    ?>
+                </div>
+                </div>
+
+                <div class ="panel-footer text-center ">
+                <form method="post" action="<?php echo HOME ?>?pg=todo&add=go" 
+                    noreturn
+                    data-source="<?php echo get_current_url(); ?> #in-todolist" 
+                    data-selector="#todolist" 
+                    ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="addtodolist">
+                    <div class="input-group col-md-12">
+                    <input name="group" type="hidden" value="<?php echo $group_id ?>" />
+                    <input placeholder="ایجاد جدید..." type="text" name="title" id="title" class="form-control input-sm" > 
+                   
+                    </div>
+
+                    </form>
+                </div>
+              </div>
+              </div>
+              </div>
+
+
+<div id="groupbody" class="col-md-5">
 <?php theme_include('groups/home'); ?>
 </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       
 
 
@@ -19,28 +70,28 @@ $group_label = get_cate_name($group_id);
 <div class="row well">
 <a class="btn btn-info pull-right btn-block" href="<?php echo HOME.'?pg=inbox&toid=g:'.$group_id; ?>">ارسال پیام به گروپ</a>
 
-<a class="btn btn-danger pull-right btn-block" href="<?php echo HOME.'?pg=inbox&toid=g:'.$group_id; ?>">تعیین وظیفه</a>
+<!-- <a class="btn btn-danger pull-right btn-block" href="<?php echo HOME.'?pg=inbox&toid=g:'.$group_id; ?>">تعیین وظیفه</a> -->
 </div>
 <hr>
    
 
 
           <div class="well">
-            <h4> اعضا گروپ <?php e_lbl($group_label); ?></h4>
+          
             <form  method="post" ajaxform reset name="addusertogroup"  id="addusertogroup" class="form-inline"
             data-source="<?php echo HOME ?>?pg=groups&id=<?php echo $group_id; ?> #usertable" 
             data-selector="#GroupUserList" action="<?php echo HOME ?>?pg=groups&gid=<?php echo $group_id; ?>">
-            <div class="form-group col-md-8">
-<label for="username" class="col-md-4 control-label"> کابر جدید :</label>
-<input data-only="u" class="form-control col-md-8 input-sm usergroupList" required type="text" id="username" name="uid">
+            <div class="form-group col-md-12">
+<label for="username" class="col-md-12 control-label"> کابر جدید :</label> 
+<input data-only="u" class="form-control col-md-7 input-sm usergroupList" required type="text" id="username" name="uid">
 </div>
-<div class="col-md-4">
-<button class="btn btn-success btn-sm btn-block" id="adduser" type="submit" ><?php echo g_lbl('add') ?></button>
+<div class="col-md-1">
+<button class="btn btn-success btn-sm btn-block" id="adduser" type="submit" >+</button>
 </div>
 </form>
 <br><br><br><br>
   
-  
+<h4> اعضا گروپ <?php e_lbl($group_label); ?></h4>
     <div id="GroupUserList" >
     <table class="table" id="usertable">
 <?php
@@ -79,11 +130,7 @@ while ($row = $dbase->fetch_array($result)) {
 </table>
 </div>
 </div>
-<hr/>
 
-<div class="well">
-<?php theme_include('groups/add-task'); ?>
-     </div>
 </div>
 
 </div>

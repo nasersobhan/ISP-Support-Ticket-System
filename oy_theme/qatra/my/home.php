@@ -161,27 +161,40 @@ $site = user_site();
             <div class="panel panel-default">
                 <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a>
+                    <a href="<?Php echo HOME.'?pg=todo'; ?>">
                      کارهای قابل اجرا
                     </a>
                 </h4>
                 </div>
        
-                <div class="list-group">
+                <div id="todolist" class="list-group">
+                <div id="in-todolist">
+                <!-- <label class="list-group-item">
+                        <input type="text" class="form-control col-md-12" > 
+                      </label> -->
                     <?php
                     global $dbase;
-                    $rows = $dbase->tbl2array2('sob_todolist','*'," WHERE tod_status=0 AND tod_uid = ".user_uid()." ORDER BY tod_level DESC LIMIT 6");
+                    $rows = $dbase->tbl2array2('sob_todolist','*'," WHERE tod_status=0 AND tod_groupshare=0 AND tod_uid = ".user_uid()." ORDER BY tod_level,tod_id DESC LIMIT 6");
 
                     foreach($rows as $row){
-                        echo '<label class="list-group-item">
-                        <input type="checkbox" id="inlineCheckbox1" value="option1"> '.$row['tod_title'].'
+                        echo '<label data-id="' . $row['tod_id'] . '" id="todo' . $row['tod_id'] . '" class="list-group-item">
+                        <input type="checkbox" value="option1"> <span class="todotitle">'.$row['tod_title'].'</span>
                       </label>';
                     } 
                     ?>
                 </div>
-
-                <div class = "panel-footer text-center">
-                    <a href="">کل تسکها</a>
+                </div>
+                <div class ="panel-footer text-center ">
+                <form method="post" action="<?php echo HOME ?>?pg=todo&add=go" 
+                    noreturn
+                    data-source="<?php echo get_current_url(); ?> #in-todolist" 
+                    data-selector="#todolist" 
+                    ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="addtodolist">
+                    <div class="input-group col-md-12">
+                    <input placeholder="ایجاد جدید..." type="text" name="title" id="title" class="form-control input-sm" > 
+                   
+                    </div>
+                    </form>
                 </div>
 
             </div>

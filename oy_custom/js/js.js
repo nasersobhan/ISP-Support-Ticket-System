@@ -329,9 +329,45 @@ $('#tic_progress').change(function(){
 
 });
 
+$('#todolist').on('change','#in-todolist input[type="checkbox"]', function(event){
+    //     var checkbox = $(this).find('[type="checkbox"]');
+    var $parent_label = $(this).parent('label');
+     var taskid = $parent_label.attr('data-id');
+    if(this.checked) {
+        $parent_label.find('.todotitle').css('text-decoration','line-through').addClass('text-danger');
+        $.post( homeURL + "?pg=todo&checked=1", { id: taskid })
+        .done(function( data ) {
+            $parent_label.append( "<span class='label label-success' id='removed'>" + data + "</span>" );
+        });
+    }else{
+        $parent_label.find('.todotitle').removeClass('text-danger').css('text-decoration','');
+        $.post( homeURL + "?pg=todo&checked=2", { id: taskid })
+        .done(function( data ) {
+            $parent_label.find('#removed').remove();
+           
+        });
+    }
+});
+
+// $('#todolist').on('click','#in-todolist label', function(event){
+
+//     var checkbox = $(this).find('[type="checkbox"]');
+//     var taskid = $(this).attr('data-id');
+
+//     if(checkbox.checked){
+//         $(this).css('text-decoration','none').removeClass('text-danger');
 
 
+//         // $(this).fadeOut(3000, function(){ 
+//         //     $(this).remove();
+//         // });
+//     }else{
 
+ 
+//         $(this).css('text-decoration','line-through').addClass('text-danger');
+  
+//     }
+// });
 
 
 

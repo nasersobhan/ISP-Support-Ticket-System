@@ -27,49 +27,5 @@
       </div>
     </div>
   </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#todolist" aria-expanded="false" aria-controls="collapseThree">
-         لیست برای انجام
-        </a>
-      </h4>
-    </div>
-    <div id="todolist" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div id= class="panel-body">
-       
 
-   
-    <table id="todotable" class="table">
-    <tr>
-    <th></th>
-    <th>عنوان</th>
-    <th>توسط</th>
-    <th>تاریخ قابل اجرا</th>
-    </tr>
-        <?php
-        $id = is_get('id');
-        global $dbase;
-        $rows = $dbase->tbl2array2('sob_todolist','*'," WHERE tod_groupshare = ".$id." ORDER BY tod_time DESC LIMIT 20");
-
-        foreach($rows as $row){
-            $edate = ($row['tod_edate'] != '0000-00-00' ? $row['tod_edate'] : 'تعیین نشده');
-            $pro = ($row['tod_level']==2 ? '<i class="fas fa-flag text-danger"></i> ' : ($row['tod_level']==1 ? '<i class="fas fa-flag text-warning"></i> ' : ''));
-            $classes = ($row['tod_status'] == 0 ? 'txt-bold' : '').' '.($row['tod_id'] == $id ? 'active' : '');
-            echo '<tr data-id="#todo-'.$row['tod_id'].'" class="show-hider-hover">';
-            echo '<td width="30px"><a class="tickbox" style="visibility: hidden;" href="#"><i class=" fas fa-check-square"></i> </a></td>';
-            echo '<td>' . $pro . '<a target="_blank" href="'.HOME.'?pg=todo&id='.$row['tod_id'].'">'.$row['tod_title'].'</a></td>';
-            echo '<td>'. user_name_ex($row['tod_uid']).'</td>';
-            echo '<td>'.$edate.'</td>';
-            echo '</tr>';
-        } 
-        ?>
-     </table>
-
-
-
-
-      </div>
-    </div>
-  </div>
 </div>
