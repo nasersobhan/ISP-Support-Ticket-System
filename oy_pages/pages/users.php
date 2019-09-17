@@ -6,7 +6,8 @@ $sizetype = (get_setting('sizetype'));
 allowByrank(99);
 //echo ($_GET['eoe']==1? EXOIL : IMOIL);
 $myhome = HOME.'?pg=impexp';
-load_jsplug('bootstrap') ;
+//load_jsplug('bootstrap') ;
+load_jsplug('form') ;
 class_include('jdatetime');
  $tbl = TBL_PIX.'categories_oy';
 if(is_get('view')){
