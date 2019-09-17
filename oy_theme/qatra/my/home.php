@@ -95,6 +95,8 @@ $dep = user_dep();
                     <a>
                     آخرین کاربران
                     </a>
+                    <a href="<?php echo HOME.'?pg=users '; ?> #main-form" data-toggle="modal" data-target="#Uni-modal" class="pull-right" ><i class="fas fa-user-plus"></i></a>
+
                 </h4>
                 </div>
              
@@ -114,7 +116,8 @@ $dep = user_dep();
                         echo '<span data-id="' . $row['sob_id'] . '" id="user' . $row['sob_id'] . '" class="list-group-item">
                         <span class="todotitle">'.$row['sob_name'].' ('.$row['sob_title'].')</span>
                         <span class="pull-right">
-                        <a href="'.HOME.'?pg=users&id='. $row['sob_id'].'" data-toggle="modal" data-target="#Uni-modal" class="tip" title="نمایش کارت"><i class="fas fa-id-card"></i></a>&nbsp;
+                        <a href="'.HOME.'?pg=users&eid='. $row['sob_id'].' #main-form" data-toggle="modal" data-target="#Uni-modal" class="tip" title="ویرایش"><i class="fas fa-user-edit"></i></a>&nbsp;
+                        <a href="'.HOME.'?pg=users&vu=1&eid='. $row['sob_id'].' #main-form" data-toggle="modal" data-target="#Uni-modal" class="tip" title="نمایش کارت"><i class="fas fa-id-card"></i></a>&nbsp;
                         <a href="'.HOME.'?pg=inbox&toid=u:'. $row['sob_id'].' #addbox"  data-toggle="modal" data-target="#Uni-modal" class="tip" title="ارسال پیام خصوصی"><i class="far fa-envelope"></i></a>
                         </span>
                         
@@ -186,7 +189,7 @@ $dep = user_dep();
                     $where = " WHERE ugr_userid={$uid} AND ugr_status=1 LIMIT 6";
                     $rows = $dbase->tbl2array2('sob_ugroups','ugr_gid,ugr_id',$where);
                     foreach($rows as $row){
-                        echo '<span class="list-group-item"><a href="'.HOME.'?pg=groups&id='.$row['ugr_id'].'" ><i class="fas fa-users"></i> '.get_cate_name($row['ugr_gid']).'</a><span class="label label-info pull-right">5 نفر</span></span>';
+                        echo '<span class="list-group-item"><a href="'.HOME.'?pg=groups&id='.$row['ugr_gid'].'" ><i class="fas fa-users"></i> '.get_cate_name($row['ugr_gid']).'</a><span class="label label-info pull-right">5 نفر</span></span>';
                     } 
                     ?>
                 </div>
@@ -249,7 +252,7 @@ $dep = user_dep();
                       </label> -->
                     <?php
                     global $dbase;
-                    $rows = $dbase->tbl2array2('sob_todolist','*'," WHERE tod_status=0 AND tod_groupshare=0 AND tod_uid = ".user_uid()." ORDER BY tod_level,tod_id DESC LIMIT 6");
+                    $rows = $dbase->tbl2array2('sob_todolist','*'," WHERE tod_status=0 AND tod_groupshare=0 AND tod_uid = ".user_uid()." ORDER BY tod_id DESC LIMIT 12");
 
                     foreach($rows as $row){
                         $level = '';

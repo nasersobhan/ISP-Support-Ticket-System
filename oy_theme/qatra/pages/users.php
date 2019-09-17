@@ -1,13 +1,30 @@
 <?php get_header(); ?>
 <div class="content-box">
 
+<?php 
+$view = false;
+$edit = false;
+$user = [];
+if(is_get('eid')){
+  global $dbase;
+  $id = trim(is_get('eid'));
 
+  
+  $rows = $dbase->tbl2array2('sob_users','*'," WHERE  sob_id={$id}");
+  $user = $rows[0];
+  $edit = true;
+if(is_get('vu'))
+$view = true;
+}
+
+
+?>
 
 <!-- Modal -->
 <div class="modal fade" id="modalusers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-    <form method="post" action="<?php echo HOME ?>?pg=users&add=1" data-source="<?php echo HOME ?>?pg=users #datatbl" data-selector="#reportx > div > div > div.panel-body" ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="adduser" lang="fa">
+    <div id="main-form" class="modal-content">
+    <form method="post" action="<?php echo HOME ?>?pg=users&<?php echo ($edit ? 'edit='.$user['sob_id'] : 'add=1'); ?>" data-source="<?php echo HOME ?>?pg=users #datatbl" data-selector="#reportx > div > div > div.panel-body" ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="adduser" lang="fa">
 
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -18,25 +35,25 @@
         
           <div class="form-group row">
                     <label for="recipient-name" class="control-label">نام مکمل :</label>
-                    <input autocomplete="off" type="text" class="form-control col-md-12" name="name" id="name" >
+                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_name'].'"' : ''; ?> autocomplete="off" type="text" class="form-control col-md-12" name="name" id="name" >
                   </div>
 
 
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">نام کاربری :</label>
-                    <input autocomplete="off"  type="text" class="form-control col-md-12" name="uname" id="username">
+                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_user'].'" disabled' : ''; ?>  autocomplete="off"  type="text" class="form-control col-md-12" name="uname" id="username">
                   </div>
 
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">ایمیل :</label>
-                    <input autocomplete="off"  type="email" class="form-control col-md-12" name="email" id="email">
+                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_email'].'"' : ''; ?>  autocomplete="off"  type="email" class="form-control col-md-12" name="email" id="email">
                   </div>
 
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">شماره تماس :</label>
-                    <input autocomplete="off"  type="phone" class="form-control col-md-12" name="phone" id="phone">
+                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_phone'].'"' : ''; ?> autocomplete="off"  type="phone" class="form-control col-md-12" name="phone" id="phone">
                   </div>
-  
+  <?php if($edit==false) { ?>
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">رمز عبور :</label>
                     <input autocomplete="off"  type="password" class="form-control col-md-12" name="password" id="password">
@@ -46,14 +63,14 @@
                     <label for="recipient-name" class="control-label">رمز عبور  تکرار:</label>
                     <input autocomplete="off"  type="password" class="form-control col-md-12" name="passwordre" id="passwordre">
                   </div>
-  
+  <?Php } ?>
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">نوع کاربر:</label>
                     
-                    <select class="form-control col-md-12" name="rank">
-                      <option value="1">کارمند عادی</option>
-                      <option value="2">مدیر</option>
-                      <option value="3">رئیس</option>
+                    <select <?php echo $view ? 'disabled' : ''; ?> class="form-control col-md-12" name="rank">
+                      <option <?php echo $edit ? ($user['sob_rank']==1 ? 'selected="selected"' : '') : ''; ?> value="1">کارمند عادی</option>
+                      <option <?php echo $edit ? ($user['sob_rank']==2 ? 'selected="selected"' : '') : ''; ?> value="2">مدیر</option>
+                      <option <?php echo $edit ? ($user['sob_rank']==3 ? 'selected="selected"' : '') : ''; ?> value="3">رئیس</option>
                   
                     </select>
                   </div>
@@ -61,12 +78,15 @@
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label"><?php e_lbl('site') ?>:</label>
                     
-                    <select class="form-control col-md-12" name="site">
+                    <select <?php echo $view ? 'disabled' : ''; ?> class="form-control col-md-12" name="site">
             
                         <?php
                         $oild =  cat_2arr_l('site',0,'fa_AF');
                         foreach($oild as $id => $label){
-                            echo '<option value="'.$id.'">'.$label.'</option>';
+                          $selected = '';
+                          if($edit)
+                          $selected = ($id == $user['sob_site'] ? ' selected="selected" ' : '');
+                            echo '<option '.$selected.' value="'.$id.'">'.$label.'</option>';
                             
                         }
                         ?>
@@ -78,12 +98,15 @@
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label"><?php e_lbl('dep') ?>:</label>
                     
-                    <select class="form-control col-md-12" name="dep">
+                    <select <?php echo $view ? 'disabled' : ''; ?> class="form-control col-md-12" name="dep">
             
                         <?php
                         $oild =  cat_2arr_l('dep',0,'fa_AF');
                         foreach($oild as $id => $label){
-                            echo '<option value="'.$id.'">'.$label.'</option>';
+                          $selected = '';
+                          if($edit)
+                          $selected = ($id == $user['sob_dep'] ? ' selected="selected" ' : '');
+                        echo '<option '.$selected.' value="'.$id.'">'.$label.'</option>';
                             
                         }
                         ?>
@@ -93,7 +116,7 @@
 
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label"><?php e_lbl('jobtitle') ?>:</label>
-                    <input autocomplete="off"  type="text" class="form-control col-md-12" name="title" id="title">
+                    <input <?php echo $view ? 'disabled' : ''; ?> autocomplete="off" <?php echo $edit ? 'value="'.$user['sob_title'].'"' : ''; ?>  type="text" class="form-control col-md-12" name="title" id="title">
                   </div>
 
 
@@ -108,8 +131,9 @@
 
           </div>
       <div class="modal-footer">
-    
-      <button class="btn btn-success btn-sm"  type="submit" name="Send">ذخیره و جدید</button>
+    <?php if(!$view) { ?>
+      <button class="btn btn-success btn-sm"  type="submit">ذخیره و جدید</button>
+    <?Php } ?>
       </div>
       </form>
     </div>

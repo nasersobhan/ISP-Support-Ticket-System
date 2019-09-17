@@ -9,7 +9,7 @@ $myhome = HOME.'?pg=impexp';
 //load_jsplug('bootstrap') ;
 load_jsplug('form') ;
 class_include('jdatetime');
- $tbl = TBL_PIX.'categories_oy';
+ $tbl = TBL_PIX.'users';
 if(is_get('view')){
    $vid= is_get('view');
     post_query("select * from sob_money where mon_id={$vid}");
@@ -36,7 +36,7 @@ if(is_get('view')){
     else
         echo $result;
     
-   
+ 
    
 }elseif(is_get('del')){
      $tbl = TBL_PIX.'users';
@@ -46,10 +46,23 @@ if(is_get('view')){
       set_pgtitle(g_lbl('adduser'));
     theme_include('pages\users'); 
 }elseif(is_get('edit')){
-//    $val= is_post('st_id');
-//     $d['cat_name'] =is_post('st_name');;
-//     $dbase->RowUpdate($tbl,$d, "WHERE cat_id=".$val);  
-//      echo 'ویرایش شد';
+    $id = is_get('edit');
+    if(user_rank()==99 OR user_rank() == 3 OR user_uid== $id){
+
+        $det['sob_name'] = is_post('name');
+        $det['sob_email'] = is_post('email');
+        $det['sob_rank'] = is_post('rank');
+        $det['sob_dep'] = is_post('dep');
+        $det['sob_site'] = is_post('site');
+        $det['sob_phone'] = is_post('phone');
+        $det['sob_title'] = is_post('title');
+
+        $dbase->RowUpdate($tbl,$det, "WHERE sob_id=".$id);  
+        echo 'ویرایش شد';
+    } else {
+        echo 'شما اجازه این کار را ندارید.';
+    }
+
 }else{
 
     set_pgtitle(g_lbl('adduser'));

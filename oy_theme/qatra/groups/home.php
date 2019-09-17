@@ -23,7 +23,26 @@
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        
+      <div id="opentickets" class="list-group">
+                    <?php
+                    global $dbase;
+                    $gid = 'g:'.is_get('id');
+                    $where = " WHERE tic_progress<>100 AND tic_assigned='{$gid}' ORDER BY tic_priority DESC LIMIT 12";
+                    $rows = $dbase->tbl2array2('sob_tickets','*',$where);
+                    foreach($rows as $row){
+                        echo '<span class="list-group-item">
+                        <a href="'.HOME.'?pg=ticket&id='.$row['tic_id'].'" >'.$row['tic_title'].'</a>
+                        <span class="label label-info">'.get_cate_name($row['tic_tag']).'</span>
+                        <div style="margin-top:5px;" class="progress"><div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="'.$row['tic_progress'].'" aria-valuemin="0" aria-valuemax="100" style="width: '.$row['tic_progress'].'%;"></div></div>
+                        </span>';
+                    } 
+                    ?>
+                </div>
+
+
+
+
       </div>
     </div>
   </div>

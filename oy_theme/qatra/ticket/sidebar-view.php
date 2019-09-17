@@ -135,6 +135,7 @@
         <?php
                  if(user_rank() != 1 && user_dep() == get_setting('techdep')){
                     $groups =  cat_2arr_luid('groups',0,'fa_AF',true);
+                    print_r($groups);
                   
                     foreach($groups as $id => $label){
                        echo '<option value="g:'.$id.'">'.g_lbl('groups').': '.$label.'</option>';
