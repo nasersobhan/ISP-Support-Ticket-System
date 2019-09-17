@@ -42,6 +42,10 @@
                     <input type="email" class="form-control col-md-12" name="email" id="email">
                   </div>
 
+                  <div class="form-group">
+                    <label for="recipient-name" class="control-label">شماره تماس :</label>
+                    <input type="phone" class="form-control col-md-12" name="phone" id="phone">
+                  </div>
   
                   <div class="form-group">
                     <label for="recipient-name" class="control-label">رمز عبور :</label>
