@@ -10,11 +10,11 @@ $_LANG['site']='سایت';
 $_LANG['groups']='تیم';
 $_LANG['priority']='اولیت';
 $_LANG['tickettags']='وضعیت';
+$_LANG['leavetypes']='نوع رخصتی';
 
 
 
-
-
+$_LANG['jobtitle']='عنوان کاری';
 $_LANG['add']='اضافه کردن';
 $_LANG['delete']='حذف';
 $_LANG['sendmessage']='ارسال پیام';
@@ -139,10 +139,7 @@ if(is_get('t'))
     include_lang('LANG-FA');
     
     
-        ///pages
-$_LANG['about']='درباره';
-$_LANG['jobs']='شغل';
-$_LANG['rfq']='RFQ/RFP/RFA';
+
 
  $_LANG['comments']='نظریات';
    $_LANG['more']='بیشتر';

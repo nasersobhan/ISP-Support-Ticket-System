@@ -6,7 +6,7 @@ $group_label = get_cate_name($group_id);
  ?>
 <div class="content-box">
 <div class="panel panel-default" >
-        <div class="panel-heading "><h3>تیم: <?php e_lbl($group_label); ?></h3></div>
+        <div class="panel-heading "><h4>تیم: <?php echo ($group_label); ?></h4></div>
         <div class="panel-body ">  
 
 
@@ -68,7 +68,7 @@ $group_label = get_cate_name($group_id);
 
 
 <div class="row well">
-<a class="btn btn-info pull-right btn-block" href="<?php echo HOME.'?pg=inbox&toid=g:'.$group_id; ?>">ارسال پیام به گروپ</a>
+<a class="btn btn-info pull-right btn-block" href="<?php echo HOME.'?pg=inbox&toid=g:'.$group_id; ?> #addbox" data-toggle="modal" data-target="#Uni-modal" >ارسال پیام به گروپ</a>
 
 <!-- <a class="btn btn-danger pull-right btn-block" href="<?php echo HOME.'?pg=inbox&toid=g:'.$group_id; ?>">تعیین وظیفه</a> -->
 </div>
@@ -81,13 +81,24 @@ $group_label = get_cate_name($group_id);
             <form  method="post" ajaxform reset name="addusertogroup"  id="addusertogroup" class="form-inline"
             data-source="<?php echo HOME ?>?pg=groups&id=<?php echo $group_id; ?> #usertable" 
             data-selector="#GroupUserList" action="<?php echo HOME ?>?pg=groups&gid=<?php echo $group_id; ?>">
-            <div class="form-group col-md-12">
+
+            <label for="username" class="col-md-12 control-label"> کابر جدید :</label> 
+
+            <div class="input-group">
+            <input data-only="u" class="form-control col-md-7 input-sm usergroupList" required type="text" id="username" name="uid">
+<span class="input-group-btn">
+<button class="btn-sm btn btn-primary" type="button"> + </button>
+</span>
+</div>
+
+            <!-- <div class="form-group col-md-12">
 <label for="username" class="col-md-12 control-label"> کابر جدید :</label> 
 <input data-only="u" class="form-control col-md-7 input-sm usergroupList" required type="text" id="username" name="uid">
-</div>
-<div class="col-md-1">
-<button class="btn btn-success btn-sm btn-block" id="adduser" type="submit" >+</button>
-</div>
+<div class="col-md-1"><button class="btn btn-success btn-sm btn-block" id="adduser" type="submit" >+</button></div>
+</div> -->
+
+
+
 </form>
 <br><br><br><br>
   
@@ -113,9 +124,8 @@ while ($row = $dbase->fetch_array($result)) {
     type="button" confmsg="آیا مطمئن هستید این شخص را ازگروپ حذف میکنید؟" 
     name="Send" value="x">
     <?php echo user_name_ex($row['ugr_userid']) ?>
-    <a alt="ارسال پیام خصوصی" title="ارسال پیام خصوصی" href="<?php echo HOME.'?pg=inbox&toid=u:'.$row['ugr_userid']; ?>" class="tip"><i class="far fa-paper-plane"></i></a>
+    <a alt="ارسال پیام خصوصی" title="ارسال پیام خصوصی" href="<?php echo HOME.'?pg=inbox&toid=u:'.$row['ugr_userid']; ?> #addbox" data-toggle="modal" data-target="#Uni-modal" class="tip"><i class="far fa-paper-plane"></i></a>
     </td>
-
 
 
   </tr>

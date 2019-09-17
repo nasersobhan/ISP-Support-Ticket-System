@@ -25,13 +25,30 @@ $dep = user_dep();
                 <div class="list-group">
 
 
+
+<!-- USER  -->
+<?php
+                    global $dbase;
+                    //lea_uid <> {$uid} AND
+                    $where = " WHERE lea_status=0 AND  lea_replaceaccept=0  AND lea_replacement ='{$uid}' ORDER BY lea_id LIMIT 5";
+                    $rows = $dbase->tbl2array2('sob_leaves','*',$where);
+                    foreach($rows as $row){
+                        echo '<span class="list-group-item">
+                        <a data-toggle="modal" data-target="#Uni-modal"  href="'.HOME.'?pg=hr&lid='.$row['lea_id'].' #main-form" >جایگزینی: '.user_name_ex($row['lea_uid']).'</a>
+                        <span class="label label-warning">نیاز به تایید</span>
+                        </span>';
+                    } 
+                    ?>
+
+<!-- ADMIN ONLY -->
+
                 <?php
                     global $dbase;
                     $where = " WHERE ove_status=0 AND ove_uid <> {$uid} AND ove_site='{$site}' AND ove_dep ='{$dep}' ORDER BY ove_id LIMIT 5";
                     $rows = $dbase->tbl2array2('sob_overtime','*',$where);
                     foreach($rows as $row){
                         echo '<span class="list-group-item">
-                        <a href="'.HOME.'?pg=overtime&id='.$row['ove_id'].'" >رخصتی: '.user_name_ex($row['ove_uid']).'</a>
+                        <a href="'.HOME.'?pg=overtime&id='.$row['ove_id'].'" >اضافه کاری: '.user_name_ex($row['ove_uid']).'</a>
                         <span class="label label-warning">نیاز به تایید شما.</span>
                         </span>';
                     } 
@@ -39,12 +56,13 @@ $dep = user_dep();
 
                 <?php
                     global $dbase;
-                    $where = " WHERE lea_status=0 AND lea_uid <> {$uid} AND lea_site='{$site}' AND lea_dep ='{$dep}' ORDER BY lea_id LIMIT 5";
+                    //lea_uid <> {$uid} AND
+                    $where = " WHERE lea_accepted=0 AND  lea_site='{$site}' AND lea_replaceaccept=1 AND lea_dep ='{$dep}' ORDER BY lea_id LIMIT 5";
                     $rows = $dbase->tbl2array2('sob_leaves','*',$where);
                     foreach($rows as $row){
                         echo '<span class="list-group-item">
-                        <a href="'.HOME.'?pg=leaves&id='.$row['tic_id'].'" >رخصتی: '.user_name_ex($row['lea_uid']).'</a>
-                        <span class="label label-warning">نیاز به تایید شما.</span>
+                        <a data-toggle="modal" data-target="#Uni-modal"  href="'.HOME.'?pg=hr&lid='.$row['lea_id'].' #main-form" >رخصتی: '.user_name_ex($row['lea_uid']).'</a>
+                        <span class="label label-warning">نیاز به تایید</span>
                         </span>';
                     } 
                     ?>
@@ -63,7 +81,8 @@ $dep = user_dep();
                 </div>
 
                 <div class = "panel-footer">
-            Panel footer
+                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-success btn-sm" href="<?Php echo HOME.'?pg=hr'; ?> #main-form">درخواست رخصتی</a>
+                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-success btn-sm" href="<?Php echo HOME.'?pg=hr'; ?> #main-form">درخواست اضافه کاری</a>
          </div>
 
             </div>
@@ -89,7 +108,7 @@ $dep = user_dep();
                         $q = is_get('us');
                         $where = " AND (sob_name LIKE '%{$q}%' OR sob_title LIKE '%{$q}%') ";
                     }
-                    $rows = $dbase->tbl2array2('sob_users','*'," WHERE sob_status=1 {$where} ORDER BY sob_id DESC LIMIT 10");
+                    $rows = $dbase->tbl2array2('sob_users','*'," WHERE sob_status=1 AND sob_rank<>99 {$where} ORDER BY sob_id DESC LIMIT 10");
 
                     foreach($rows as $row){
                         echo '<span data-id="' . $row['sob_id'] . '" id="user' . $row['sob_id'] . '" class="list-group-item">
@@ -132,7 +151,7 @@ $dep = user_dep();
                 <div id="opentickets" class="list-group">
                     <?php
                     global $dbase;
-                    $where = " WHERE tic_progress<>100 AND tic_site='{$site}' AND (tic_assigned ='{$pfx_uid}' OR tic_assigned IN (SELECT concat('g:',ugr_gid) FROM sob_ugroups WHERE ugr_userid={$uid})) ORDER BY tic_priority DESC LIMIT 6";
+                    $where = " WHERE tic_progress<>100 AND tic_site='{$site}' AND ((tic_assigned ='{$pfx_uid}' OR tic_assigned IN (SELECT concat('g:',ugr_gid) FROM sob_ugroups WHERE ugr_userid={$uid})) OR tic_uid={$uid}) ORDER BY tic_priority DESC LIMIT 6";
                     $rows = $dbase->tbl2array2('sob_tickets','*',$where);
                     foreach($rows as $row){
                         echo '<span class="list-group-item">
@@ -154,8 +173,8 @@ $dep = user_dep();
             <div class="panel panel-default">
                 <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a>
-                   گروپهایکه شما شامل هستید
+                    <a href="<?Php echo HOME.'?pg=categories&t=groups'; ?>">
+                   گروپ هایکه شما شامل هستید
                     </a>
                 </h4>
                 </div>
@@ -167,7 +186,7 @@ $dep = user_dep();
                     $where = " WHERE ugr_userid={$uid} AND ugr_status=1 LIMIT 6";
                     $rows = $dbase->tbl2array2('sob_ugroups','ugr_gid,ugr_id',$where);
                     foreach($rows as $row){
-                        echo '<span class="list-group-item"><a href="'.HOME.'?pg=groups&id='.$row['ugr_id'].'" >'.get_cate_name($row['ugr_gid']).'</a></span>';
+                        echo '<span class="list-group-item"><a href="'.HOME.'?pg=groups&id='.$row['ugr_id'].'" ><i class="fas fa-users"></i> '.get_cate_name($row['ugr_gid']).'</a><span class="label label-info pull-right">5 نفر</span></span>';
                     } 
                     ?>
                 </div>
@@ -206,7 +225,7 @@ $dep = user_dep();
                     ?>
                 </div>
 
-                <div class = "panel-footer text-left">
+                <div class = "panel-footer">
    
                 <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-success btn-sm" href="<?Php echo HOME.'?pg=inbox'; ?> #addbox">ارسال پیام</a>
                     <a class="pull-right btn btn-info btn-sm" href="">کل پیامها</a>
@@ -223,9 +242,8 @@ $dep = user_dep();
                     </a>
                 </h4>
                 </div>
-       
-                <div id="todolist" class="list-group">
-                <div id="in-todolist">
+                <div id="todolist">
+                <div id="in-todolist"  class="list-group">
                 <!-- <label class="list-group-item">
                         <input type="text" class="form-control col-md-12" > 
                       </label> -->

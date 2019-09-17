@@ -1,9 +1,10 @@
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 <?php global $row, $customer;
 
- if($row['tic_type']==1) {
-  theme_pg_include('closenew');
- }  ?>
+ //if($row['tic_type']==1) {
+  theme_pg_include('techinfo');
+ //}  
+ ?>
 
 
 <div class="panel panel-default">
@@ -130,17 +131,20 @@
 <label for="tic_assigned" class="control-label"> سپردن مسئولیت:</label>
   
   <select name="tic_assigned" id="tic_assigned" class="col-md-9 form-control">
-
+<option value="<?php echo user_uid(); ?>">خودم (<?php echo trim(user_name()); ?>)</option>
         <?php
-                  $groups =  cat_2arr_luid('groups',0,'fa_AF',true);
+                 if(user_rank() != 1 && user_dep() == get_setting('techdep')){
+                    $groups =  cat_2arr_luid('groups',0,'fa_AF',true);
                   
-                 foreach($groups as $id => $label){
-                      echo '<option value="g:'.$id.'">'.g_lbl('groups').': '.$label.'</option>';
-                 }
-                 $users =  get_userList(user_dep(), user_site());
-                 foreach($users as $user) {
-                    echo '<option value="u:'.$user['sob_id'].'">'.$user['sob_name'].'</option>';
+                    foreach($groups as $id => $label){
+                       echo '<option value="g:'.$id.'">'.g_lbl('groups').': '.$label.'</option>';
                     }
+                    $users =  get_userList(user_dep(), user_site());
+                    foreach($users as $user) {
+                     echo '<option value="u:'.$user['sob_id'].'">'.$user['sob_name'].'</option>';
+                     }
+                 }
+           
                  ?>
   </select>
 </div>

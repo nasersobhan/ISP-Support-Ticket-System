@@ -1,17 +1,7 @@
 <?php get_header(); ?>
 <div class="content-box">
-    <div class="col-md-12">
-      
-        
-          <div class="panel panel-default" >
-    <div class="panel-heading "><h3><?php echo get_pgtitle() ?></h3></div>
-    <div class="panel-body ">    
 
 
-<!-- Button trigger modal -->
-<a href="#"  id='usermodalclick' >
-  Launch demo modal
-</a>
 
 <!-- Modal -->
 <div class="modal fade" id="modalusers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -26,51 +16,49 @@
           <div class="modal-body">
 
         
-          <div class="form-group">
+          <div class="form-group row">
                     <label for="recipient-name" class="control-label">نام مکمل :</label>
-                    <input type="text" class="form-control col-md-12" name="name" id="name" >
+                    <input autocomplete="off" type="text" class="form-control col-md-12" name="name" id="name" >
                   </div>
 
 
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="recipient-name" class="control-label">نام کاربری :</label>
-                    <input type="text" class="form-control col-md-12" name="uname" id="username">
+                    <input autocomplete="off"  type="text" class="form-control col-md-12" name="uname" id="username">
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="recipient-name" class="control-label">ایمیل :</label>
-                    <input type="email" class="form-control col-md-12" name="email" id="email">
+                    <input autocomplete="off"  type="email" class="form-control col-md-12" name="email" id="email">
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="recipient-name" class="control-label">شماره تماس :</label>
-                    <input type="phone" class="form-control col-md-12" name="phone" id="phone">
+                    <input autocomplete="off"  type="phone" class="form-control col-md-12" name="phone" id="phone">
                   </div>
   
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="recipient-name" class="control-label">رمز عبور :</label>
-                    <input type="password" class="form-control col-md-12" name="password" id="password">
+                    <input autocomplete="off"  type="password" class="form-control col-md-12" name="password" id="password">
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="recipient-name" class="control-label">رمز عبور  تکرار:</label>
-                    <input type="password" class="form-control col-md-12" name="passwordre" id="passwordre">
+                    <input autocomplete="off"  type="password" class="form-control col-md-12" name="passwordre" id="passwordre">
                   </div>
   
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="recipient-name" class="control-label">نوع کاربر:</label>
                     
                     <select class="form-control col-md-12" name="rank">
                       <option value="1">کارمند عادی</option>
                       <option value="2">مدیر</option>
                       <option value="3">رئیس</option>
-                      <?php if(user_rank()==99){ ?>
-                        <option value="99">مدیر کل</option>
-                      <?php } ?> 
+                  
                     </select>
                   </div>
     
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="recipient-name" class="control-label"><?php e_lbl('site') ?>:</label>
                     
                     <select class="form-control col-md-12" name="site">
@@ -87,7 +75,7 @@
   
 
   
-                  <div class="form-group">
+                  <div class="form-group row">
                     <label for="recipient-name" class="control-label"><?php e_lbl('dep') ?>:</label>
                     
                     <select class="form-control col-md-12" name="dep">
@@ -103,9 +91,9 @@
                   </div>
 
 
-                  <div class="form-group">
-                    <label for="recipient-name" class="control-label"><?php e_lbl('title') ?>:</label>
-                    <input type="text" class="form-control col-md-12" name="title" id="title">
+                  <div class="form-group row">
+                    <label for="recipient-name" class="control-label"><?php e_lbl('jobtitle') ?>:</label>
+                    <input autocomplete="off"  type="text" class="form-control col-md-12" name="title" id="title">
                   </div>
 
 
@@ -131,16 +119,34 @@
 
 
 
-<span style="color:red" name="mess" id="mess">
-    </span>
-</div></div>
-
-</div>
     
     <div id="reportx" >
  <div  class="col-md-12">
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="panel panel-default" >
-    <div class="panel-heading "><h3>آخرین اطلاعات ذخیره شده</h3></div>
+    <div class="panel-heading "><h4>آخرین اطلاعات ذخیره شده
+    
+    <span class="pull-right">
+    <a href="#" class="btn btn-info btn-sm"  id='usermodalclick' >
+  اضافه کردن کاربر به سیستم
+</a>
+
+</span>
+    </h4>
+    
+   
+    </div>
     <div class="panel-body ">    
 
 

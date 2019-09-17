@@ -146,7 +146,9 @@
                                 <li><a href="<?php echo get_link('categories'); ?>&t=priority"> مدیریت اولویتها <i class="fa fa-building Pull-left" aria-hidden="true"></i></a></li>   
                                 <li><a href="<?php echo get_link('categories' , 't', 'tickets'); ?>"> مدیریت دسته های تکت <i class="fa fa-building Pull-left" aria-hidden="true"></i></a></li>  
                                 
-                                <li><a href="<?php echo get_link('categories' , 't', 'tickettags'); ?>"> مدیریت وضعیت تکتها <i class="fa fa-building Pull-left" aria-hidden="true"></i></a></li>   
+                                <li><a href="<?php echo get_link('categories' , 't', 'tickettags'); ?>"> مدیریت وضعیت تکتها <i class="fa fa-building Pull-left" aria-hidden="true"></i></a></li>  
+
+                                 <li><a href="<?php echo get_link('categories' , 't', 'leavetypes'); ?>"> نوع رخصتی </a></li>    
 
                                 <!-- <li><a href="<?php echo get_link('house'); ?>"> مدیریت مخزنها <i class="fa fa-building Pull-left" aria-hidden="true"></i></a></li>
 

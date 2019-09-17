@@ -474,3 +474,19 @@ function get_usersfromgroup($gid){
     $field_value = $dbase->get_single($tbl, $fld_pre.'id', $pid, $fld_pre.$field); 
     return $field_value;
   }
+
+
+  function get_highrankuid($uid = false){
+    $uid = user_uid();
+    $site = user_site();
+    $dep = user_dep();
+    $rank = user_rank();
+    $hrank = 99;
+    if($rank == 1)
+        $hrank = 2;
+    elseif($rank == 2)
+        $hrank = 3;
+    
+    $users = get_userList($dep, $site, $hrank);
+    return $users;
+  }

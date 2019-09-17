@@ -335,8 +335,9 @@ $('#tic_progress').change(function(){
 
 });
 
-$('#todolist').on('change','#in-todolist input[type="checkbox"]', function(event){
+$('#todolist').on('change','.list-group input[type="checkbox"]', function(event){
     //     var checkbox = $(this).find('[type="checkbox"]');
+    console.log('changed');
     var $parent_label = $(this).parent('label');
      var taskid = $parent_label.attr('data-id');
     if(this.checked) {
@@ -403,6 +404,16 @@ function loadusergrouplist(){
 
 $( document ).ajaxComplete(function( event, xhr, settings ) {
     loadusergrouplist();
+    $('input[type=radio][name=lea_accepted]').on('change', function() {
+        // $('input[name="lea_accepted"]').change(function() {
+            console.log(this.value);
+            if (this.value == '1') {
+                $('#leave_reason').addClass('hidden');
+            }
+            else if (this.value == '0') {
+                $('#leave_reason').removeClass('hidden');
+            }
+        });
 
 });
 
@@ -419,3 +430,13 @@ setInterval(function() {
 $('#notifications').click(function(){
     $('#not-list').load(homeURL + '/?pg=notlist');
 });
+
+
+$("body").on( "click", '.show-hider', function() {
+
+    var ntbsoh = $(this).data('id');
+        $(ntbsoh).toggleClass('hidden', function() {   });
+   
+});
+
+

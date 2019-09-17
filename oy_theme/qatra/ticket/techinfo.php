@@ -4,8 +4,7 @@
     <div class="panel-heading" role="tab" id="installedinfo">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseinstalledinfo" aria-expanded="false" aria-controls="collapseinstalledinfo">
-         مشخصات نصب آنتن
-        </a>
+         مشخصات تخنیکی </a>
       </h4>
     </div>
     <div id="collapseinstalledinfo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="installedinfo">
