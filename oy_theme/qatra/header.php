@@ -14,6 +14,9 @@
     </head>
     <body>
 
+    <div class="topbanner" ></div>
+
+
     <div id="ati10" class="atl"></div>
     <div class="loadingbox hidden-print">
       <div id="fountainG">
@@ -44,7 +47,7 @@
       <ul class="nav navbar-nav">
         <!-- <li><a href="<?php echo HOME ?>"><i class="fa fa-area-chart" aria-hidden="true"></i> <?php e_lbl('dashborad'); ?></a></li> -->
         <li>
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-flask" aria-hidden="true"></i> خدمات مشتریان<?php //e_lbl('buysell'); ?><span class="arrow"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-flask" aria-hidden="true"></i> خدمات مشتریان<?php //e_lbl('buysell'); ?></a>
 
                         <ul class="dropdown-menu">
                             <li><a href="?pg=customer"><span><i class="fa fa-reply Pull-left" aria-hidden="true"></i>نصب جدید</span></a></li>
@@ -55,7 +58,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-usd" aria-hidden="true"></i> فروشات<?php //e_lbl('financial'); ?><span class="arrow"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-usd" aria-hidden="true"></i> فروشات<?php //e_lbl('financial'); ?></a>
                         <ul class="dropdown-menu">
                             <li><a href="?pg=mexp&eoe=1"><span>پرداخت پول از دخل</span></a></li>
                             <li><a href="?pg=mexp&eoe=2"><span>&#1583;&#1585;&#1740;&#1575;&#1601;&#1578; &#1662;&#1608;&#1604; &#1576;&#1607; &#1583;&#1582;&#1604;</span></a></li>
@@ -66,7 +69,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-line-chart" aria-hidden="true"></i> انبار و منابع<?php //e_lbl('reports'); ?><span class="arrow"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-line-chart" aria-hidden="true"></i> انبار و منابع<?php //e_lbl('reports'); ?></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo get_link('report', 'view', 'search'); ?>">گزارش پیشرفته<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
                             <li><a href="<?php echo get_link('report', 'view', 'blancemulti'); ?>">بلانس کلی عرضی <i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
@@ -110,7 +113,7 @@
 
 
                     <li>
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> <?php e_lbl('users'); ?><span class="arrow"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> <?php e_lbl('users'); ?></a>
                         <ul class="dropdown-menu"> 
                            
                             <li><a href="<?php echo get_link('users'); ?>">مدیریت کاربران<i class="fa fa-users pull-left" aria-hidden="true"></i></a></li>
@@ -123,7 +126,7 @@
 
 
                         <li>
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> <?php e_lbl('hr'); ?><span class="arrow"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> <?php e_lbl('hr'); ?></a>
                         <ul class="dropdown-menu"> 
                            
                             <li><a href="<?php echo get_link('hr'); ?>">فرم درخواست رخصتی<i class="fa fa-users pull-left" aria-hidden="true"></i></a></li>
@@ -133,7 +136,7 @@
 
 
                         <li>
-                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars" aria-hidden="true"></i> <?php echo g_lbl('settings'); ?><span class="arrow"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bars" aria-hidden="true"></i> <?php echo g_lbl('settings'); ?></a>
                             <ul class="dropdown-menu">
                                 
                                 <li><a href="<?php echo get_link('settings'); ?>"><?php echo g_lbl('settings'); ?><i class="fa fa-cogs Pull-left" aria-hidden="true"></i></a></li>

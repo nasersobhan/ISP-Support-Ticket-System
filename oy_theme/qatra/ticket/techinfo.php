@@ -1,4 +1,4 @@
-<?php global $customer; ?>
+<?php global $customer,$row; ?>
 
 <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="installedinfo">
@@ -47,7 +47,7 @@
         <td><input type="date" class="form-control input-sm col-md-12" name="cus_activedate" value="<?php echo $customer['cus_activedate']; ?>" id="cus_activedate"></td>
     </tr>
 
-
+<?php if($row['tic_type']==1) {?>
     <tr class="info">
         <th colspan="2">وسایل استفاده شده</th>
     </tr>
@@ -72,7 +72,7 @@
         <td>RJ:</td>
         <td><input type="text" class="form-control input-sm col-md-12" name="cus_usedjs" value="<?php echo $customer['cus_usedjs']; ?>" id="cus_usedjs"></td>
     </tr>
-
+<?Php } ?>
 
     <tr class="info">
         <th colspan="2">مشخصات تخنیکی</th>

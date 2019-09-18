@@ -15,7 +15,8 @@ h1,h2,h3,h4{
     font-family: "titlefont";
 }
 h3{ font-size: 16px;}
-body{ direction: rtl; font-family: "bodyfont"; font-size: 12px;-webkit-print-color-adjust: exact;}
+body{ direction: rtl; font-family: "bodyfont"; font-size: 12px;-webkit-print-color-adjust: exact;
+background-color: #e6e6e6;}
 
 tr{background:0;background-color:0;}
 .content-box{
@@ -359,12 +360,11 @@ color: #5cb85c;
     font-size:20px;
     margin: 0;
     padding: 0;
-
-
+    /* color: rgba(250,250,250,0.5); */
 }
 
 .red-att{
-    color: Tomato;
+    color: rgb(255, 255, 255);
 }
 /* #notifications sup{
 
@@ -375,11 +375,11 @@ color: #5cb85c;
 
 
 #notifications:hover sup, #messagebox:hover sup {
-    color: #5cb85c;
+    color: #ccc;
 }
 
 #notifications:hover i, #messagebox:hover i {
-    color: #5cb85c;
+    color: #ccc;
 }
 
 
@@ -462,14 +462,14 @@ font-size: 10px;
 
 ::-webkit-scrollbar
 {
-    width: 12px;
+    width: 6px;
     background-color: #F5F5F5;
 }
 
 ::-webkit-scrollbar-thumb
 {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
+    background-color: rgb(224, 219, 219);
 }
 
 
@@ -564,4 +564,80 @@ hr.smallhr{
 
 .not-danger {
     border-right: 6px solid #C00;
+}
+
+.leavesu a{ border-right: 5px solid #3366CC; padding-right:7px; color:#3366CC; }
+.overtime a{  border-right: 5px solid #843534; padding-right:7px; color:#843534; }
+.leaves a{ border-right: 5px solid #f0ad4e; padding-right:7px;color:#f0ad4e; }
+.tickets a{  border-right: 5px solid #5cb85c; padding-right:7px;color:#5cb85c;}
+
+.list-group-item > a:hover{ padding:7px; 
+text-decoration: none; 
+-webkit-transition-duration: 0.1s; /* Safari prior 6.1 */
+transition-duration: 0.1s;
+}
+
+.list-group-item a{
+    -webkit-transition-duration: 0.1s; /* Safari prior 6.1 */
+    transition-duration: 0.1s;   
+}
+
+#mydash #in-todolist {
+    margin:0; padding:0;
+}
+
+#mydash .panel-footer {
+    height: 53px;;
+}
+#mydash #rowone .list-group {
+    height: 307px;
+    overflow-y: auto;
+}
+
+#mydash #rowtwo .list-group {
+    height: 200px;
+    overflow-y: auto;
+}
+
+#mydash .list-group-item:last-child{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#mydash .list-group-item:first-child{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#mydash label.list-group-item{
+    font-weight: normal;
+    border-left:0;
+    border-right:0;
+}
+
+.panel {
+    box-shadow: 0 1px 6px rgba(0,0,0,.12), 0 1px 4px rgba(0,0,0,.24);
+    border:0;
+    border-radius: 4px;
+}
+
+#mydash .panel-heading {
+    border-bottom: 1px solid #ddd;
+}
+
+
+.topbanner{
+    width:100%; position: absolute; top:0; height: 210px;background:#64BA2E
+}
+.navbar-default {
+    background-color: #f8f8f800;
+    border-color: #f8f8f800;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-nav>li>a>i {
+    color: #f7f7f7;
+}
+
+.navbar-nav>li>a {
+    cursor: pointer;
 }
