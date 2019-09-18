@@ -14,7 +14,7 @@
     </head>
     <body>
 
-    <div class="topbanner" ></div>
+    <div class="topbanner"></div>
 
 
     <div id="ati10" class="atl"></div>
@@ -68,46 +68,7 @@
                         </ul>
                     </li>
 
-                    <li>
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-line-chart" aria-hidden="true"></i> انبار و منابع<?php //e_lbl('reports'); ?></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="<?php echo get_link('report', 'view', 'search'); ?>">گزارش پیشرفته<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo get_link('report', 'view', 'blancemulti'); ?>">بلانس کلی عرضی <i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo get_link('report', 'view', 'blance'); ?>">بلانس کلی <i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo get_link('report', 'view', 'blancecust'); ?>">بلانس کاستوم<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo get_link('report', 'view', 'blanceoil'); ?>"><i class="fa fa-share Pull-left" aria-hidden="true"></i>&#1576;&#1604;&#1575;&#1606;&#1587; &#1705;&#1604;&#1740; &#1576;&#1585; &#1575;&#1587;&#1575;&#1587; &#1585;&#1608;&#1594;&#1606;&#1740;&#1575;&#1578;</a></li>
-
-
-
-                            <li><a target="_blank" href="<?php echo get_link('report', 'view', 'man2'); ?>&y=<?php echo date('Y') ?>&m=<?php echo date('m') ?>&d=<?php echo date('d') ?>">لیست پرداخت و دریافت روزنه<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-                            <li><a target="_blank" href="<?php echo get_link('report', 'view', 'man'); ?>&y=<?php echo date('Y') ?>&m=<?php echo date('m') ?>&d=<?php echo date('d') ?>">لیست خرید و فروش روزانه<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-
-                            <li><a href="<?php echo get_link('report', 'view', 'monsearch'); ?>">گزارش عمومی یک شرکت<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo get_link('report', 'view', 'searchep'); ?>&me=com">گزارش خلاصه یک شرکت<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-
-                            
-                            <li><a href="<?php echo get_link('report', 'view', 'msearch'); ?>">گزارش مالی یک شرکت (فروش)<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo get_link('report', 'view', 'msearche'); ?>">گزارش مالی یک شرکت(خرید)<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo get_link('report', 'view', 'searchep'); ?>&me=stu">گزارش خلاصه مخزن<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-
-                            <li><a href="<?php echo get_link('report', 'view', 'searchep'); ?>&me=expimp">گزارش خلاصه خرید و فروش<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-                            <li><a href="<?php echo get_link('report', 'view', 'mdrep'); ?>">&#1605;&#1578;&#1601;&#1585;&#1602;&#1607; &#1605;&#1575;&#1604;&#1740;<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-
-
-                            
-                            <li><a href="<?php echo get_link('report', 'view', 'othercom'); ?>&me=tran">گزارش شرکت بارچالانی<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-<li><a href="<?php echo get_link('report', 'view', 'othercom'); ?>&me=over">گزارش شرکت اضافه بار<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-
-<li><a href="<?php echo get_link('report', 'view', 'othercom'); ?>&me=mah">گزارش شرکت محصول<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-<li><a href="<?php echo get_link('report', 'view', 'stock'); ?>">گزارش عمومی از مخزنها<i class="fa fa-share Pull-left" aria-hidden="true"></i></a></li>
-
-                    
-                        
-                        
-                        
-                        
-                        </ul>
-                    </li>
+                   
 
 
 
@@ -180,6 +141,20 @@
       </form> -->
 
       <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+          <a href="#" id="userinfo" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user"></i></a>
+          <ul class="dropdown-menu">
+          <li><a href="<?php echo get_link('account'); ?>">تنظیمات کاربری <span class="glyphicon glyphicon-cog pull-right"></span></i></a></li>
+            <li class="divider"></li>
+            <li><a href="#">وضعیت کارمندی <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+            <li class="divider"></li>
+            <li><a href="<?php echo get_link('inbox'); ?>">پیامها <span class="badge pull-right"> 42 </span></a></li>
+            <li class="divider"></li>
+            <li><a href="#">انجام شدنیها <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+            <li class="divider"></li>
+            <li><a href="<?php echo HOME ?>?pg=account&user=signout">خروج <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+          </ul>
+        </li>
       <li>
           <a id="messagebox" href="<?php echo HOME.'?pg=inbox#Unread'?>">
             <?php 
@@ -202,20 +177,7 @@ $numb = $dbase->num_rows('SELECT mes_id FROM sob_message'. $where);
           </ul>
         </li>
 
-        <li class="dropdown">
-          <a href="#" id="userinfo" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user"></i></a>
-          <ul class="dropdown-menu">
-          <li><a href="<?php echo get_link('account'); ?>">تنظیمات کاربری <span class="glyphicon glyphicon-cog pull-right"></span></i></a></li>
-            <li class="divider"></li>
-            <li><a href="#">وضعیت کارمندی <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
-            <li class="divider"></li>
-            <li><a href="<?php echo get_link('inbox'); ?>">پیامها <span class="badge pull-right"> 42 </span></a></li>
-            <li class="divider"></li>
-            <li><a href="#">انجام شدنیها <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
-            <li class="divider"></li>
-            <li><a href="<?php echo HOME ?>?pg=account&user=signout">خروج <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
-          </ul>
-        </li>
+        
       </ul>
 
 

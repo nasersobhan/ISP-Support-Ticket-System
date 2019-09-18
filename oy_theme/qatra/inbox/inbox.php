@@ -74,8 +74,8 @@ $id = is_get('id');
 <div class="col-md-8">
     <div class="panel panel-default" >
 
-    <div id="addbox" class="panel-body ">   
-        
+    <div  class="panel-body ">   
+        <div id="addbox">
     
     <?php if (is_get('id')) {
     theme_include('inbox/conversation');
@@ -84,7 +84,7 @@ else {
     theme_include('inbox/add');
 } ?>
 
-
+</div>
 </div>
 
 </div>

@@ -6,16 +6,16 @@ $id = is_get('id');
 <div class="col-md-8">
     <div class="panel panel-default" >
 
-    <div id="mainticket" class="panel-body ">   
+    <div  class="panel-body ">   
         
-    
+    <div id="mainticket">
     <?php if (is_get('id')) {
     theme_pg_include('view');
 }
 else {
     theme_pg_include('add');
 } ?>
-
+</div>
 
 </div>
 

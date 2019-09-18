@@ -91,8 +91,8 @@ $dep = user_dep();
                 </div>
 
                 <div class = "panel-footer">
-                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-success btn-sm" href="<?Php echo HOME.'?pg=hr'; ?> #main-form">درخواست رخصتی</a>
-                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-success btn-sm" href="<?Php echo HOME.'?pg=hr&overtime=addnew'; ?> #main-form">درخواست اضافه کاری</a>
+                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-theme btn-sm" href="<?Php echo HOME.'?pg=hr'; ?> #main-form">درخواست رخصتی</a>
+                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-theme btn-sm" href="<?Php echo HOME.'?pg=hr&overtime=addnew'; ?> #main-form">درخواست اضافه کاری</a>
          </div>
 
             </div>
@@ -130,7 +130,7 @@ $dep = user_dep();
                     ?>
                 </div>
                 <div class = "panel-footer">
-                <button href="<?php echo HOME.'?pg=ticket #mainticket'; ?>" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#Uni-modal" >تکت جدید</button>
+                <button href="<?php echo HOME.'?pg=ticket #mainticket'; ?>" type="button" class="btn btn-theme btn-sm" data-toggle="modal" data-target="#Uni-modal" >تکت جدید</button>
                 </div>
                 
             </div>
@@ -223,8 +223,8 @@ $dep = user_dep();
                 </div>
 
 
-                <div class = "panel-footer text-center">
-                    <a href="">ایجاد گروپ</a>
+                <div class = "panel-footer">
+                    <a class="btn btn-sm btn-theme" href="<?php echo HOME.'?pg=categories&t=groups'; ?>">ایجاد گروپ</a>
                 </div>
             </div>
         </div>
@@ -256,8 +256,8 @@ $dep = user_dep();
 
                 <div class = "panel-footer">
    
-                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-success btn-sm" href="<?Php echo HOME.'?pg=inbox'; ?> #addbox">ارسال پیام</a>
-                    <a class="pull-right btn btn-info btn-sm" href="">کل پیامها</a>
+                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-theme btn-sm" href="<?Php echo HOME.'?pg=inbox'; ?> #addbox">ارسال پیام</a>
+                   
                 </div>
             </div>
         </div>

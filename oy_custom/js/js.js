@@ -306,7 +306,7 @@ $('#usermodalclick').click(function(e) {
     $('#Uni-modal').find("#modal-content").load($(this).attr("href"), function() {
         $('#Uni-modal').find('.modal-title').addClass('text-center');
         $('#Uni-modal').modal('show');
-        $('#Uni-modal').find('.modal-footer').append('<button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>');
+        $('#Uni-modal').find('.modal-footer').append('<button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">خروج</button>');
     });
 });
 
