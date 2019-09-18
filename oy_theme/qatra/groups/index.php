@@ -85,9 +85,9 @@ $group_label = get_cate_name($group_id);
             <label for="username" class="col-md-12 control-label"> کابر جدید :</label> 
 
             <div class="input-group">
-            <input data-only="u" class="form-control col-md-7 input-sm usergroupList" required type="text" id="username" name="uid">
+            <input data-only="u" required class="form-control col-md-7 input-sm usergroupList" required type="text" id="username" name="uid">
 <span class="input-group-btn">
-<button class="btn-sm btn btn-primary" type="button"> + </button>
+<button class="btn-sm btn btn-primary" type="submit" type="button"> + </button>
 </span>
 </div>
 
@@ -100,7 +100,7 @@ $group_label = get_cate_name($group_id);
 
 
 </form>
-<br><br><br><br>
+
   
 <h4> اعضا گروپ <?php e_lbl($group_label); ?></h4>
     <div id="GroupUserList" >

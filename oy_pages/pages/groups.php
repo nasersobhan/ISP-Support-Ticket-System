@@ -1,7 +1,8 @@
 <?Php
 global $dbase;
 loginrequired();
-
+$tbl = 'sob_ugroups';
+$uid = user_uid();
 if (is_get('id')) {
     $id = is_get('id');
     load_jsplug('jquery-ui') ;
@@ -12,12 +13,17 @@ if (is_get('id')) {
 
     theme_include('groups/index');
 } elseif (is_get('gid') && is_post('uid')) {
-    if ($dbase->RowInsert('sob_ugroups', array('ugr_gid' => is_get('gid'), 'ugr_uid' => user_uid(), 'ugr_userid' => is_post('uid')))) {
-        add_notification('شما به گروپ ' . get_cate_name(is_get('gid')) . ' اضافه شدید', is_post('uid'), 'groups', is_get('gid'));
-        echo 'موفقانه ثبت شد';
-    } else {
-        echo 'مشکلی وجود دارد.';
+    if($dbase->check_duplicate_m($tbl, ' ugr_status=1 AND ugr_gid = '.is_get('gid').'  AND ugr_userid=' . is_post('uid')) == false){
+        if ($dbase->RowInsert($tbl, array('ugr_gid' => is_get('gid'), 'ugr_uid' => $uid, 'ugr_userid' => is_post('uid')))) {
+            add_notification('شما به گروپ ' . get_cate_name(is_get('gid')) . ' اضافه شدید', is_post('uid'), 'groups', is_get('gid'));
+            echo 'موفقانه ثبت شد';
+        } else {
+            echo 'مشکلی وجود دارد.';
+        }
+    }else {
+        echo 'این کاربر از قبل در این گروپ بوده است.';
     }
+
 
 } elseif (is_get('did')) {
     $where = ' WHERE ugr_id=' . is_get('did');

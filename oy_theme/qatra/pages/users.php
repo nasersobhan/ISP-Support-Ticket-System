@@ -35,33 +35,33 @@ $view = true;
         
           <div class="form-group row">
                     <label for="recipient-name" class="control-label">نام مکمل :</label>
-                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_name'].'"' : ''; ?> autocomplete="off" type="text" class="form-control col-md-12" name="name" id="name" >
+                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_name'].'"' : ''; ?> autocomplete="off" type="text" required class="form-control col-md-12" name="name" id="name" >
                   </div>
 
 
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">نام کاربری :</label>
-                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_user'].'" disabled' : ''; ?>  autocomplete="off"  type="text" class="form-control col-md-12" name="uname" id="username">
+                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_user'].'" disabled' : ''; ?>  autocomplete="off" oninvalid="setCustomValidity('لطفا فقط کلمات انگلیسی بدون فاصله بنویسید.')"  type="text" pattern="[a-zA-Z0-9]{5,}" required class="form-control col-md-12" name="uname" id="username">
                   </div>
 
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">ایمیل :</label>
-                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_email'].'"' : ''; ?>  autocomplete="off"  type="email" class="form-control col-md-12" name="email" id="email">
+                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_email'].'"' : ''; ?>  autocomplete="off"  type="email" required class="form-control col-md-12" name="email" id="email">
                   </div>
 
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">شماره تماس :</label>
-                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_phone'].'"' : ''; ?> autocomplete="off"  type="phone" class="form-control col-md-12" name="phone" id="phone">
+                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_phone'].'"' : ''; ?> autocomplete="off" oninvalid="setCustomValidity('شماره مبایل را این صورت بنویسید 0711111111')" pattern="07[0-9]{8}" required type="tel" class="form-control col-md-12" name="phone" id="phone">
                   </div>
   <?php if($edit==false) { ?>
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">رمز عبور :</label>
-                    <input autocomplete="off"  type="password" class="form-control col-md-12" name="password" id="password">
+                    <input autocomplete="off"  type="password" class="form-control col-md-12" name="password" required id="password">
                   </div>
 
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">رمز عبور  تکرار:</label>
-                    <input autocomplete="off"  type="password" class="form-control col-md-12" name="passwordre" id="passwordre">
+                    <input autocomplete="off"  type="password" class="form-control col-md-12" name="passwordre" required id="passwordre">
                   </div>
   <?Php } ?>
                   <div class="form-group row">

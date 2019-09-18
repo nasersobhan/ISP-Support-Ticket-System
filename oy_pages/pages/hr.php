@@ -59,6 +59,42 @@ if(is_get('add')){
     // $data = $_POST;
 
 
+} elseif(is_get('overtime')){
+    if (is_get('overtime') == 'add') {
+        if (is_post('ove_formtime')) {
+            $data = $_POST;
+            $data['ove_site'] = $site;
+            $data['ove_dep'] = $dep;
+            $data['ove_uid'] = $uid;
+            if ($dbase->RowInsert('sob_overtime', $data)) {
+                $id = $dbase->insert_id();
+                echo 'فرم برای تایید به مدیر ارسال شد.';
+                $toid = get_highrankuid();
+                foreach($toid as $buid)
+                    add_notification('<strong>فرم اضافه کاری پر شده است.</strong><br>نیاز به تایید یا رد شما دارد..<br>از طرف :' . user_name(), $buid['sob_id'] , 'hr', $id);
+            }
+        }
+    }elseif(is_get('overtime') == 'edit' && is_get('oid')){
+        if (is_post('ove_approve')) {
+            $oid = is_get('oid');
+            $data['ove_approve'] = is_post('ove_approve');
+            $data['ove_auid'] = $uid;
+            $xuid = is_post('uid');
+            $data['ove_adate'] = date('Y-m-d');
+            if ($dbase->RowUpdate('sob_overtime', $data, "WHERE ove_id={$oid}")) {
+                echo 'تشکر از تایید شما.';
+                if($data['ove_approve']==1){
+                    add_notification('<strong>اضافه کاری شما تایید شد.</strong><br>از طرف :' . user_name(), $xuid , 'overtime', $oid , 'success');
+                }else{
+                    add_notification('<strong>اضافه کاری شما رد شد.</strong><br>از طرف :' . user_name(), $xuid , 'overtime', $oid , 'danger');
+                }
+            }
+        }
+    }else {
+        theme_pg_include('overtime');
+    }
+ 
+
 }
 else {
     theme_pg_include('home');

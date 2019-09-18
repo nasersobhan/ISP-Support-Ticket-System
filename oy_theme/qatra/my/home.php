@@ -44,11 +44,12 @@ $dep = user_dep();
 
                 <?php
                     global $dbase;
-                    $where = " WHERE ove_status=0 AND ove_uid <> {$uid} AND ove_site='{$site}' AND ove_dep ='{$dep}' ORDER BY ove_id LIMIT 5";
+                    //AND ove_uid <> {$uid}
+                    $where = " WHERE ove_status=1 and ove_approve=0  AND ove_site='{$site}' AND ove_dep ='{$dep}' ORDER BY ove_id LIMIT 5";
                     $rows = $dbase->tbl2array2('sob_overtime','*',$where);
                     foreach($rows as $row){
                         echo '<span class="list-group-item">
-                        <a href="'.HOME.'?pg=overtime&id='.$row['ove_id'].'" >اضافه کاری: '.user_name_ex($row['ove_uid']).'</a>
+                        <a data-toggle="modal" data-target="#Uni-modal"  href="'.HOME.'?pg=hr&overtime=view&oid='.$row['ove_id'].' #main-form" >اضافه کاری: '.user_name_ex($row['ove_uid']).'</a>
                         <span class="label label-warning">نیاز به تایید شما.</span>
                         </span>';
                     } 
@@ -82,7 +83,7 @@ $dep = user_dep();
 
                 <div class = "panel-footer">
                 <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-success btn-sm" href="<?Php echo HOME.'?pg=hr'; ?> #main-form">درخواست رخصتی</a>
-                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-success btn-sm" href="<?Php echo HOME.'?pg=hr'; ?> #main-form">درخواست اضافه کاری</a>
+                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-success btn-sm" href="<?Php echo HOME.'?pg=hr&overtime=addnew'; ?> #main-form">درخواست اضافه کاری</a>
          </div>
 
             </div>
@@ -189,7 +190,8 @@ $dep = user_dep();
                     $where = " WHERE ugr_userid={$uid} AND ugr_status=1 LIMIT 6";
                     $rows = $dbase->tbl2array2('sob_ugroups','ugr_gid,ugr_id',$where);
                     foreach($rows as $row){
-                        echo '<span class="list-group-item"><a href="'.HOME.'?pg=groups&id='.$row['ugr_gid'].'" ><i class="fas fa-users"></i> '.get_cate_name($row['ugr_gid']).'</a><span class="label label-info pull-right">5 نفر</span></span>';
+                        $num = $dbase->num_rows("Select ugr_id From sob_ugroups WHERE ugr_status=1 AND ugr_gid=".$row['ugr_gid']);
+                        echo '<span class="list-group-item"><a href="'.HOME.'?pg=groups&id='.$row['ugr_gid'].'" ><i class="fas fa-users"></i> '.get_cate_name($row['ugr_gid']).'</a><span class="label label-info pull-right">'.$num .' نفر</span></span>';
                     } 
                     ?>
                 </div>

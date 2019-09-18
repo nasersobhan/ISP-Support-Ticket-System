@@ -17,12 +17,14 @@ $id = is_get('id');
     <div class="panel-body ">   
         
     
-    <?php if (is_get('id')) {
-    theme_pg_include('view');
+<?php 
+if (is_get('overtime')) {
+    theme_pg_include('overtime');
 }
 else {
-    theme_pg_include('add');
-} ?>
+    theme_pg_include('leave');
+} 
+?>
 
 
 </div>

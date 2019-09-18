@@ -38,8 +38,8 @@
           <input type="number" class="form-control col-md-4" name="lea_number" id="lea_number"> 
           <span class="col-md-1" ></span>
           <select name="lea_numtype" class="form-control col-md-4" >
-            <option value="day">روز</option>
-            <option value="hour">ساعت</option>
+            <option value="روز">روز</option>
+            <option value="ساعت">ساعت</option>
           </select>
         </td>
       </tr>
