@@ -490,3 +490,12 @@ function get_usersfromgroup($gid){
     $users = get_userList($dep, $site, $hrank);
     return $users;
   }
+
+
+
+  function get_unread_messages(){
+    global $dbase;
+    $uid = user_uid();
+    $where = ' WHERE mes_read=0 AND mes_status = 1 AND mes_tid='.$uid;
+    return $dbase->num_rows('SELECT mes_id FROM sob_message'. $where);
+  }

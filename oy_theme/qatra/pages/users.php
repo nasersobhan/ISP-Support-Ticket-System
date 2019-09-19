@@ -51,7 +51,7 @@ $view = true;
 
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">شماره تماس :</label>
-                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_phone'].'"' : ''; ?> autocomplete="off" oninvalid="setCustomValidity('شماره مبایل را این صورت بنویسید 0711111111')" pattern="07[0-9]{8}" required type="tel" class="form-control col-md-12" name="phone" id="phone">
+                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_phone'].'"' : ''; ?> autocomplete="off" oninvalid="setCustomValidity('شماره مبایل را این صورت بنویسید 0711111111')" pattern="[0-9]{9}([0-9]{1})?" required type="tel" class="form-control col-md-12" name="phone" id="phone">
                   </div>
   <?php if($edit==false) { ?>
                   <div class="form-group row">

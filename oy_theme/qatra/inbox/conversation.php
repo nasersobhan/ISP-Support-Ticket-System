@@ -24,24 +24,22 @@ $row = $rows[0];
 </div>
 <small><?php echo user_name_ex($row['mes_uid']) ?> در <?php echo $row['mes_time'] ?></small>
 </div>
-
+<form reset ajaxform id="replayMessage" action="<?php echo HOME.'?pg=inbox&send='.is_get('id') ?>" method="POST">
 <div class="pull-right col-md-12">
 <div class="messagebox messagebox-me">
-<form reset ajaxform id="replayMessage" action="<?php echo HOME.'?pg=inbox&send='.is_get('id') ?>" method="POST">
+
 <input name="to" type="hidden" value="u:<?php echo ($row['mes_uid']);?>">
     <div class="form-group row">
         <input name="title" class="form-control col-md-12" type="text" value="پاسخ: <?php echo ($row['mes_title']);?>">
     </div>
-  <br>
-    <div class="form-group">
+    <div class="form-group row">
         <textarea name="body" rows="4" class="form-control"></textarea>
     </div>
-</form>
 </div>
 
 
 </div>
 <div class="modal-footer">
-<button type="submit" class="btn btn-success">ارسال</button>
-</div>
+<button type="submit" class="btn btn-success btn-sm">ارسال</button>
 </form>
+</div>

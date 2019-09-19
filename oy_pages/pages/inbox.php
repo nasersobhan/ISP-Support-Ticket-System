@@ -7,13 +7,13 @@ $sizetype = ' '.(get_setting('sizetype'));
 //echo ($_GET['eoe']==1? EXOIL : IMOIL);
 $myhome = HOME.'?pg=inbox';
 //$datetype = get_setting('datetype');
-load_jsplug('bootstrap') ;
-class_include('jdatetime');
-load_jsplug('sdate') ;
+// load_jsplug('bootstrap') ;
+// class_include('jdatetime');
+// load_jsplug('sdate') ;
 
 load_jsplug('jquery-ui') ;
 load_jsplug('uicomplete') ;
-load_jsplug('form') ;
+load_jsplug('form');
 
 class_include('oy_message');
 

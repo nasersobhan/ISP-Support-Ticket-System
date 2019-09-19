@@ -1,6 +1,7 @@
 <?php 
 $title=''; global $dbase;
 $customer = FALSE;
+$edit = FALSE;
 if(is_get('cid')){
   $id = is_get('cid');
   $tbl = 'sob_customerinfo';
@@ -9,6 +10,15 @@ if(is_get('cid')){
       $title = 'نصب جدید مشتری '. $customer['cus_name'];
   } else {
     $customer = FALSE;
+  }
+}
+if(is_get('eid')) {
+  $pid = is_get('eid');
+  $tbl = 'sob_tickets';
+  $ticket = $dbase->tbl2array2($tbl,'*',' WHERE tic_id='.$pid)[0];
+  if (count($ticket)) {
+    $title = $ticket['tic_title'];
+    $edit = TRUE;
   }
 }
 ?>
@@ -41,7 +51,7 @@ if(is_get('cid')){
           <label for="tic_cid" title="بسیار عالی" class="control-label tip">شناسه مشتری :</label>
         </td>
         <td>
-          <input type="text" class="form-control col-md-12" name="tic_cid" id="tic_cid">
+          <input type="text" <?php echo ($edit ? 'value="'.$ticket['tic_cid'].'"' : ''); ?> class="form-control col-md-12" name="tic_cid" id="tic_cid">
         </td>
       </tr>
    
@@ -53,9 +63,12 @@ if(is_get('cid')){
           <select class="form-control col-md-12" name="tic_category">  
           <?php
              $oild =  cat_2arr_l('tickets',0,'fa_AF');
-             //$koo_now = get_imp_koo();
-             $selected = ''; //($koo_now==$id ? 'selected' : '')
+             $koo_now=0;
+             if($edit)
+              $koo_now = $ticket['tic_category'];
+             
             foreach($oild as $id => $label){
+                $selected = ($koo_now==$id ? 'selected' : '');
                  echo '<option '.$selected.' value="'.$id.'">'.$label.'</option>';
             }
             ?>
@@ -72,9 +85,12 @@ if(is_get('cid')){
                
           <?php
              $oild =  cat_2arr_l('priority',0,'fa_AF');
-             //$koo_now = get_imp_koo();
-             $selected = ''; //($koo_now==$id ? 'selected' : '')
+             $koo_now=0;
+             if($edit)
+             $koo_now = $ticket['tic_priority'];
+             
             foreach($oild as $id => $label){
+              $selected = ($koo_now==$id ? 'selected' : '');
                  echo '<option '.$selected.' value="'.$id.'">'.$label.'</option>';
             }
             ?>
@@ -88,7 +104,7 @@ if(is_get('cid')){
           <label for="tic_body" class="control-label">توضیح:</label>
         </td>
         <td>
-        <textarea name="tic_body" class="form-control autogrow" rows="5"></textarea>
+        <textarea name="tic_body" class="form-control autogrow" rows="5"><?php echo ($edit ? $ticket['tic_body'] : ''); ?></textarea>
         </td>
       </tr>
       <?php if(!$customer){ ?>

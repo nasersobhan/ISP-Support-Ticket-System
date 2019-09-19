@@ -57,16 +57,7 @@
                             <li><a href="?pg=impexp"><span><i class="fa fa-list-ol Pull-left" aria-hidden="true"></i> <?php e_lbl('list'); ?></span></a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-usd" aria-hidden="true"></i> فروشات<?php //e_lbl('financial'); ?></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="?pg=mexp&eoe=1"><span>پرداخت پول از دخل</span></a></li>
-                            <li><a href="?pg=mexp&eoe=2"><span>&#1583;&#1585;&#1740;&#1575;&#1601;&#1578; &#1662;&#1608;&#1604; &#1576;&#1607; &#1583;&#1582;&#1604;</span></a></li>
-                            <li><a href="?pg=mexp&eoe=5"><span> &#1662;&#1585;&#1583;&#1575;&#1582;&#1578; &#1662;&#1608;&#1604; &#1605;&#1578;&#1601;&#1585;&#1602;&#1607;</span></a></li>
-                            <li><a href="?pg=mexp&eoe=7"><span>&#1583;&#1585;&#1740;&#1575;&#1601;&#1578; &#1662;&#1608;&#1604; &#1605;&#1578;&#1601;&#1585;&#1602;&#1607;</span></a></li>
-                            <li><a href="?pg=mexp"><span> لیست پول </span></a></li>
-                        </ul>
-                    </li>
+        
 
                    
 
@@ -148,27 +139,14 @@
             <li class="divider"></li>
             <li><a href="#">وضعیت کارمندی <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
             <li class="divider"></li>
-            <li><a href="<?php echo get_link('inbox'); ?>">پیامها <span class="badge pull-right"> 42 </span></a></li>
+            <li><a href="<?php echo get_link('inbox'); ?>">پیامها <span class="badge pull-right"> <?php echo get_unread_messages();  ?> </span></a></li>
             <li class="divider"></li>
-            <li><a href="#">انجام شدنیها <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+            <li><a href="<?php echo get_link('todo'); ?>">انجام شدنیها <span class="glyphicon glyphicon-heart pull-right"></span></a></li>
             <li class="divider"></li>
             <li><a href="<?php echo HOME ?>?pg=account&user=signout">خروج <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
           </ul>
         </li>
-      <li>
-          <a id="messagebox" href="<?php echo HOME.'?pg=inbox#Unread'?>">
-            <?php 
-            global $dbase;
-            $uid = user_uid();
-$where = ' WHERE mes_read=0 AND mes_status = 1 AND mes_tid='.$uid;
-$numb = $dbase->num_rows('SELECT mes_id FROM sob_message'. $where);
-    if($numb)
-        echo '<span class="red-att "><i class="fas fa-envelope"></i><sup id="notnumbers" class="blink bold"> '. $numb .' </sup></span>';
-    else
-        echo '<i class="far fa-envelope"></i>';
-?>
-          </a>
-        </li>
+
 
       <li class="dropdown">
           <a id="notifications" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="far fa-bell"></i></a>
