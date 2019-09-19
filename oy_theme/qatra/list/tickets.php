@@ -6,8 +6,12 @@
                 <h3 class="panel-title">لیست تکتها</h3>
             </div>
             <div  class="panel-body "> 
-
+            <?php $message = get_message(false);
+            if($message){
+                echo '<div class="alert alert-info" role="alert">'.$message.'</div>';
+            } ?>
             <div class="well">
+            
             </div>  
                 <table class="table table-borderd">
                     <tr>
@@ -30,7 +34,7 @@
                         echo '<td class="text-center">
                                     <a href="'.get_link('ticket','id',$row['tic_id']).'"><i class="fas fa-eye"></i></a>
                                     <a data-toggle="modal" data-target="#Uni-modal"   href="'.HOME.'?pg=ticket&eid=' . $row['tic_id'] . ' #mainticket"><i class="fas fa-edit"></i></a> 
-                                    <a class="text-danger" href=""><i class="fas fa-minus-square"></i></a>
+                                    <a class="text-danger" href="'.HOME.'?pg=ticket&delete='. $row['tic_id'] .'"><i class="fas fa-minus-square"></i></a>
                               </td>';
                         echo '</tr>';
                     }

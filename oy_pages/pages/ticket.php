@@ -3,9 +3,13 @@ loginrequired();
 global $dbase;
 $tbl = 'sob_tickets';
 
-
-
-if(is_get('add')){
+if (is_get('delete')) {
+    $id = is_get('delete');
+    if ($dbase->RowUpdate($tbl, ['tic_status' => 100], "WHERE tic_id=".$id)) {
+        set_message('حذف شد.');
+        redirect_to(HOME.'?pg=list');
+    }
+}elseif(is_get('add')){
 
     $data = $_POST;
     if(is_get('cid')){

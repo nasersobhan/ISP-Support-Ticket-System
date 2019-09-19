@@ -54,7 +54,7 @@
                             <li><a href="<?php echo get_link('ticket'); ?>"><span><i class="fa fa-share Pull-left" aria-hidden="true"></i>ایجاد تکت</span></a></li>
 
 
-                            <li><a href="?pg=impexp"><span><i class="fa fa-list-ol Pull-left" aria-hidden="true"></i> <?php e_lbl('list'); ?></span></a></li>
+                            <li><a href="?pg=list"><span><i class="fa fa-list-ol Pull-left" aria-hidden="true"></i> <?php e_lbl('list'); ?></span></a></li>
                         </ul>
                     </li>
         

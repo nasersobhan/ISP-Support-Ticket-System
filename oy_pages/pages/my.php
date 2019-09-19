@@ -1,5 +1,5 @@
 <?php
-
+loginrequired();
 load_jsplug('jquery-ui') ;
 load_jsplug('uicomplete') ;    
 load_jsplug('form');
