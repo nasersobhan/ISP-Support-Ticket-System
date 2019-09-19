@@ -499,3 +499,94 @@ function get_usersfromgroup($gid){
     $where = ' WHERE mes_read=0 AND mes_status = 1 AND mes_tid='.$uid;
     return $dbase->num_rows('SELECT mes_id FROM sob_message'. $where);
   }
+
+  
+  
+function pagination_local($total, $per_page = 10, $page = 1, $url = '?'){
+    global $dbase;
+    //$query = "SELECT COUNT(*) as `num` FROM {$query}";
+    // $row = $dbase->fetch_array($quer);
+    //$total = $dbase->num_rows($query);
+    $adjacents = "2";
+    $prevlabel = "&laquo; قبلی";
+    $nextlabel = "بعدی &raquo;";
+    $lastlabel = "آخرین &rsaquo;&rsaquo;";
+    $page = ($page == 0 ? 1 : $page);
+    $start = ($page - 1) * $per_page;
+    $prev = $page - 1;
+    $next = $page + 1;
+    $lastpage = ceil($total / $per_page);
+    $lpm1 = $lastpage - 1; // //last page minus 1
+    $pagination = "";
+    //if(is_get('page'))
+    $url = remove_querystring_var($url, 'page');
+  //$str = preg_replace('/\bblank$/', '', $str);
+
+        $prx_url='&';
+    
+    
+    if($lastpage > 1){
+        $pagination .= "<ul class=\"pagination\" style=\"margin:0; padding:0\">";
+        // $pagination .= "<li class='next'>Page {$page} of {$lastpage}</li>";
+        if($page > 1)
+            $pagination.= "<li><a href='{$url}{$prx_url}page={$prev}'>{$prevlabel}</a></li>";
+        if($lastpage < 7 + ($adjacents * 2)){
+            for($counter = 1; $counter <= $lastpage; $counter++){
+                if($counter == $page)
+                    $pagination.= "<li class=\"active\"><a >{$counter}</a></li>";
+                else{
+                    if($counter == 1)
+                        $pagination.= "<li><a href='{$url}'>{$counter}</a></li>";
+                    else
+                        $pagination.= "<li><a href='{$url}{$prx_url}page={$counter}'>{$counter}</a></li>";
+                }
+            }
+        } elseif($lastpage > 5 + ($adjacents * 2)){
+            if($page < 1 + ($adjacents * 2)){
+                for($counter = 1; $counter < 4 + ($adjacents * 2); $counter++){
+                    if($counter == $page)
+                        $pagination.= "<li class=\"active\"><a >{$counter}</a></li>";
+                    else
+                        $pagination.= "<li><a href='{$url}{$prx_url}page={$counter}'>{$counter}</a></li>";
+                }
+              //  $pagination.= "<li class='dot'>...</li>";
+                $pagination.= "<li><a href='{$url}{$prx_url}page={$lpm1}'>{$lpm1}</a></li>";
+                $pagination.= "<li><a href='{$url}{$prx_url}page={$lastpage}'>{$lastpage}</a></li>";
+            } elseif($lastpage - ($adjacents * 2) > $page && $page > ($adjacents * 2)){
+                $pagination.= "<li><a href='{$url}'>1</a></li>";
+                $pagination.= "<li><a href='{$url}{$prx_url}page=2'>2</a></li>";
+               // $pagination.= "<li class='dot'>...</li>";
+                for($counter = $page - $adjacents; $counter <= $page + $adjacents; $counter++){
+                    if($counter == $page)
+                        $pagination.= "<li class=\"active\"><a >{$counter}</a></li>";
+                    else
+                        $pagination.= "<li><a href='{$url}{$prx_url}page={$counter}'>{$counter}</a></li>";
+                }
+               // $pagination.= "<li class=\"active\">..</li>";
+                $pagination.= "<li><a href='{$url}{$prx_url}page={$lpm1}'>{$lpm1}</a></li>";
+                $pagination.= "<li><a href='{$url}{$prx_url}page={$lastpage}'>{$lastpage}</a></li>";
+            } else{
+                $pagination.= "<li><a href='{$url}'>1</a></li>";
+                $pagination.= "<li><a href='{$url}{$prx_url}page=2'>2</a></li>";
+               // $pagination.= "<li class='dot'>..</li>";
+                for($counter = $lastpage - (2 + ($adjacents * 2)); $counter <= $lastpage; $counter++){
+                    if($counter == $page)
+                        $pagination.= "<li class=\"active\"><a>{$counter}</a></li>";
+                    else
+                        $pagination.= "<li><a href='{$url}{$prx_url}page={$counter}'>{$counter}</a></li>";
+                }
+            }
+        }
+        if($page < $counter - 1){
+            $pagination.= "<li><a href='{$url}{$prx_url}page={$next}'>{$nextlabel}</a></li>";
+           // $pagination.= "<li><a href='{$url}{$prx_url}page=$lastpage'>{$lastlabel}</a></li>";
+        }
+        $pagination.= "</ul>";
+    }
+    if(DYNAMIC_URL){
+        $pagination = str_replace('&page=', '/page/', $pagination);
+        $pagination = str_replace('?page=', '/page/', $pagination);
+        return $pagination;
+    }else
+        return $pagination;
+}

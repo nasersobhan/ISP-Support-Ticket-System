@@ -12,6 +12,12 @@ $_LANG['dep']='دیپارتمنت';
 $_LANG['site']='سایت';
 
 
+$_LANG['page']='صفحه';
+$_LANG['pages']='صفحات';
+$_LANG['next']='بعدی';
+$_LANG['pervious']='قبلی';
+$_LANG['first']='اول';
+$_LANG['last']='آخر';
 
 $_LANG['dir']='lang_rtl';
 $_LANG['txt-al']='text-right';

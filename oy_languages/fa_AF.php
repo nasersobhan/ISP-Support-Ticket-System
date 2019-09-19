@@ -13,6 +13,10 @@ $_LANG['tickettags']='وضعیت';
 $_LANG['leavetypes']='نوع رخصتی';
 
 
+//pageing
+$_LANG['pervious']='قبلی';
+$_LANG['next']='بعدی';
+$_LANG['last']='آخرین';
 
 $_LANG['jobtitle']='عنوان کاری';
 $_LANG['add']='اضافه کردن';

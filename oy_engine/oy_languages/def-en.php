@@ -75,12 +75,12 @@ $_LANG['author']='Author';
 
 
 //pageing
-$_LANG['page']='Page';
-$_LANG['pages']='Pages';
-$_LANG['next']='Next';
-$_LANG['pervious']='Pervious';
-$_LANG['first']='First';
-$_LANG['last']='Last';
+$_LANG['page']='صفحه';
+$_LANG['pages']='صفحات';
+$_LANG['next']='بعدی';
+$_LANG['pervious']='قبلی';
+$_LANG['first']='اول';
+$_LANG['last']='آخر';
 
 
 //pages

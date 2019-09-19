@@ -6,7 +6,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+$_LANG['page']='صفحه';
+$_LANG['pages']='صفحات';
+$_LANG['next']='بعدی';
+$_LANG['pervious']='قبلی';
+$_LANG['first']='اول';
+$_LANG['last']='آخر';
 function r_lbl($label,$LANG='X'){
     global $_LANG;
     $SK = UKEY;
