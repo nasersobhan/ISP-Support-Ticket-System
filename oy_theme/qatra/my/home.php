@@ -108,7 +108,7 @@ $dep = user_dep();
             <div class="panel panel-default">
                 <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a>
+                    <a href="<?Php echo HOME. '?pg=list' ?>">
                    تکتهای فعال
                     </a>
                 </h4>
