@@ -9,9 +9,9 @@ if (is_get('add')) {
     $data['tod_uid'] = $uid;
     $data['tod_groupshare'] = (is_post('group') ?: 0);
     
-    $data['tod_edate'] = is_post('edate');
-    $data['tod_note'] = is_post('note');
-    $data['tod_level'] = is_post('level');
+    // $data['tod_edate'] = is_post('edate');
+    $data['tod_note'] = (is_post('note') ?: ''); 
+    $data['tod_level'] = (is_post('level') ?: 0); 
     $data['tod_type'] = (is_post('type') ?: 'user');
     if ($dbase->RowInsert($tbl, $data)) {
         if($data['tod_groupshare']) {
