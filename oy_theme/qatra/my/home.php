@@ -161,7 +161,7 @@ $dep = user_dep();
 
                     foreach($rows as $row){
                         $level = '';
-                        if($row['tod_level']==1){
+                        if($row['tod_level']== '1'){
                             $level = '<span class="label label-default">کم اهمیت</span> ';
                         }elseif($row['tod_level']==2) {
                             $level = '<span class="label label-danger">مهم</span> ';

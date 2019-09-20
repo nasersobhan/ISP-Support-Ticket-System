@@ -122,7 +122,7 @@
                         echo '<td class="text-center">
                                     <a href="'.get_link('ticket','id',get_tic_id()).'"><i class="fas fa-eye"></i></a>
                                     <a data-toggle="modal" data-target="#Uni-modal"   href="'.HOME.'?pg=ticket&eid=' . get_tic_id() . ' #mainticket"><i class="fas fa-edit"></i></a> 
-                                    <a class="text-danger" href="'.HOME.'?pg=ticket&delete='. get_tic_id() .'"><i class="fas fa-minus-square"></i></a>
+                                    <a confmsg="آیا مطمئن هستید این تکت را حذف میکنید؟"  class="text-danger" href="'.HOME.'?pg=ticket&delete='. get_tic_id() .'"><i class="fas fa-minus-square"></i></a>
                               </td>';
                         echo '</tr>';
                     ?>
