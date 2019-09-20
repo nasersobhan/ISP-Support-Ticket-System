@@ -278,6 +278,18 @@ $(document).on('click', '.hider', function(e){
   });
 });
 
+
+$(document).on('click', 'a[confmsg]', function(e){
+  var conf = $this.attr('confmsg');
+  if (typeof conf !== typeof undefined && conf !== false){
+   var resultcon = confirm(conf);
+   if (!resultcon) {
+     return false;
+   }
+
+  }
+
+});
 $(document).on('click', '.btn-ajax', function(e){
     var $this = $(this);
      urlx = $this.attr( "url" );
