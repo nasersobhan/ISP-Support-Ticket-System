@@ -170,7 +170,7 @@
 
 
 
-   <div class="panel panel-default col-md-6" >
+   <div class="panel panel-default col-md-8" >
     
    
 
