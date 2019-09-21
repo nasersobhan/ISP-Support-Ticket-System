@@ -5,7 +5,7 @@ $edit = FALSE;
 if(is_get('cid')){
   $id = is_get('cid');
   $tbl = 'sob_customerinfo';
-  $customer = $dbase->tbl2array2($tbl,'*',' WHERE cus_id='.$id)[0];
+  $customer = $dbase->tbl2array2($tbl,'*'," WHERE cus_cid='{$id}'")[0];
   if (count($customer)) {
       $title = 'نصب جدید مشتری '. $customer['cus_name'];
   } else {

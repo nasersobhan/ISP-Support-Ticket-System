@@ -78,35 +78,14 @@
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <a id="customer-info" data-id="<?php echo $customer['cus_id']; ?>" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
           مشخصات مشتری
         </a>
       </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-      <table class="table">
-            <tr>
-                <th>نام</th>
-                <td><?php echo $customer['cus_name']; ?></td>
-            </tr>
-            <tr>
-                <th>تماس</th>
-                <td><?php echo $customer['cus_phone'].'  '.$customer['cus_phone2']; ?></td>
-            </tr>
-            <tr>
-                <th>تاریخ شروع</th>
-                <td><?php echo $customer['cus_sdate']; ?></td>
-            </tr>
-            <tr>
-                <th>پهنای باند</th>
-                <td><?php echo $customer['cus_bw']; ?></td>
-            </tr>
-            <tr>
-                <th>تاریخ فعال</th>
-                <td><?php echo $customer['cus_sdate']; ?></td>
-            </tr>
-        </table>
+      <div id="customer-infobox" class="panel-body">
+      در حال اجراء
       </div>
     </div>
   </div>

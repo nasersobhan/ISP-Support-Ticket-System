@@ -163,44 +163,34 @@ $(document).on('click', '#respn1', function(e){
 
 
 
-$(function(){
- //$( "#pl-list" ).hide();
-$( "#pl-shower" ).click(function() {
-  $( "#pl-list" ).toggle( "slow", function() {
+// $(function(){
+//  //$( "#pl-list" ).hide();
+// $( "#pl-shower" ).click(function() {
+//   $( "#pl-list" ).toggle( "slow", function() {
    
-    $this = $('#pl-shower > i');
-    if($this.hasClass('glyphicon-triangle-bottom')) 
-        $this.removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-top');
-    else 
-        $this.removeClass('glyphicon-triangle-top').addClass('glyphicon-triangle-bottom');
+//     $this = $('#pl-shower > i');
+//     if($this.hasClass('glyphicon-triangle-bottom')) 
+//         $this.removeClass('glyphicon-triangle-bottom').addClass('glyphicon-triangle-top');
+//     else 
+//         $this.removeClass('glyphicon-triangle-top').addClass('glyphicon-triangle-bottom');
 	
     
     
-    //$('#pl-shower > small').html(
-          //  text == 'glyphicon-triangle-bottom' ? '<i class="glyphicon glyphicon-triangle-top"></i>' : '<i class="glyphicon glyphicon-triangle-bottom"></i>');
+//     //$('#pl-shower > small').html(
+//           //  text == 'glyphicon-triangle-bottom' ? '<i class="glyphicon glyphicon-triangle-top"></i>' : '<i class="glyphicon glyphicon-triangle-bottom"></i>');
   
-  });
-  //$( $this ).toggle( "slow", function() {
+//   });
+//   //$( $this ).toggle( "slow", function() {
    
- // });
+//  // });
  
 
-});
+// });
 
 
 
 $(document).ready(function() {
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
+  
     
 var panels=localStorage.panels === undefined ? new Array() : JSON.parse(localStorage.panels); //get all panels
     for (var i in panels){ //<-- panel is the name of the cookie
@@ -280,7 +270,9 @@ $(document).on('click', '.hider', function(e){
 
 
 $(document).on('click', 'a[confmsg]', function(e){
-  var conf = $this.attr('confmsg');
+  console.log('ere');
+
+  var conf = $(this).attr('confmsg');
   if (typeof conf !== typeof undefined && conf !== false){
    var resultcon = confirm(conf);
    if (!resultcon) {
@@ -290,6 +282,7 @@ $(document).on('click', 'a[confmsg]', function(e){
   }
 
 });
+
 $(document).on('click', '.btn-ajax', function(e){
     var $this = $(this);
      urlx = $this.attr( "url" );
@@ -298,30 +291,26 @@ $(document).on('click', '.btn-ajax', function(e){
      var source = $this.attr('data-source');
      var selector = $this.attr('data-selector');
 
-     var conf = $this.attr('confmsg');
-     if (typeof conf !== typeof undefined && conf !== false){
-      var resultcon = confirm(conf);
-      if (!resultcon) {
-        return false;
-      }
 
-     }
 
-    var posting = $.post( urlx, datax  );
-    posting.done(function( data ) {
-    //var content = data;// $(data).find( "#content" );
-    $this.addClass( "btn-success" );
+     var posting = $.post( urlx, datax );
+     posting.done(function( data ) {
+      $this.addClass( "btn-success" );
+       //var content = data;// $(data).find( "#content" );
+       if (typeof noreturn === typeof undefined || noreturn === false) {
+         alert_msg(data,'success', $this);
+       }
+ 
     
-    alert_msg(data,'success');
-
-    if (typeof source !== typeof undefined && source !== false && typeof selector !== typeof undefined && selector !== false) {
-      $(selector).load(source);
-      $(selector).addClass('highlighted');
-      setTimeout(function(){
-              $(selector).removeClass('highlighted');
-          }, 1600);
-    }
-    
+       if (typeof source !== typeof undefined && source !== false && typeof selector !== typeof undefined && selector !== false) {
+         $(selector).load(source);
+         $(selector).addClass('highlighted');
+         setTimeout(function(){
+                 $(selector).removeClass('highlighted');
+             }, 1600);
+       }
+    });
+ 
 //    
 //    
 //    
@@ -339,7 +328,6 @@ $(document).on('click', '.btn-ajax', function(e){
  });
 	
         
-})
 
 
 
@@ -347,9 +335,6 @@ $(document).on('click', '.btn-ajax', function(e){
 
 
 
-
-
-});
 
 
 $('#notify').click(function() {

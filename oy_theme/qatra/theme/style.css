@@ -35,7 +35,7 @@ select,input{
 	font-size:12px;
 }
 a{color:#004167;}			
-a:hover{color: rgba(51,102,51,1);
+a:hover{color: #DFB602;
     text-decoration:none; }				
 				
 /*TOP MENU*/
@@ -244,8 +244,7 @@ input[type=text],input[type=email],input[type=number],select{
     -moz-box-shadow: 0px 2px 3px -4px rgba(0,0,0,0.75);
     box-shadow: 0px 2px 3px -4px rgba(0,0,0,0.75);
 }
-.bs-callout a:hover{
-}
+
 .bs-callout h4 {
     margin-top: 0;
     margin-bottom: 5px;

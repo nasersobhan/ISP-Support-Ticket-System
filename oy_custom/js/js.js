@@ -439,4 +439,16 @@ $("body").on( "click", '.show-hider', function() {
    
 });
 
+$("body").one( "click", '#customer-info', function() {
+    var cid = $(this).data('id');
+    $('#customer-infobox').load(homeURL + '/?pg=customer&id=' + cid + ' #tablebox', function(responseTxt, statusTxt, xhr){
+        // if(statusTxt == "success")
+        //   $(this).attr('id','customer-info-loaded')
+        if(statusTxt == "error")
+          alert("Error: " + xhr.status + ": " + xhr.statusText);
+      });
+});
+
+
+
 

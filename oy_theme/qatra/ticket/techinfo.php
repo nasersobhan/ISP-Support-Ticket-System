@@ -20,11 +20,6 @@
         <th colspan="2">مشخصات مشتری</th>
     </tr>
 
-    <tr>
-        <td>شناسه مشتری:</td>
-        <td><input type="text" class="form-control input-sm col-md-12" name="cus_cid" value="<?php echo $customer['cus_cid']; ?>" id="cus_cid"></td>
-    </tr>
-
 
     <tr>
         <td>PPPoE نام:</td>
@@ -47,32 +42,6 @@
         <td><input type="date" class="form-control input-sm col-md-12" name="cus_activedate" value="<?php echo $customer['cus_activedate']; ?>" id="cus_activedate"></td>
     </tr>
 
-<?php if($row['tic_type']==1) {?>
-    <tr class="info">
-        <th colspan="2">وسایل استفاده شده</th>
-    </tr>
-
-    <tr>
-        <td>آنتن:</td>
-        <td><input type="text" class="form-control input-sm col-md-12" name="cus_usedantenna" value="<?php echo $customer['cus_usedantenna']; ?>" id="cus_usedantenna"></td>
-    </tr>
-
-
-    <tr>
-        <td>روتر:</td>
-        <td><input type="text" class="form-control input-sm col-md-12" name="cus_usedrouter" value="<?php echo $customer['cus_usedrouter']; ?>" id="cus_usedrouter"></td>
-    </tr>
-
-    <tr>
-        <td>کابل:</td>
-        <td><input type="text" class="form-control input-sm col-md-12" name="cus_usedcable" value="<?php echo $customer['cus_usedcable']; ?>" id="cus_usedcable"></td>
-    </tr>
-
-    <tr>
-        <td>RJ:</td>
-        <td><input type="text" class="form-control input-sm col-md-12" name="cus_usedjs" value="<?php echo $customer['cus_usedjs']; ?>" id="cus_usedjs"></td>
-    </tr>
-<?Php } ?>
 
     <tr class="info">
         <th colspan="2">مشخصات تخنیکی</th>

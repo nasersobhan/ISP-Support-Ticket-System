@@ -74,16 +74,17 @@ $id = is_get('id');
 <div class="col-md-8">
     <div class="panel panel-default" >
 
-    <div class="panel-body ">   
-        
+    <div  class="panel-body ">   
+    <div id="main-content">   
     
-    <?php if (is_get('id')) {
-    theme_include('inbox/conversation');
+<?php 
+    if (is_get('id')) {
+    theme_pg_include('view');
 }
 else {
-    theme_include('customer/add');
+    theme_pg_include('add');
 } ?>
-
+</div>
 
 </div>
 

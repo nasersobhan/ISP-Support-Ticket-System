@@ -16,6 +16,7 @@ $dep = user_dep();
                     <a>
                    موارد قابل توجه
                     </a>
+                    <a href="<?Php echo HOME. '?pg=list&list=customers' ?>" class="pull-right" ><i class="fas fa-list"></i></a>
                 </h4>
                 </div>
        
@@ -108,9 +109,10 @@ $dep = user_dep();
             <div class="panel panel-default">
                 <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a href="<?Php echo HOME. '?pg=list' ?>">
+                    <a >
                    تکتهای فعال
                     </a>
+                    <a href="<?Php echo HOME. '?pg=list' ?>" class="pull-right" ><i class="fas fa-list"></i></a>
                 </h4>
                 </div>
        
@@ -131,6 +133,7 @@ $dep = user_dep();
                 </div>
                 <div class = "panel-footer">
                 <button href="<?php echo HOME.'?pg=ticket #mainticket'; ?>" type="button" class="btn btn-theme btn-sm" data-toggle="modal" data-target="#Uni-modal" >تکت جدید</button>
+                <button href="<?php echo HOME.'?pg=customer #main-content'; ?>" type="button" class="btn btn-theme btn-sm" data-toggle="modal" data-target="#Uni-modal" >مشتری جدید</button>
                 </div>
                 
             </div>
@@ -145,9 +148,10 @@ $dep = user_dep();
             <div class="panel panel-default">
                 <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a href="<?Php echo HOME.'?pg=todo'; ?>">
+                    <a >
                      کارهای قابل اجرا
                     </a>
+                    <a href="<?Php echo HOME.'?pg=todo'; ?>" class="pull-right" ><i class="fas fa-list"></i></a>
                 </h4>
                 </div>
                 <span id="todolist">
@@ -203,9 +207,10 @@ $dep = user_dep();
             <div class="panel panel-default">
                 <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a href="<?Php echo HOME.'?pg=categories&t=groups'; ?>">
+                    <a >
                    گروپ هایکه شما شامل هستید
                     </a>
+                    <a href="<?Php echo HOME.'?pg=categories&t=groups'; ?>" class="pull-right" ><i class="fas fa-list"></i></a>
                 </h4>
                 </div>
        
@@ -237,6 +242,8 @@ $dep = user_dep();
                 <h4 class="panel-title">
                     <a>
 آخرین پیامها                    </a>
+        <a href="<?php echo HOME.'?pg=inbox '; ?>" class="pull-right" ><i class="fas fa-list"></i></a>
+
                 </h4>
                 </div>
        
@@ -300,7 +307,7 @@ $dep = user_dep();
                 <a href="'.HOME.'?pg=users&vu=1&eid='. $row['sob_id'].' #main-form" data-toggle="modal" data-target="#Uni-modal" class="tip" title="نمایش کارت"><i class="fas fa-id-card"></i></a>&nbsp;
                 <a href="'.HOME.'?pg=inbox&toid=u:'. $row['sob_id'].' #addbox"  data-toggle="modal" data-target="#Uni-modal" class="tip" title="ارسال پیام خصوصی"><i class="far fa-envelope"></i></a>
                 
-                <a class="tip btn-ajax" data-id="user' . $row['sob_id'] . '"
+                <a class="tip btn-ajax" data="user=' . $row['sob_id'] . '"
         confmsg="آیا مطمئن هستید این کاربر را حذف میکنید؟" 
         data-source="'.HOME.'?pg=my #in-userlist" 
         data-selector="#userlist" title="حذف کاربر"
