@@ -84,7 +84,7 @@
       </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div id="customer-infobox" class="panel-body">
+      <div id="customer-infobox" >
       در حال اجراء
       </div>
     </div>

@@ -37,17 +37,18 @@ $_LANG['hr']='منابع بشری';
 $_LANG['enteraccountname']='لطفا نام حساب را بنویسید!';
 
 //header
-$_LANG['dashborad']='آمار کلی';
 
-$_LANG['buysell']='خرید روغنیات / فروش';
-    $_LANG['sell']='فروش';
-    $_LANG['buy']='خرید';
-    $_LANG['list']='لیست';
-$_LANG['financial']='مالی';
-$_LANG['reports']='گزارشات';
-$_LANG['users']='کاربران';
-$_LANG['manage']='مدیریت';
-$_LANG['users']='کاربران';
+$_LANG['accesshistory']='فعالیت های';
+$_LANG['save']='ثبت';
+$_LANG['currentpass']='پسورد فعلی';
+$_LANG['renewemail']='تکرار ایمیل';
+$_LANG['newemail']='ایمیل جدید';
+$_LANG['changeemail']='تغییر ایمیل';
+$_LANG['newpass']='پسورد جدید';
+
+$_LANG['renewpass']='تکرار پسورد';
+$_LANG['changepass']='تغییر پسورد';
+
 
 //accounts page
 $_LANG['currency']='واحد ارزی';

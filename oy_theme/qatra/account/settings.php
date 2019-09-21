@@ -1,36 +1,13 @@
 <?php get_header(); ?>
 <div class="content-box">
-    <div class="sidex">
-<!--        <h4><?php echo get_pgtitle() ?></h4>
+    <div class="col-md-4">
 
-        -->
-        
-        
-        
-    
         <div class="panel panel-default" >
-    
-   
-
- 
                  <div class="panel-heading ">
-						<h3>
-                                                  <?php echo g_lbl('changepass'); ?>
-						</h3>
+						<h4> <?php echo g_lbl('changepass'); ?>	</h4>
 					</div>
 
-   
   <div class="panel-body ">                
- 
-
-      
-      
-      
-        
-        
-
-        
-        <!-- action="<?php //echo get_link('account','pwd','change') ?>" -->
     
 <form disabled class="form-horizontal " action="<?php echo get_link('account','pwd','change') ?>"   name="chng_pass" id="chng_pass" method="post" role="form" >
 
@@ -40,27 +17,26 @@
   
   
    <div class="form-group">
+   <label for="inputPassword3" class="col-sm-4 control-label"> <?php echo g_lbl('currentpass'); ?>: </label>
         <div class="col-sm-7">
-        <input type="password" class="form-control" required id="inputEmail3" name="oldpass">
+        <input type="password" class="form-control col-md-12" required id="inputEmail3" name="oldpass">
     </div>
-    <label for="inputPassword3" class="col-sm-4 control-label"> <?php echo g_lbl('currentpass'); ?>: </label>
-   
   </div>
  
  <div class="form-group">
-   
+ <label for="inputPassword3" class="col-sm-4 control-label"><?php echo g_lbl('newpass'); ?>: </label>
     <div class="col-sm-7">
-        <input type="password" class="form-control" required id="inputEmail3" name="newpass">
+        <input type="password" class="form-control col-md-12" required id="inputEmail3" name="newpass">
     </div>
-      <label for="inputPassword3" class="col-sm-4 control-label"><?php echo g_lbl('newpass'); ?>: </label>
+    
   </div>
  
      <div class="form-group">
-    
+     <label for="inputPassword3" class="col-sm-4 control-label"><?php echo g_lbl('renewpass'); ?>: </label>
     <div class="col-sm-7">
-        <input type="password" class="form-control" required id="inputEmail3" name="renewpass">
+        <input type="password" class="form-control col-md-12" required id="inputEmail3" name="renewpass">
     </div>
-         <label for="inputPassword3" class="col-sm-4 control-label"><?php echo g_lbl('renewpass'); ?>: </label>
+      
   </div>
  
        
@@ -68,7 +44,7 @@
    <div class="form-group">
     
     <div class="col-sm-12 ">
-    		<button type="submit" id="submit_btn" class="btn btn-success <?php echo g_lbl('otherside'); ?>"><?php echo g_lbl('save'); ?></button>&nbsp; &nbsp; &nbsp;
+    		<button type="submit" id="submit_btn" class="btn btn-success"><?php echo g_lbl('save'); ?></button>&nbsp; &nbsp; &nbsp;
         
        </div>
   </div>
@@ -78,15 +54,16 @@
  </div>
             
         </div>     
-                  <div class="panel panel-default" >
-    
-   
-
- 
+                 
+                 
+                 
+                 
+                 
+ <div class="panel panel-default" >
                  <div class="panel-heading ">
-						<h3>
+						<h4>
                                                 <?php echo g_lbl('changeemail'); ?>
-						</h3>
+						</h4>
 					</div>
 
    
@@ -102,25 +79,25 @@
   </div>
   
    <div class="form-group">
-   
+   <label for="inputPassword3" class="col-sm-4 control-label"><?php echo g_lbl('newemail'); ?>: </label>
     <div class="col-sm-7">
-        <input type="email" class="form-control" required id="inputEmail3" name="neweml">
-    </div> <label for="inputPassword3" class="col-sm-4 control-label"><?php echo g_lbl('newemail'); ?>: </label>
+        <input type="email" class="form-control col-md-12" required id="inputEmail3" name="neweml">
+    </div> 
   </div>
  
      <div class="form-group">
-   
+     <label for="inputPassword3" class="col-sm-4 control-label"><?php echo g_lbl('renewemail'); ?>: </label>
     <div class="col-sm-7">
-        <input type="email" class="form-control" required id="inputEmail3" name="reneweml">
-    </div> <label for="inputPassword3" class="col-sm-4 control-label"><?php echo g_lbl('renewemail'); ?>: </label>
+        <input type="email" class="form-control col-md-12" required id="inputEmail3" name="reneweml">
+    </div>
   </div>
  
         
    <div class="form-group">
- 
+   <label for="inputPassword3" class="col-sm-4 control-label"><?php echo g_lbl('currentpass'); ?>: </label>
     <div class="col-sm-7">
-        <input type="password" class="form-control" required id="inputEmail3" name="oldpass">
-    </div>   <label for="inputPassword3" class="col-sm-4 control-label"><?php echo g_lbl('currentpass'); ?>: </label>
+        <input type="password" class="form-control col-md-12" required id="inputEmail3" name="oldpass">
+    </div>  
   </div>
  
 
@@ -129,7 +106,7 @@
    <div class="form-group">
     
     <div class="col-sm-12 ">
-    		<button type="submit" id="submit_btn" class="btn btn-success <?php echo g_lbl('otherside'); ?>"><?php echo g_lbl('save'); ?></button>&nbsp; &nbsp; &nbsp;
+    		<button type="submit" id="submit_btn" class="btn btn-success"><?php echo g_lbl('save'); ?></button>&nbsp; &nbsp; &nbsp;
         
        </div>
   </div>
@@ -140,19 +117,11 @@
         
         
 
-    <span id="reportx" >
- <div  class="sidex  Pull-left">
+<!--  
+   <div class="panel panel-default col-md-4" >
 
-
-   <div class="panel panel-default" >
-    
-   
-
- 
                  <div class="panel-heading ">
-						<h3>
-                                                  <?php echo g_lbl('accountinfo'); ?>
-						</h3>
+						<h3><?php echo g_lbl('accountinfo'); ?></h3>
 					</div>
 
    
@@ -171,14 +140,14 @@
    <div class="form-group">
 
     <div class="col-sm-7">
-        <input type="text" class="form-control" value="<?php echo acc_info('name') ?>" required id="inputEmail3" name="myname">
+        <input type="text" class="form-control col-md-12" value="<?php echo acc_info('name') ?>" required id="inputEmail3" name="myname">
     </div>    <label for="inputPassword3" class="col-sm-4 control-label"><?php echo g_lbl('name'); ?>: </label>
   </div>
  
      <div class="form-group">
   
     <div class="col-sm-7">
-        <input type="text" class="form-control" value="<?php echo acc_info('phone') ?>" required id="inputEmail3" name="myphone">
+        <input type="text" class="form-control col-md-12" value="<?php echo acc_info('phone') ?>" required id="inputEmail3" name="myphone">
     </div>  <label for="inputPassword3" class="col-sm-4 control-label"><?php echo g_lbl('phone'); ?>: </label>
   </div>
  
@@ -190,30 +159,18 @@
    <div class="form-group">
     
     <div class="col-sm-12 ">
-    		<button type="submit" id="submit_btn" class="btn btn-success <?php echo g_lbl('otherside'); ?>"><?php echo g_lbl('save'); ?></button>&nbsp; &nbsp; &nbsp;
+    		<button type="submit" id="submit_btn" class="btn btn-success"><?php echo g_lbl('save'); ?></button>&nbsp; &nbsp; &nbsp;
         
        </div>
   </div>
 </form>
-    
-    
-    
       </div> 
-    
-    
-    
-   
-      
-        
-
-
-
   
+   </div> -->
 
 
-  
-   </div>
-   <div class="panel panel-default" >
+
+   <div class="panel panel-default col-md-6" >
     
    
 
