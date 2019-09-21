@@ -5,6 +5,7 @@ $uid = user_uid();
 $pfx_uid = 'u:'.$uid;
 $site = user_site();
 $dep = user_dep();
+$urank = user_rank();
 ?>
 <div id="mydash" class="content-box">
 <div id="rowone">
@@ -305,19 +306,19 @@ $dep = user_dep();
                 echo '<span data-id="' . $row['sob_id'] . '" id="user' . $row['sob_id'] . '" class="list-group-item">
                 <span class="todotitle">'.$row['sob_name'].' ('.$row['sob_title'].')</span>
                 <span class="pull-right">
-                <a href="'.HOME.'?pg=users&eid='. $row['sob_id'].' #main-form" data-toggle="modal" data-target="#Uni-modal" class="tip" title="ویرایش"><i class="fas fa-user-edit"></i></a>&nbsp;
+                
                 <a href="'.HOME.'?pg=users&vu=1&eid='. $row['sob_id'].' #main-form" data-toggle="modal" data-target="#Uni-modal" class="tip" title="نمایش کارت"><i class="fas fa-id-card"></i></a>&nbsp;
-                <a href="'.HOME.'?pg=inbox&toid=u:'. $row['sob_id'].' #addbox"  data-toggle="modal" data-target="#Uni-modal" class="tip" title="ارسال پیام خصوصی"><i class="far fa-envelope"></i></a>
+                <a href="'.HOME.'?pg=inbox&toid=u:'. $row['sob_id'].' #addbox"  data-toggle="modal" data-target="#Uni-modal" class="tip" title="ارسال پیام خصوصی"><i class="far fa-envelope"></i></a>';
+                if ($urank == 99) {
+                    echo '<a href="'.HOME.'?pg=users&eid='. $row['sob_id'].' #main-form" data-toggle="modal" data-target="#Uni-modal" class="tip" title="ویرایش"><i class="fas fa-user-edit"></i></a>&nbsp;
+                        <a class="tip btn-ajax" data="user=' . $row['sob_id'] . '"
+                        confmsg="آیا مطمئن هستید این کاربر را حذف میکنید؟" 
+                        data-source="'.HOME.'?pg=my #in-userlist" 
+                        data-selector="#userlist" title="حذف کاربر"
+                        url="'.HOME.'?pg=users&del='.$row['sob_id'].'"><i class="fa fa-user-times" aria-hidden="true"></i></a>';
+                }
                 
-                <a class="tip btn-ajax" data="user=' . $row['sob_id'] . '"
-        confmsg="آیا مطمئن هستید این کاربر را حذف میکنید؟" 
-        data-source="'.HOME.'?pg=my #in-userlist" 
-        data-selector="#userlist" title="حذف کاربر"
-        url="'.HOME.'?pg=users&del='.$row['sob_id'].'"><i class="fa fa-user-times" aria-hidden="true"></i></a>
-                
-                </span>
-                
-              </span>';
+                echo '</span></span>';
             } 
             ?>
         </div>

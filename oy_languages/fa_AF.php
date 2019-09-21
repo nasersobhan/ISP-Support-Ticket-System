@@ -37,7 +37,7 @@ $_LANG['hr']='منابع بشری';
 $_LANG['enteraccountname']='لطفا نام حساب را بنویسید!';
 
 //header
-
+$_LANG['users']='کاربران';
 $_LANG['accesshistory']='فعالیت های';
 $_LANG['save']='ثبت';
 $_LANG['currentpass']='پسورد فعلی';
