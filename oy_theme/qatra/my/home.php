@@ -279,13 +279,13 @@ $dep = user_dep();
     <div class="panel panel-default">
         <div class="panel-heading">
         <h4 class="panel-title">
-            <a>
+        <a href="<?php echo HOME.'?pg=users&eid='.$uid; ?> #main-form" data-toggle="modal" data-target="#Uni-modal" class="tip" title="ویرایش پروفایل خودم" ><i class="fas fa-user-edit"></i>   
             آخرین کاربران
             </a>
             <?php if(user_rank() == 99) { ?>
-            <a href="<?php echo HOME.'?pg=users '; ?> #main-form" data-toggle="modal" data-target="#Uni-modal" class="pull-right" ><i class="fas fa-user-plus"></i></a>
+            <a href="<?php echo HOME.'?pg=users '; ?> #main-form" data-toggle="modal" data-target="#Uni-modal" class="pull-right tip" title="ایجاد کاربر جدید" ><i class="fas fa-user-plus"></i></a>
             <?php } ?>
-            <a href="<?php echo HOME.'?pg=users&eid='.$uid; ?> #main-form" data-toggle="modal" data-target="#Uni-modal" class="pull-right" ><i class="fas fa-user-edit"></i></a>
+           
         </h4>
         </div>
      
