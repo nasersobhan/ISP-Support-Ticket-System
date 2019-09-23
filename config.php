@@ -8,7 +8,7 @@ define('PUNAME', 'info');
 //Query
 define('TBL_LIMITE', 20); ///need to get fixed
 //Optimization Configurations
-define('THEME', 'qatra');
+define('THEME', 'lte');
 define('DYNAMIC_URL', FALSE); ///need to get fixed
 define('ENVIRONMENT', 'development');
 

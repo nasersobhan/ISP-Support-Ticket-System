@@ -33,6 +33,14 @@ function user_rank($uid=''){
     return $ac->get_user_info('rank', $uid);
     }else return false;
 }
+function user_title($uid=''){
+    if(is_loggedin()){
+    global $ac;
+    if($uid=='')
+        $uid = user_uid();
+    return $ac->get_user_info('title', $uid);
+    }else return false;
+}
 
 function allowByrank($rank){
     if(is_loggedin()){

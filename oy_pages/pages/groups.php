@@ -9,8 +9,8 @@ if (is_get('id')) {
     load_jsplug('uicomplete') ;    
     load_jsplug('form');
     addjs(HOME . "oy_custom/js/groups.js");
-
-
+    $group_label = get_cate_name($id);
+    set_pgtitle('تیم: '.$group_label);
     theme_include('groups/index');
 } elseif (is_get('gid') && is_post('uid')) {
     if($dbase->check_duplicate_m($tbl, ' ugr_status=1 AND ugr_gid = '.is_get('gid').'  AND ugr_userid=' . is_post('uid')) == false){
