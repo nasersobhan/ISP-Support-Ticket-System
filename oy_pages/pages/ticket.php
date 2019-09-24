@@ -4,13 +4,14 @@ global $dbase;
 $tbl = 'sob_tickets';
 
 if (is_get('delete')) {
+    ifhave_premssion('ticket-manage');
     $id = is_get('delete');
     if ($dbase->RowUpdate($tbl, ['tic_status' => 100], "WHERE tic_id=".$id)) {
         set_message('حذف شد.');
         redirect_to(HOME.'?pg=list');
     }
 }elseif(is_get('add')){
-
+    ifhave_premssion('ticket-add');
     $data = $_POST;
     if(is_get('cid')){
         $data['tic_cid'] = is_get('cid');
@@ -39,6 +40,7 @@ if (is_get('delete')) {
     }
 }
 elseif(is_get('manage')){
+    ifhave_premssion('ticket-manage');
     $id = is_get('manage');
     $data = $_POST;
     if(isset($data['tic_assigned'])) {
@@ -91,7 +93,7 @@ elseif(is_get('manage')){
     }
 }
 else {
-
+    ifhave_premssion('ticket-view');
     load_jsplug('jquery-ui') ;
     load_jsplug('uicomplete') ;    
     load_jsplug('form');

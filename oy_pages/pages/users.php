@@ -63,6 +63,23 @@ if(is_get('view')){
         echo 'شما اجازه این کار را ندارید.';
     }
 
+}elseif(is_get('premissions')) {
+    $uid = is_get('premissions');
+    if(is_post('uid')){
+      
+        unset($_POST['uid']);
+        $dbase->RowDelete('sob_permissions'," WHERE per_uid={$uid}");  
+        foreach($_POST as $key => $value){
+            //echo $key.' '.$value;
+            $dbase->RowInsert('sob_permissions',['per_uid' => $uid, 'per_label' => $key, 'per_allow' => 1]);  
+        } 
+        set_message('سطح دسترسی این کاربر بروز شد.');
+        //print_r($_POST);
+    }
+        set_pgtitle('تنظیمات سطح دسترسی ' . user_name_ex($uid));
+        theme_pg_include('premissions'); 
+ 
+
 }else{
 
     set_pgtitle(g_lbl('adduser'));

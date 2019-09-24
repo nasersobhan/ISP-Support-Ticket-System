@@ -1,5 +1,5 @@
 <?php
-// loginrequired();
+loginrequired();
 allow_only(99);
 global $dbase,$curr,$sizetype;
 $curr = get_cate_name(get_setting('currency'));

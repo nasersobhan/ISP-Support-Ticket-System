@@ -6,7 +6,7 @@
  addjs(HOME . "oy_custom/js/groups.js");
  
 if(is_get('list')=='customers'){
-    
+    ifhave_premssion('customer-list');
     if(is_get('lim'))
         $max_num = is_get('lim');
     else
@@ -70,7 +70,7 @@ if(is_get('list')=='customers'){
     theme_pg_include('customers');
 
 } else {
-   
+    ifhave_premssion('ticket-list');
     if(is_get('lim'))
         $max_num = is_get('lim');
     else

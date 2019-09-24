@@ -134,14 +134,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        صفحه خالی
-        <small>آماده برای پروژه شما</small>
+        <?php get_pgtitle(); ?>
+        <small><?php get_pgdesc(); ?></small>
       </h1>
-      <ol class="breadcrumb">
+      <!-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
         <li><a href="#">مثال ها</a></li>
         <li class="active">صفحه خالی</li>
-      </ol>
+      </ol> -->
     </section>
 
 
@@ -154,6 +154,6 @@
 
   
         </div>
-        <div class="box-body">
+        <div id="main-box" class="box-body">
 
 

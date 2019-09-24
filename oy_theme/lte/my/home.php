@@ -183,11 +183,11 @@ $urank = user_rank();
                 </span>
 
                 <div class ="panel-footer text-center ">
-                <form method="post" action="<?php echo HOME ?>?pg=todo&add=go" 
+                <form ajaxform method="post" action="<?php echo HOME ?>?pg=todo&add=go" 
                     noreturn
                     data-source="<?php echo get_current_url(); ?> #in-todolist" 
                     data-selector="#todolist" 
-                    ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="addtodolist">
+                    reset name="add"  id="addtodolist">
                     <div class="input-group col-md-12">
                     <input placeholder="ایجاد جدید..." type="text" name="title" id="title" class="form-control input-sm" >  
                     </div>
@@ -269,7 +269,7 @@ $urank = user_rank();
 
                 <div class = "panel-footer">
    
-                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-theme btn-sm" href="<?Php echo HOME.'?pg=inbox'; ?> #addbox">ارسال پیام</a>
+                <a data-toggle="modal" data-target="#Uni-modal" class="btn btn-theme btn-sm" href="<?Php echo HOME.'?pg=inbox&add=1'; ?> #addbox">ارسال پیام</a>
                    
                 </div>
             </div>
@@ -321,7 +321,9 @@ $urank = user_rank();
                         confmsg="آیا مطمئن هستید این کاربر را حذف میکنید؟" 
                         data-source="'.HOME.'?pg=my #in-userlist" 
                         data-selector="#userlist" title="حذف کاربر"
-                        url="'.HOME.'?pg=users&del='.$row['sob_id'].'"><i class="fa fa-user-times" aria-hidden="true"></i></a>';
+                        url="'.HOME.'?pg=users&del='.$row['sob_id'].'"><i class="fa fa-user-times" aria-hidden="true"></i></a>&nbsp;';
+
+                       echo '<a href="'.HOME.'?pg=users&premissions='. $row['sob_id'].' #main-content" data-toggle="modal" data-target="#Uni-modal" class="tip" title="ویرایش سطح دسترسی"><i class="fas fa-user-lock"></i></a>';
                 }
                 
                 echo '</span></span>';

@@ -4,6 +4,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 ///User functions
 function user_uid(){
     global $ac;
@@ -39,6 +40,25 @@ function user_title($uid=''){
     if($uid=='')
         $uid = user_uid();
     return $ac->get_user_info('title', $uid);
+    }else return false;
+}
+
+
+function user_dep($uid=''){
+    if(is_loggedin()){
+    global $ac;
+    if($uid=='')
+        $uid = user_uid();
+    return $ac->get_user_info('dep', $uid);
+    }else return false;
+}
+
+function user_site($uid=''){
+    if(is_loggedin()){
+    global $ac;
+    if($uid=='')
+        $uid = user_uid();
+    return $ac->get_user_info('site', $uid);
     }else return false;
 }
 
@@ -251,11 +271,23 @@ function acc_info($value){
 
 
 function allow_only($type){
-    global $ac;
-    if(!$ac->is_allowed($type)){
-        echo 'Access Denied!';
-        exit();
+    if(is_array($type)){
+        foreach($type as $rank){
+            if(user_rank() != $rank)
+            oy_die('سطح دسترسی کامل نیست.');
+        }
     }
+    else {
+        if(user_rank() != $type)
+        oy_die('سطح دسترسی کامل نیست.');
+    }
+   
+
+    // global $ac;
+    // if(!$ac->is_allowed($type)){
+    //     echo 'Access Denied!';
+    //     exit();
+    // }
 }
 function get_userIP(){
     return $_SERVER['REMOTE_ADDR'];
@@ -323,4 +355,46 @@ function user_regtime(){
 function loginrequired(){
     global $ac;
     $ac->login_req();
+}
+
+
+
+function check_premission($label){
+    $uid = user_uid();
+    $rank = user_rank();
+    $dep = user_dep();
+    $allow = [];
+    if($rank == 99)
+        return true;
+    if($rank == 3){
+        if($dep == get_setting('techdep')){
+            $allow = ['ticket-add' , 'ticket-view', 'ticket-edit','ticket-list','ticket-manage','ticket-close'];
+        }
+        if($dep == get_setting('salesdep')){
+            $allow = ['customer-add' , 'customer-view', 'customer-edit','customer-list','customer-other','customer-manage'];  
+        }
+    }
+    elseif ($rank == 2){
+        if($dep == get_setting('techdep')){
+            $allow = ['ticket-add' , 'ticket-view', 'ticket-edit','ticket-list'];
+        }
+        if($dep == get_setting('salesdep')){
+            $allow = ['customer-add' , 'customer-view', 'customer-edit','customer-list'];  
+        }
+    }
+    if(in_array($label, $allow)){
+        return true;
+    }
+    global $dbase,$premissions;
+    if(isset($premissions[$label]))
+        return $premissions[$label];
+    else 
+        $premissions[$label] = intval($dbase->num_rows("SELECT * From sob_permissions WHERE per_label = '{$label}' AND per_uid={$uid}"));
+    
+   return ($premissions[$label] == 0 ? false : true);
+}
+
+function ifhave_premssion($label){
+    if(!check_premission($label))
+        oy_die('شما اجازه ندارید.');
 }

@@ -80,9 +80,13 @@ $id = is_get('id');
     <?php if (is_get('id')) {
     theme_include('inbox/conversation');
 }
-else {
+elseif(is_get('add')) {
     theme_include('inbox/add');
-} ?>
+}else {
+    theme_include('inbox/list'); 
+}
+
+?>
 
 </div>
 </div>

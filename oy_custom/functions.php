@@ -429,13 +429,13 @@ function toidlabel($id){
 }
 
 
-function user_site(){
-    return $_SESSION[UKEY]['site'];
-}
+// function user_site(){
+//     return $_SESSION[UKEY]['site'];
+// }
 
-function user_dep(){
-    return $_SESSION[UKEY]['dep'];
-}
+// function user_dep(){
+//     return $_SESSION[UKEY]['dep'];
+// }
 
 
 function get_usersfromgroup($gid){
