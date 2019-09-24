@@ -56,7 +56,8 @@ if(is_get('view')){
         $det['sob_site'] = is_post('site');
         $det['sob_phone'] = is_post('phone');
         $det['sob_title'] = is_post('title');
-
+        $det['sob_avatar'] = is_post('avatar');
+        
         $dbase->RowUpdate($tbl,$det, "WHERE sob_id=".$id);  
         echo 'ویرایش شد';
     } else {
@@ -83,7 +84,7 @@ if(is_get('view')){
 }else{
 
     set_pgtitle(g_lbl('adduser'));
-    theme_include('pages\users'); 
+    theme_pg_include('home'); 
     
 
 

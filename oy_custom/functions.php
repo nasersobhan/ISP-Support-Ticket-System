@@ -590,3 +590,11 @@ function pagination_local($total, $per_page = 10, $page = 1, $url = '?'){
     }else
         return $pagination;
 }
+
+
+function user_image($uid = false){
+    if($uid == false)
+    $uid = user_uid();
+    return HOME.'files/'.user_photo($uid);
+
+}

@@ -5,11 +5,11 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-right image">
-          <img src="<?php theme_path() ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo user_image() ?>" style="width:45px; height:45px;" class="img-circle" alt="User Image">
         </div>
         <div class="pull-right info">
           <p><?php echo user_name(); ?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> آنلاین</a>
+          <a href="#"><i class="fa fa-circle text-success"></i> <?php echo user_title(); ?></a>
         </div>
       </div>
       <!-- search form -->
@@ -34,78 +34,151 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php theme_path() ?>/index.html"><i class="fa fa-circle-o"></i> داشبرد اول</a></li>
-            <li><a href="<?php theme_path() ?>/index2.html"><i class="fa fa-circle-o"></i> داشبرد دوم</a></li>
+            <li class="active"><a href="<?php theme_path() ?>/index.html"><i class="fa fa-circle-o"></i> داشبرد راپور</a></li>
+            <li><a href="<?php echo HOME ?>"><i class="fa fa-circle-o"></i> داشبرد کاری</a></li>
+            <li><a href="<?php theme_path() ?>/index2.html"><i class="fa fa-circle-o"></i> داشبرد شخصی</a></li>
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
-            <span>لایه های صفحه</span>
+            <span>تکتها</span>
             <span class="pull-left-container">
               <span class="label label-primary pull-left">4</span>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php theme_path() ?>/pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> نوار بالا</a></li>
-            <li><a href="<?php theme_path() ?>/pages/layout/boxed.html"><i class="fa fa-circle-o"></i> باکس ها</a></li>
-            <li><a href="<?php theme_path() ?>/pages/layout/fixed.html"><i class="fa fa-circle-o"></i> فیکس شده</a></li>
-            <li><a href="<?php theme_path() ?>/pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> سایدبار</a></li>
+          <li><a href="<?php echo HOME ?>?pg=ticket"><i class="fa fa-circle-o"></i>تکت جدید</a></li>
+          <li><a href="<?php echo HOME ?>?pg=list"><i class="fa fa-circle-o"></i>همه تکتها</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&s_completed=99"><i class="fa fa-circle-o"></i>تکتهای باز</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&s_tag=1268"><i class="fa fa-circle-o"></i>تکتهای در حال اجراء</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&s_completed=100"><i class="fa fa-circle-o"></i>تکتهای بسته شده</a></li>
           </ul>
         </li>
-        <li>
-          <a href="<?php theme_path() ?>/pages/widgets.html">
-            <i class="fa fa-th"></i> <span>ویجت ها</span>
-            <span class="pull-left-container">
-              <small class="label pull-left bg-green">جدید</small>
-            </span>
-          </a>
-        </li>
+
+
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>نمودارها</span>
+            <i class="fa fa-files-o"></i>
+            <span>مشتریان</span>
             <span class="pull-left-container">
               <i class="fa fa-angle-right pull-left"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php theme_path() ?>/pages/charts/chartjs.html"><i class="fa fa-circle-o"></i>نمودار ChartJS</a></li>
-            <li><a href="<?php theme_path() ?>/pages/charts/morris.html"><i class="fa fa-circle-o"></i>نمودار Morris</a></li>
-            <li><a href="<?php theme_path() ?>/pages/charts/flot.html"><i class="fa fa-circle-o"></i>نمودار Flot</a></li>
-            <li><a href="<?php theme_path() ?>/pages/charts/inline.html"><i class="fa fa-circle-o"></i>نمودار Inline charts</a></li>
+          <li><a href="<?php echo HOME ?>?pg=list&list=customers"><i class="fa fa-circle-o"></i>همه مشتریان</a></li>
+          <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_active=1"><i class="fa fa-circle-o"></i>مشتریان غیر فعال</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_active=0"><i class="fa fa-circle-o"></i>مشتریان فعال</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_site=herat"><i class="fa fa-circle-o"></i>مشتریان هرات</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_site=herat"><i class="fa fa-circle-o"></i>مشتریان مزار</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_site=herat"><i class="fa fa-circle-o"></i>مشتریان پروان</a></li>
+
           </ul>
         </li>
+
+
+
+
+
+
+
+
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>اشیای گرافیکی</span>
+            <i class="fa fa-files"></i>
+            <span>انبار</span>
             <span class="pull-left-container">
-              <i class="fa fa-angle-right pull-left"></i>
+              <span class="label label-primary pull-left">4</span>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php theme_path() ?>/pages/UI/general.html"><i class="fa fa-circle-o"></i> عمومی</a></li>
-            <li><a href="<?php theme_path() ?>/pages/UI/icons.html"><i class="fa fa-circle-o"></i> آیکون</a></li>
-            <li><a href="<?php theme_path() ?>/pages/UI/buttons.html"><i class="fa fa-circle-o"></i> دکمه</a></li>
-            <li><a href="<?php theme_path() ?>/pages/UI/sliders.html"><i class="fa fa-circle-o"></i> اسلایدر</a></li>
-            <li><a href="<?php theme_path() ?>/pages/UI/timeline.html"><i class="fa fa-circle-o"></i> تایم لاین</a></li>
-            <li><a href="<?php theme_path() ?>/pages/UI/modals.html"><i class="fa fa-circle-o"></i> مدال</a></li>
+          <li><a href="<?php echo HOME ?>?pg=ticket"><i class="fa fa-circle-o"></i>تکت جدید</a></li>
+          <li><a href="<?php echo HOME ?>?pg=list"><i class="fa fa-circle-o"></i>همه تکتها</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&s_completed=99"><i class="fa fa-circle-o"></i>تکتهای باز</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&s_tag=1268"><i class="fa fa-circle-o"></i>تکتهای در حال اجراء</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&s_completed=100"><i class="fa fa-circle-o"></i>تکتهای بسته شده</a></li>
           </ul>
         </li>
+
+
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-edit"></i> <span>فرم ها</span>
+            <i class="fa fa-files"></i>
+            <span>رخصتی ها</span>
             <span class="pull-left-container">
-              <i class="fa fa-angle-right pull-left"></i>
+              <span class="label label-primary pull-left">4</span>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php theme_path() ?>/pages/forms/general.html"><i class="fa fa-circle-o"></i> اجزای عمومی</a></li>
-            <li><a href="<?php theme_path() ?>/pages/forms/advanced.html"><i class="fa fa-circle-o"></i> پیشرفته</a></li>
-            <li><a href="<?php theme_path() ?>/pages/forms/editors.html"><i class="fa fa-circle-o"></i> ویرایشگر</a></li>
+          <li><a href="<?php echo HOME ?>?pg=hr"><i class="fa fa-circle-o"></i>درخواست رخصتی</a></li>
+          <li><a href="<?php echo HOME ?>?pg=list"><i class="fa fa-circle-o"></i>درخواستیهای من</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&s_completed=99"><i class="fa fa-circle-o"></i>درخواست ها</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&s_tag=1268"><i class="fa fa-circle-o"></i>لیست رخصتی ها</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&s_completed=100"><i class="fa fa-circle-o"></i>رخصتی های من</a></li>
           </ul>
         </li>
+
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>اضافه کاری ها</span>
+            <span class="pull-left-container">
+              <span class="label label-primary pull-left">4</span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          <li><a href="<?php echo HOME ?>?pg=hr&overtime=addnew"><i class="fa fa-circle-o"></i>درخواست اضافه کاری جدید</a></li>
+          <li><a href="<?php echo HOME ?>?pg=list"><i class="fa fa-circle-o"></i>لیست اضافه کاریهای من</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&s_completed=99"><i class="fa fa-circle-o"></i>درخواستهای اضافه کاری</a></li>
+
+            <li><a href="<?php echo HOME ?>?pg=list&s_completed=100"><i class="fa fa-circle-o"></i>لیست اضافه کاریها</a></li>
+          </ul>
+        </li>
+
+
+
+<?php 
+$uid = user_uid();
+global $dbase;
+                    $where = " WHERE ugr_userid={$uid} AND ugr_status=1 LIMIT 15";
+                    $rows = $dbase->tbl2array2('sob_ugroups','ugr_gid,ugr_id',$where);
+                    $g_num = count($rows); ?>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>گروپها</span>
+            <span class="pull-left-container">
+              <span class="label label-primary pull-left"><?=$g_num?></span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+
+          <?php
+                    
+                    foreach($rows as $row){
+                        $num = $dbase->num_rows("Select ugr_id From sob_ugroups WHERE ugr_status=1 AND ugr_gid=".$row['ugr_gid']);
+                        echo '<li><a href="'.HOME.'?pg=groups&id='.$row['ugr_gid'].'"><i class="fa fa-circle-o"></i>'.get_cate_name($row['ugr_gid']).' <span class="label label-info pull-left">'.$num .' نفر</span></a> </li>';
+                        //echo '<span class="list-group-item"><a href="'.HOME.'?pg=groups&id='.$row['ugr_gid'].'" ><i class="fas fa-users"></i> '.get_cate_name($row['ugr_gid']).'</a><span class="label label-info pull-left">'.$num .' نفر</span></span>';
+                    } 
+                    ?>
+
+
+          <!-- <li><a href="<?php echo HOME ?>?pg=ticket"><i class="fa fa-circle-o"></i>درخواست اضافه کاری جدید</a></li>
+          <li><a href="<?php echo HOME ?>?pg=list"><i class="fa fa-circle-o"></i>لیست اضافه کاریهای من</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&s_completed=99"><i class="fa fa-circle-o"></i>درخواستهای اضافه کاری</a></li>
+
+            <li><a href="<?php echo HOME ?>?pg=list&s_completed=100"><i class="fa fa-circle-o"></i>لیست اضافه کاریها</a></li> -->
+          </ul>
+        </li>
+
+
+
+
+
+        
+<!--         
         <li class="treeview">
           <a href="#">
             <i class="fa fa-table"></i> <span>رخصتی/ اضافه کاری</span>
@@ -119,24 +192,16 @@
           <li><a href="<?php echo get_link('users'); ?>">فرم اضافه کار <i class="fa fa-users pull-left" aria-hidden="true"></i></a></li>
 
           </ul>
-        </li>
+        </li> -->
+    
         <li>
-          <a href="<?php theme_path() ?>/pages/calendar.html">
-            <i class="fa fa-calendar"></i> <span>تقویم</span>
-            <span class="pull-left-container">
-              <small class="label pull-left bg-red">۳</small>
-              <small class="label pull-left bg-blue">۱۷</small>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="<?php theme_path() ?>/pages/mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>ایمیل ها</span>
-            <span class="pull-left-container">
+          <a href="<?php echo get_link('inbox'); ?>">
+            <i class="fa fa-envelope"></i> <span>پیامها</span>
+            <!-- <span class="pull-left-container">
               <small class="label pull-left bg-yellow">۱۲</small>
               <small class="label pull-left bg-green">۱۶</small>
               <small class="label pull-left bg-red">۵</small>
-            </span>
+            </span> -->
           </a>
         </li>
         <li class="treeview">

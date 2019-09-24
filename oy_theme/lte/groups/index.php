@@ -114,7 +114,7 @@ while ($row = $dbase->fetch_array($result)) {
 
 <li class="item">
                   <div class="product-img">
-                    <img src="http://stark.test/oy_theme/lte/dist/img/user7-128x128.jpg" alt="Product Image">
+                    <img src="<?php echo user_image($row['ugr_userid']); ?>" alt="Product Image">
                   </div>
                   <div class="product-info">
                   <a href="#" data-source="<?php echo HOME ?>?pg=groups&id=<?php echo $group_id; ?> #usertable" 

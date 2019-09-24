@@ -62,6 +62,19 @@ function user_site($uid=''){
     }else return false;
 }
 
+
+
+function user_photo($uid=''){
+    if(is_loggedin()){
+        global $ac;
+        if($uid=='')
+            $uid = user_uid();
+            $photo = $ac->get_user_info('avatar', $uid);
+            if(empty($photo))
+                $photo = 'avatar.png';
+        return $photo;
+        }else return 'avatar.png';
+}
 function allowByrank($rank){
     if(is_loggedin()){
         $user = user_rank();
@@ -332,15 +345,6 @@ function user_avatar($uid=''){
       return $userimg; */
 }
 
-function user_photo($uid=''){
-     if(empty($uid)){
-        $us = new oy_user(user_uid());
-        return $us->get_avatar_url();
-    }elseif(!empty($uid)){
-        $us = new oy_user($uid);
-        return $us->get_avatar_url();
-    }  
-}
 
 function is_loggedin(){
     global $ac;

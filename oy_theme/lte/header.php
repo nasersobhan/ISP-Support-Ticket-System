@@ -52,6 +52,7 @@
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
+        <i class="fa fa-bars"></i>
       </a>
 
 
@@ -83,7 +84,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php theme_path() ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo user_image() ?>" class="img-circle" alt="User Image">
 
                 <p>
                   <?php echo user_name(); ?>
@@ -116,9 +117,9 @@
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
+          <!-- <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </nav>

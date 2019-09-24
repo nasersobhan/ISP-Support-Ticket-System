@@ -39,7 +39,7 @@ if(is_get('eid')) {
           <label for="tic_title" class="control-label">عنوان :</label>
         </td>
         <td>
-          <input type="text" class="form-control col-md-12" value="<?=$title?>" name="tic_title" id="tic_title">
+          <input type="text" required class="form-control col-md-12" value="<?=$title?>" name="tic_title" id="tic_title">
         </td>
       </tr>
 
@@ -51,7 +51,7 @@ if(is_get('eid')) {
           <label for="tic_cid" title="بسیار عالی" class="control-label tip">شناسه مشتری :</label>
         </td>
         <td>
-          <input type="text" <?php echo ($edit ? 'value="'.$ticket['tic_cid'].'"' : ''); ?> class="form-control col-md-12" name="tic_cid" id="tic_cid">
+          <input required type="text" <?php echo ($edit ? 'value="'.$ticket['tic_cid'].'"' : ''); ?> class="form-control col-md-12" name="tic_cid" id="tic_cid">
         </td>
       </tr>
    
@@ -104,7 +104,7 @@ if(is_get('eid')) {
           <label for="tic_body" class="control-label">توضیح:</label>
         </td>
         <td>
-        <textarea name="tic_body" class="form-control autogrow" rows="5"><?php echo ($edit ? $ticket['tic_body'] : ''); ?></textarea>
+        <textarea required name="tic_body" class="form-control autogrow" rows="5"><?php echo ($edit ? $ticket['tic_body'] : ''); ?></textarea>
         </td>
       </tr>
       <?php if(!$customer){ ?>

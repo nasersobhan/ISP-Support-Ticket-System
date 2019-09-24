@@ -232,19 +232,27 @@
       </tr>
 
      <?php } else { ?>
+
+
+
       <tr>
-        <th>
-        
-        </th>
         <td>
         <div class="radio">
-    <label><input type="radio"  value="1" name="lea_replaceaccept" checked>برای جایگزینی موافقم</label>
-  </div>
-  <div class="radio">
-    <label><input type="radio" value="2" name="lea_replaceaccept">برای جایگزینی موافق نیستم.</label>
-  </div>
+        <label class="text-success"><input id="accepted" type="radio"  value="1" name="lea_replaceaccept" checked>برای جایگزینی موافقم</label>
+        </div>
+        </td>
+        <td>
+     
+  
+
+        <div class="radio">
+          <label class="text-danger"><input id="notaccepted" type="radio" value="2" name="lea_replaceaccept">برای جایگزینی موافق نیستم</label>
+        </div>
         </td>
       </tr>
+
+
+     
 
      <?php } ?>
 

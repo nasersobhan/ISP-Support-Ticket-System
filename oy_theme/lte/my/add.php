@@ -104,21 +104,27 @@
 
       <input type="hidden" class="form-control col-md-6" name="cus_name" value="<?Php echo user_uid(); ?>">
 
+
+
       <tr>
         <td>
-         
+        <div class="radio">
+        <label class="text-success"><input id="accepted" type="radio"  value="1" name="optradio" checked>موافقت</label>
+        </div>
         </td>
         <td>
+     
+  
 
-          <div class="radio">
-  <label><input type="radio" name="optradio" checked>موافقت</label>
-</div>
-<div class="radio">
-  <label><input type="radio" name="optradio">عدم موافقت</label>
-</div>
+        <div class="radio">
+          <label class="text-danger"><input id="notaccepted" type="radio" value="2" name="optradio">عدم موافقت</label>
+        </div>
         </td>
       </tr>
 
+
+
+      
       <tr>
         <td>
           <label for="cus_phone" class="control-label">علت عدم موافقت:</label>

@@ -135,10 +135,25 @@
 
 
 
+      <tr>
+        <td>
+        <div class="radio">
+        <label class="text-success"><input id="accepted" type="radio"  value="1" name="ove_approve" checked>موافقت</label>
+        </div>
+        </td>
+        <td>
+     
+  
 
+        <div class="radio">
+          <label class="text-danger"><input id="notaccepted" type="radio" value="2" name="ove_approve">عدم موافقت</label>
+        </div>
+        </td>
+      </tr>
+ 
 
  
-      <tr>
+      <!-- <tr>
         <th>
         
         </th>
@@ -150,7 +165,7 @@
     <label><input type="radio" value="2" name="ove_approve">رد درخواست</label>
   </div>
         </td>
-      </tr>
+      </tr> -->
 
 
 

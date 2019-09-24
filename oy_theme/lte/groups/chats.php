@@ -12,20 +12,15 @@
 
         $rows = array_reverse($rows);
         foreach($rows as $row){
-            $g1 = str_pad( dechex( mt_rand( 0, 255 ) ), 2, '0', STR_PAD_LEFT);
-            $g2 = str_pad( dechex( mt_rand( 0, 255 ) ), 2, '0', STR_PAD_LEFT);
-            $g3 = str_pad( dechex( mt_rand( 0, 255 ) ), 2, '0', STR_PAD_LEFT);
-
-            if(!isset($_SESSION['uidcolor'][$row['mes_uid']]))
-                $_SESSION['uidcolor'][$row['mes_uid']]= $g1.$g2.$g3;
+  
 
             $is_owner = ($row['mes_uid']==user_uid() ? TRUE : FALSE);
-            $align = ($is_owner ? 'pull-left' : 'pull-right');
-            $title_align = ($row['mes_uid']==user_uid() ? 'pull-right' : 'pull-left');
-            $alignmain = ($is_owner ? 'left' : 'right');
+            $align = ($is_owner ?  'pull-right' : 'pull-left');
+            $title_align = ($row['mes_uid']==user_uid() ? 'pull-left' : 'pull-right');
+            $alignmain = ($is_owner ? 'right' : 'left');
             ?>
                     <li class="<?=$alignmain ?> clearfix"><span class="chat-img <?=$align ?>">
-                            <img src="http://placehold.it/50/<?php echo $_SESSION['uidcolor'][$row['mes_uid']]; ?>/fff&text=<?php echo user_username($row['mes_uid']);?>" alt="User Avatar" class="img-circle" />
+                            <img style="width:50px; height:50px;" src="<?php echo user_image($row['mes_uid']); ?>" alt="User Avatar" class="img-circle" />
                         </span>
                             <div class="chat-body clearfix">
                                 <div class="header">

@@ -5,6 +5,7 @@
 $view = false;
 $edit = false;
 $user = [];
+$rank = user_rank();
 if(is_get('eid')){
   global $dbase;
   $id = trim(is_get('eid'));
@@ -30,20 +31,24 @@ $view = true;
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">ایجاد یوزر جدید</h4>
       </div>
-          <div class="modal-body">
-
+          <div class="modal-body usersview <?php echo $view ? 'user-view' : ''; ?>">
+          <?php if($view) {?>
+            <div class="row text-center">
+                <img src="<?Php echo user_image($user['sob_avatar']); ?>" style="width:100px; height:100px;" class="img-circle text-center" alt="User Image">
+</div>
+          <?php } ?>
         
           <div class="form-group row">
                     <label for="recipient-name" class="control-label">نام مکمل :</label>
                     <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_name'].'"' : ''; ?> autocomplete="off" type="text" required class="form-control col-md-12" name="name" id="name" >
                   </div>
 
-
+              <?php if(!$edit || $view) { ?>
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">نام کاربری :</label>
                     <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_user'].'" disabled' : ''; ?>  autocomplete="off" oninvalid="setCustomValidity('لطفا فقط کلمات انگلیسی بدون فاصله بنویسید.')"  type="text" pattern="[a-zA-Z0-9]{5,}" required class="form-control col-md-12" name="uname" id="username">
                   </div>
-
+              <?php } ?>
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">ایمیل :</label>
                     <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_email'].'"' : ''; ?>  autocomplete="off"  type="email" required class="form-control col-md-12" name="email" id="email">
@@ -64,6 +69,8 @@ $view = true;
                     <input autocomplete="off"  type="password" class="form-control col-md-12" name="passwordre" required id="passwordre">
                   </div>
   <?Php } ?>
+
+  <?php if($rank ==99) { ?>
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">نوع کاربر:</label>
                     
@@ -74,6 +81,7 @@ $view = true;
                   
                     </select>
                   </div>
+  <?php } ?>
     
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label"><?php e_lbl('site') ?>:</label>
@@ -118,8 +126,20 @@ $view = true;
                     <label for="recipient-name" class="control-label"><?php e_lbl('jobtitle') ?>:</label>
                     <input <?php echo $view ? 'disabled' : ''; ?> autocomplete="off" <?php echo $edit ? 'value="'.$user['sob_title'].'"' : ''; ?>  type="text" class="form-control col-md-12" name="title" id="title">
                   </div>
+<?php if($edit && $view==false) {?>
+                  <div class="form-group row">
+                    <label for="recipient-name" class="control-label col-md-12">تصویر :</label>
+                    <input  type="file" required class="form-control col-md-2" name="fileupload" id="user-avatar">
 
-
+                    <div id="progress-wrp" class="col-md-10" >
+    <div class="progress-bar"></div>
+    <div class="status">0%</div>
+</div>
+                    <input  type="hidden" value="<?php echo $edit ? $user['sob_avatar'] : ''; ?>" required class="form-control col-md-12" name="avatar" id="avatarh">
+                  </div>
+  
+<?Php } ?>
+     
 
   
 
