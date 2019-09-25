@@ -580,10 +580,11 @@ color: #f7f7f7;
 
 
 #progress-wrp {
-    border: 1px solid #0099CC;
+    /* border: 1px solid #0099CC; */
     padding: 1px;
+    margin: 0 5px;
     position: relative;
-    height: 30px;
+    height: 26px;
     border-radius: 3px;
     margin: 10px;
     text-align: left;

@@ -23,6 +23,12 @@ if(is_get('add')){
             // foreach($toid as $hid)
             //     add_notification('<strong>درخواست رخصتی</strong><br>' . user_name() . '<br> از '. $data['lea_fdate'] .' تا '. $data['lea_edate'] .'  ', $hid['sob_id'], 'hr', $id);
     }
+} elseif(is_get('delete')){
+    $id = is_get('delete');
+    if ($dbase->RowUpdate($tbl, ['lea_status'=>100], ' WHERE lea_uid='. $uid .' AND lea_id='.$id)) {
+        set_message('حذف شد.');
+        redirect_to(get_link('list','list','leaves'));
+    }
 } elseif(is_get('update')){
     $id =is_get('update'); 
     $xuid = is_post('uid');
@@ -43,6 +49,8 @@ if(is_get('add')){
         unset($_POST['uid']);
         $data = $_POST;
         $data['lea_auid'] = $uid;
+        $data['lea_accepteddate'] = date('Y-m-d');
+        
         if($dbase->RowUpdate($tbl, $data, ' WHERE lea_id='.$id)){
             if(is_post('lea_replaceaccept')== 1){
                 add_notification('<strong>درخواست رخصتی از طرف مدیر قبول شد.</strong>از طرف :' . user_name(), $xuid , 'hr', $id, 'success');
@@ -71,7 +79,7 @@ if(is_get('add')){
                 echo 'فرم برای تایید به مدیر ارسال شد.';
                 $toid = get_highrankuid();
                 foreach($toid as $buid)
-                    add_notification('<strong>فرم اضافه کاری پر شده است.</strong><br>نیاز به تایید یا رد شما دارد..<br>از طرف :' . user_name(), $buid['sob_id'] , 'hr', $id);
+                    add_notification('<strong>فرم اضافه کاری پر شده است.</strong><br>نیاز به تایید یا رد شما دارد..<br>از طرف :' . user_name(), $buid['sob_id'] , 'overtime', $id);
             }
         }
     }elseif(is_get('overtime') == 'edit' && is_get('oid')){
@@ -91,7 +99,7 @@ if(is_get('add')){
             }
         }
     }else {
-        theme_pg_include('overtime');
+        theme_pg_include('home');
     }
  
 

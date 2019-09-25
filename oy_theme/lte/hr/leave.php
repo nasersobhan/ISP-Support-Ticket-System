@@ -98,15 +98,6 @@
         </td>
       </tr>
      
-
-      <tr>
-        <td>
-          <label for="lea_date" class="control-label">تاریخ:</label>
-        </td>
-        <td>
-        <input type="date" class="form-control" data-only="u" name="lea_date" id="lea_date">
-        </td>
-      </tr>
     </table>
 
 
@@ -184,7 +175,7 @@
           <?php echo nl2br($leave['lea_whywp']); ?>
         </td>
       </tr>
-
+<?php if(user_uid() != $leave['lea_uid'] ) { ?>
       <tr class="text-center success">
         <th class="text-center" colspan="2">
           تایید شما
@@ -222,14 +213,7 @@
         </td>
       </tr>
 
-      <tr >
-        <th>
-          <label for="lea_accepteddate" class="control-label">تاریخ :</label>
-        </th>
-        <td>
-          <input type="date" class="form-control" name="lea_accepteddate" id="lea_accepteddate">
-        </td>
-      </tr>
+ 
 
      <?php } else { ?>
 
@@ -252,7 +236,7 @@
       </tr>
 
 
-     
+      <?php } ?>
 
      <?php } ?>
 
@@ -263,7 +247,12 @@
 <?Php } ?>
 </div>
   <div class="modal-footer">
-    <button class="btn btn-success btn-sm"  type="submit">ذخیره و جدید</button>
+  <?php if(isset($leave)) { if(user_uid() != $leave['lea_uid']) { ?>
+    <button class="btn btn-success btn-sm"  type="submit">ثبت</button>
+    <?php } }else { ?>
+      <button class="btn btn-success btn-sm"  type="submit">ذخیره و جدید</button>
+
+    <?php } ?>
   </div>
 </form>
 </div>

@@ -126,7 +126,7 @@
           <?php echo nl2br($leave['ove_why']); ?>
         </td>
       </tr>
-
+<?php if(user_uid() != $leave['ove_uid']) { ?>
       <tr class="text-center success">
         <th class="text-center" colspan="2">
           تایید شما
@@ -150,25 +150,7 @@
         </div>
         </td>
       </tr>
- 
-
- 
-      <!-- <tr>
-        <th>
-        
-        </th>
-        <td>
-        <div class="radio">
-    <label><input type="radio" value="1" name="ove_approve" checked>تایید درخواست</label>
-  </div>
-  <div class="radio">
-    <label><input type="radio" value="2" name="ove_approve">رد درخواست</label>
-  </div>
-        </td>
-      </tr> -->
-
-
-
+<?php } ?>
       
 
      
@@ -176,7 +158,9 @@
 <?Php } ?>
 </div>
   <div class="modal-footer">
+  <?php if(user_uid() != $leave['ove_uid']) { ?>
     <button class="btn btn-success btn-sm"  type="submit">ذخیره و جدید</button>
+    <?php } ?>
   </div>
 </form>
 </div>

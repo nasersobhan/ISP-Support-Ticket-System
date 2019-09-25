@@ -14,7 +14,7 @@ define('ENVIRONMENT', 'development');
 
 
 //Defulte Values
-define('DEF_PGDESC', 'Ooya Discription');
+define('DEF_PGDESC', 'خدمات انترنت استارک');
 define('DEF_PGKEYWORD', 'keywords,for,ooyta');
 define("DEF_IMG", COREHOME . "oy_core/oy_theme/def/images/def/404-img.gif");
 define("DEF_AVTAR", HOME . "uploads/def/avatar.png");

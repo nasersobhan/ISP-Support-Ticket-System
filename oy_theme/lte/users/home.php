@@ -14,12 +14,19 @@ if(is_get('eid')){
   $rows = $dbase->tbl2array2('sob_users','*'," WHERE  sob_id={$id}");
   $user = $rows[0];
   $edit = true;
+
+  addlinejs(" $(window).on('load',function(){
+    $('#modalusers').modal('show');
+});");
+
 if(is_get('vu'))
 $view = true;
 }
 
 
 ?>
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="modalusers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -129,8 +136,9 @@ $view = true;
 <?php if($edit && $view==false) {?>
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label col-md-12">تصویر :</label>
-                    <input  type="file" required class="form-control col-md-2" name="fileupload" id="user-avatar">
-
+                    <input type="button" id="loadFileXml" value="انتخاب" class="btn btn-success col-md-2" onclick="document.getElementById('user-avatar').click();" />
+                    <input  type="file"  style="display:none;" required name="fileupload" id="user-avatar">
+             
                     <div id="progress-wrp" class="col-md-10" >
     <div class="progress-bar"></div>
     <div class="status">0%</div>
@@ -168,7 +176,7 @@ $view = true;
  <div  class="col-md-12">
 
 
-
+<?Php if(!is_get('eid')){ ?>
 
 
 
@@ -181,7 +189,7 @@ $view = true;
   <div class="panel panel-default" >
     <div class="panel-heading "><h4>آخرین اطلاعات ذخیره شده
     
-    <span class="pull-right">
+    <span class="pull-left">
     <a href="#" class="btn btn-info btn-sm"  id='usermodalclick' >
   اضافه کردن کاربر به سیستم
 </a>
@@ -191,7 +199,7 @@ $view = true;
     
    
     </div>
-    <div class="panel-body ">    
+    <div id="userlist" class="panel-body ">    
 
 
 
@@ -200,16 +208,16 @@ global $user_arr, $dbase;
 $tbl = $user_arr['TBL'];
 $pfx = $user_arr['FPX'];
 $result = $dbase->query("SELECT * FROM {$tbl} where sob_status<>100 ");?>
-	<table style="table-layout:fixed" id="datatbl" class="table" >
-	<tr>
-    <th width="120px">نام</th>
-<th width="100px">نام کاربری</th>
-    <th width="80px">نوع</th>
+	<table id="usertable" class="table table-bordered" >
+	<tr class="info">
+    <th >نام</th>
+<th >نام کاربری</th>
+    <th >نوع</th>
     <th>وظیفه</th>
     <th>دیپارتمنت</th>
     <th>سایت</th>
 
-   <th width="180px">ایمیل</th>
+   <th>ایمیل</th>
   
     <th >حذف</th>
   </tr>
@@ -226,9 +234,9 @@ while($row = $dbase->fetch_array($result))
 
   <tr>
   
-    <td width="120px"><?Php echo $row[$pfx.'name'] ?></td>
-    <td width="100px"><?Php echo $row[$pfx.'user'] ?></td>
-    <td width="80px">
+    <td><?Php echo $row[$pfx.'name'] ?></td>
+    <td><?Php echo $row[$pfx.'user'] ?></td>
+    <td>
         
         
         <?Php 
@@ -238,29 +246,41 @@ while($row = $dbase->fetch_array($result))
         if($rank==1)
             echo 'کاربری عادی';
         elseif($rank==2)
-            echo 'ویرایشگر';
+            echo 'مدیر';
         elseif($rank==3)
-            echo 'راپورچی';
+            echo 'رئیس';
             elseif($rank==99)
             echo 'مدیر کل';
                      
         
         ?></td>
 
-<td width="100px"><?Php echo $row[$pfx.'title'] ?></td>
-<td width="100px"><?Php echo get_cate_name($row[$pfx.'dep']) ?></td>
-<td width="100px"><?Php echo get_cate_name($row[$pfx.'site']) ?></td>
+<td ><?Php echo $row[$pfx.'title'] ?></td>
+<td ><?Php echo get_cate_name($row[$pfx.'dep']) ?></td>
+<td ><?Php echo get_cate_name($row[$pfx.'site']) ?></td>
 
-   <td width="100px"><?Php echo $row[$pfx.'email'] ?></td>
+   <td><?Php echo $row[$pfx.'email'] ?></td>
  
-    <td width="50px">
-<!--        <a class="btn btn-sm btn-info" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> &emsp;-->
-        <button class="btn btn-ajax btn-sm btn-danger" 
-        confmsg="آیا مطمئن هستید این کاربر را حذف میکنید؟" 
-        data-source="<?php echo HOME ?>?pg=users #datatbl" 
-        data-selector="#reportx > div > div > div.panel-body" class="btn btn-danger btn-sm btn-ajax"
-        url="<?php echo HOME ?>?pg=users&del=<?php echo $row[$pfx.'id']; ?>"><i class="fa fa-user-times" aria-hidden="true"></i> حذف </button> &emsp;
-<!--        <a class="btn btn-sm btn-warning" href="#"><i class="fa fa-user-secret" aria-hidden="true"></i></a> &emsp;-->
+    <td >
+
+
+
+  <?php 
+
+      echo '<a href="'.HOME.'?pg=users&vu=1&eid='. $row['sob_id'].' #main-form" data-toggle="modal" data-target="#Uni-modal" class="tip" title="نمایش کارت"><i class="fas fa-id-card"></i></a>&nbsp;
+                <a href="'.HOME.'?pg=inbox&add=1&toid=u:'. $row['sob_id'].' #addbox"  data-toggle="modal" data-target="#Uni-modal" class="tip" title="ارسال پیام خصوصی"><i class="far fa-envelope"></i></a>&nbsp;';
+  
+                    echo '<a href="'.HOME.'?pg=users&eid='. $row['sob_id'].' #main-form" data-toggle="modal" data-target="#Uni-modal" class="tip" title="ویرایش"><i class="fas fa-user-edit"></i></a>&nbsp;
+                        <a class="tip btn-ajax" data="user=' . $row['sob_id'] . '"
+                        confmsg="آیا مطمئن هستید این کاربر را حذف میکنید؟" 
+                        data-source="'.HOME.'?pg=users #usertable" 
+                        data-selector="#userlist" title="حذف کاربر"
+                        url="'.HOME.'?pg=users&del='.$row['sob_id'].'"><i class="fa fa-user-times" aria-hidden="true"></i></a>&nbsp;';
+
+                       echo '<a href="'.HOME.'?pg=users&premissions='. $row['sob_id'].' #main-content" data-toggle="modal" data-target="#Uni-modal" class="tip" title="ویرایش سطح دسترسی"><i class="fas fa-user-lock"></i></a>';
+        ?>
+
+
     </td>
   </tr>
 
@@ -277,6 +297,10 @@ while($row = $dbase->fetch_array($result))
 </div>
 
 </div>
+
+
     
-    </div>    </div>    </div>
+    </div>  <?Php } ?>
+    
+      </div>    </div>
 <?php get_footer() ?>

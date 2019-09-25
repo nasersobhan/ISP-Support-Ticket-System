@@ -24,10 +24,16 @@ if (is_get('id')) {
 if(count($rows)){
     foreach ($rows as $row) {
         $seen = $row['not_seen'] == 1 ? true : false;
-        if($row['not_url'])
-            $url = HOME.'?pg='.$row['not_type'].'&id='.$row['not_url'].'&nrid='.$row['not_id'];
+        if($row['not_url']){
+            if ($row['not_type']=='hr') {
+                $url = HOME.'?pg='.$row['not_type'].'&lid='.$row['not_url'].'&nrid='.$row['not_id'];
+            }elseif($row['not_type']=='overtime'){
+                $url = HOME.'?pg=hr&overtime=view&oid='.$row['not_id'];
+            }else
+                $url = HOME.'?pg='.$row['not_type'].'&id='.$row['not_url'].'&nrid='.$row['not_id'];
+        }           
         else
-            $url = '&nrid='.$row['not_id'];
+            $url = '?nrid='.$row['not_id'];
             $color = $row['not_color'];
         if(empty($color))
             $color = 'info';

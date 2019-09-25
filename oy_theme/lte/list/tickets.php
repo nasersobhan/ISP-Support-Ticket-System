@@ -1,11 +1,6 @@
 <?php get_header(); ?>
 <div class="content-box">
     <div class="col-md-12">
-        <div class="panel panel-default" >
-            <div class="panel-heading">
-                <h3 class="panel-title">لیست تکتها</h3>
-            </div>
-            <div  class="panel-body "> 
             <?php $message = get_message(false);
             if($message){
                 echo '<div class="alert alert-info" role="alert">'.$message.'</div>';
@@ -136,9 +131,7 @@
                 </tr>
                 </table>
 
-               
-            </div>
-        </div>
+         
     </div>
 </div> 
 

@@ -423,8 +423,9 @@ $(function(){
 //
 
 
-$(document).on('submit',"form[ajaxform]",function( event ) {
+$('body').on('submit',"form[ajaxform]",function( event ) {
     event.preventDefault();
+
    dataString = $(this).serialize();
     var $form = $( this ),
      url = $form.attr( "action" );

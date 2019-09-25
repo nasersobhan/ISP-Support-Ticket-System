@@ -76,8 +76,9 @@ $("body").on( "click", '.show-hider', function() {
    
 });
 
+
+
 $("body").on({
-    
     "mousemove": (function (event) {
          
                 var a = $(this);
@@ -269,19 +270,12 @@ $(document).on('click', '.hider', function(e){
 });
 
 
-$(document).on('click', 'a[confmsg]', function(e){
-  console.log('ere');
+// $(document).on('click', 'a[confmsg]', function(e){
+//   console.log('ere');
 
-  var conf = $(this).attr('confmsg');
-  if (typeof conf !== typeof undefined && conf !== false){
-   var resultcon = confirm(conf);
-   if (!resultcon) {
-     return false;
-   }
 
-  }
 
-});
+// });
 
 $(document).on('click', '.btn-ajax', function(e){
     var $this = $(this);
@@ -291,15 +285,22 @@ $(document).on('click', '.btn-ajax', function(e){
      var source = $this.attr('data-source');
      var selector = $this.attr('data-selector');
 
-
+     var conf = $(this).attr('confmsg');
+     if (typeof conf !== typeof undefined && conf !== false){
+      var resultcon = confirm(conf);
+      if (!resultcon) {
+        return false;
+      }
+   
+     }
 
      var posting = $.post( urlx, datax );
      posting.done(function( data ) {
       $this.addClass( "btn-success" );
        //var content = data;// $(data).find( "#content" );
-       if (typeof noreturn === typeof undefined || noreturn === false) {
-         alert_msg(data,'success', $this);
-       }
+      //  if (typeof noreturn === typeof undefined || noreturn === false) {
+      //    alert_msg(data,'success', $this);
+      //  }
  
     
        if (typeof source !== typeof undefined && source !== false && typeof selector !== typeof undefined && selector !== false) {

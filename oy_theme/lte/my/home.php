@@ -32,7 +32,7 @@ $urank = user_rank();
                     global $dbase;
                     $datasin = [];
                     //lea_uid <> {$uid} AND
-                    $where = " WHERE lea_status=0 AND  lea_replaceaccept=0  AND lea_replacement ='{$uid}' ORDER BY lea_id LIMIT 5";
+                    $where = " WHERE  lea_replaceaccept=0  AND lea_replacement ='{$uid}' ORDER BY lea_id LIMIT 5";
                     $rows = $dbase->tbl2array2('sob_leaves','*',$where);
                     foreach($rows as $row){
                         $time = strtotime($row['lea_time']);
@@ -181,15 +181,11 @@ $urank = user_rank();
                     ?>
                 </div>
                 </span>
-
+     <!-- noreturn -->
                 <div class ="panel-footer text-center ">
-                <form ajaxform method="post" action="<?php echo HOME ?>?pg=todo&add=go" 
-                    noreturn
-                    data-source="<?php echo get_current_url(); ?> #in-todolist" 
-                    data-selector="#todolist" 
-                    reset name="add"  id="addtodolist">
+                <form ajaxform method="post" action="<?php echo HOME ?>?pg=todo&add=go" data-selector="#todolist" data-source="<?php echo HOME;//get_current_url(); ?>?pg=my #in-todolist" noreturn reset name="addtask">
                     <div class="input-group col-md-12">
-                    <input placeholder="ایجاد جدید..." type="text" name="title" id="title" class="form-control input-sm" >  
+                    <input placeholder="ایجاد جدید..." type="text" name="title" id="title" class="form-control input-sm" > 
                     </div>
 
                     </form>

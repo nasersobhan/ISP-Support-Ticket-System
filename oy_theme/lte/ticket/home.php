@@ -24,7 +24,7 @@ else {
     </div>
 
      
-    <div class="col-md-4">
+    <div id="sidebarbox" class="col-md-4">
 
 
     <?php if(is_get('id')) {

@@ -1,10 +1,26 @@
 <?php 
-global $dbase;
-
-
-  $id = is_get('id');
-  $tbl = 'sob_customerinfo';
-  $edit = $dbase->tbl2array2($tbl,'*',' WHERE cus_id='.$id)[0];
+global $dbase,$edit;
+$edit = FALSE;
+  if(is_get('cid')){
+    $id = is_get('cid');
+    $tbl = 'sob_customerinfo';
+    $edit_x = $dbase->tbl2array2($tbl,'*',' WHERE cus_cid="'.$id.'"');
+    if($edit_x){
+      $edit = $edit_x[0];
+    }
+  }elseif(is_get('id')){
+    $id = is_get('id');
+    $tbl = 'sob_customerinfo';
+    $edit_x = $dbase->tbl2array2($tbl,'*',' WHERE cus_id='.$id);
+    if($edit_x){
+      $edit = $edit_x[0];
+    }
+  }
+  
+if(!$edit){
+echo '<span class="text-center btn-block text-danger blink text-lg"><h1>مشتری یافت نشد.</h1></span>';
+  exit();
+}
 
 
 ?>

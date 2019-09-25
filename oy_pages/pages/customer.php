@@ -2,10 +2,12 @@
 $tbl = 'sob_customerinfo';
 global $dbase;
 $uid = user_uid();
+$site = user_site();
 if(is_get('add')){
     unset($_POST['Send']);
     $data = $_POST;
     $data['cus_uid'] = $uid;
+    $data['cus_site'] = $site;
     if($dbase->RowInsert($tbl, $data)){
         $id = $dbase->insert_id();
         redirect_to(HOME.'?pg=ticket&cid='.$data['cus_cid']);
@@ -26,7 +28,7 @@ if(is_get('add')){
     }
 }
 else {
-
+    set_pgtitle('ثبت مشتری جدید');
     load_jsplug('jquery-ui') ;
     load_jsplug('uicomplete') ;    
     load_jsplug('form');

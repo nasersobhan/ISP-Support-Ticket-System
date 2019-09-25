@@ -3,7 +3,7 @@
 $type_label = is_get('t');
  ?>
 <div class="content-box">
-    <div class="sidex">
+    <div class="col-md-6">
                 <div class="panel panel-default" >
     <div class="panel-heading "><h3>ویرایش نوع</h3></div>
     <div class="panel-body ">  
@@ -104,8 +104,7 @@ $type_label = is_get('t');
          
     </div>   <hr/>
          
-<span style="color:red" name="mess" id="mess">
-    </span>
+
          
          
   </div>
@@ -117,11 +116,11 @@ $type_label = is_get('t');
   
   
     <span id="reportx" >
- <div  class="sidex  Pull-left">
+ <div  class="col-md-6">
 
 
         <div class="panel panel-default" >
-    <div class="panel-heading "><h3>لیست موجود</h3></div>
+    <div class="panel-heading "><h3>مشخصات فعلی</h3></div>
     <div class="panel-body ">  
 
 
@@ -144,11 +143,11 @@ if(user_rank() == 3){
 }
 
 $result = $dbase->query("SELECT * FROM sob_categories_oy where cat_type='{$type}' {$where} ORDER BY cat_id DESC LIMIT 12");?>
-	<table style="table-layout:fixed" id="datatbl" width="550" >
+	<table id="datatbl" class="table table-borderd" >
 	<tr>
     <th width="160px">نام</th>
 
-    <th width="120px">وضعیت</th>
+    <!-- <th width="120px">وضعیت</th> -->
     <th  width="80px">زمان ایجاد</th>
      <th  width="100px">کاربر</th>
   <th  width="100px">شناسه</th>
@@ -168,7 +167,7 @@ while($row = $dbase->fetch_array($result))
   <tr>
     <td width="140px"><a href="<?php echo HOME.'?pg='.$row['cat_type'].'&id='.$row['cat_id'] ?>"><?Php echo $row['cat_name'] ?></a></td>
 
-    <td width="120px"><?Php echo ($row['cat_status']) ?></td>
+    <!-- <td width="120px"><?Php //echo ($row['cat_status']) ?></td> -->
     <td width="80px"><?Php echo $row['cat_time'] ?></td>
     <td width="100px"><?Php echo user_name($row['cat_uid']) ?></td>
   <td width="100px"><?Php echo ($row['cat_id']) ?></td>

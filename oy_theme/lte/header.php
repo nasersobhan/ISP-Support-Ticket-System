@@ -36,6 +36,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+<div id="ati10" class="atl"></div>
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -133,17 +134,17 @@
 
 
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <!-- <section class="content-header">
       <h1>
-        <?php get_pgtitle(); ?>
-        <small><?php get_pgdesc(); ?></small>
+        <?php //get_pgtitle(); ?>
+        <small><?php //get_pgdesc(); ?></small>
       </h1>
-      <!-- <ol class="breadcrumb">
+      <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> خانه</a></li>
         <li><a href="#">مثال ها</a></li>
         <li class="active">صفحه خالی</li>
-      </ol> -->
-    </section>
+      </ol>
+    </section> -->
 
 
      <!-- Main content -->
@@ -153,7 +154,9 @@
         <div class="box-header with-border">
           <h3 class="box-title"><?php echo get_pgtitle(); ?></h3>
 
-  
+
+        <?php get_buttons(); ?>
+    
         </div>
         <div id="main-box" class="box-body">
 

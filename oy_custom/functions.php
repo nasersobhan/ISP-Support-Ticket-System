@@ -500,8 +500,24 @@ function get_usersfromgroup($gid){
     return $dbase->num_rows('SELECT mes_id FROM sob_message'. $where);
   }
 
+  function user_idbyname($label){
+    global $dbase;
+    return $dbase->get_single('sob_users', 'sob_name', $label, 'sob_id');
+  }
+
   
   
+function set_buttons($vals){
+    global $buttons;
+    $buttons = $vals;
+}
+
+function get_buttons(){
+    global $buttons;
+    echo $buttons;
+    $buttons = '';
+}
+
 function pagination_local($total, $per_page = 10, $page = 1, $url = '?'){
     global $dbase;
     //$query = "SELECT COUNT(*) as `num` FROM {$query}";

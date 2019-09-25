@@ -335,7 +335,7 @@ $('#tic_progress').change(function(){
 
 });
 
-$('#todolist').on('change','.list-group input[type="checkbox"]', function(event){
+$('body').on('change','#todolist input[type="checkbox"]', function(event){
     //     var checkbox = $(this).find('[type="checkbox"]');
     console.log('changed');
     var $parent_label = $(this).parent('label');
@@ -484,7 +484,6 @@ $("body").one( "click", '#customer-info', function() {
 });
 
 
-
 var Upload = function (file) {
     this.file = file;
 };
@@ -543,3 +542,22 @@ Upload.prototype.progressHandling = function (event) {
     $(progress_bar_id + " .progress-bar").css("width", +percent + "%");
     $(progress_bar_id + " .status").text(percent + "%");
 };
+
+
+
+//customers 
+
+$('#tic_cid').blur(function() {
+    var valx = $('#tic_cid').val();
+    var $this = $('#tic_cid');
+    if(valx){
+        $('#sidebarbox').load(homeURL + '/?pg=customer&cid=' + valx + ' #main-content', function(responseTxt, statusTxt, xhr){
+            if(!responseTxt){
+                alert('مشتری یافت نشد.');
+            }
+            $this.parent()[0].addClass('has-success');
+            if(statusTxt == "error")
+              alert("Error: " + xhr.status + ": " + xhr.statusText);
+          });
+    }
+  });
