@@ -4,6 +4,6 @@ loginrequired();
 // $curr = get_cate_name(get_setting('currency'));
 // $sizetype = (get_setting('sizetype'));
 // checkforupdate();
-set_pgtitle('آمار و وضعیت ');
- theme_include('my\home'); 	
+
+redirect_to(HOME.'?pg=my');
 ?>

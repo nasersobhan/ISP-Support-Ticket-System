@@ -35,9 +35,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
+      
+            <li><a href="<?php echo HOME ?>?pg=my"><i class="fa fa-circle"></i> دسترسی آسان</a></li>
+            <li><a href="<?php echo HOME ?>?pg=todo"><i class="fa fa-circle"></i> کارها برای انجام</a></li>
             <li class="active"><a href="<?php theme_path() ?>"><i class="fa fa-circle"></i> داشبرد راپور</a></li>
             <li><a href="<?php echo HOME ?>"><i class="fa fa-circle"></i> داشبرد کاری</a></li>
-            <li><a href="<?php echo HOME ?>?pg=my"><i class="fa fa-circle"></i> داشبرد شخصی</a></li>
           </ul>
         </li>
         <li class="<?php echo is_get('pg') == 'ticket' ? 'active' : ''; ?> <?php echo is_get('list') == 'tickets' ? 'active' : ''; ?> treeview">
@@ -49,11 +51,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li <?php echo is_get('pg') == 'ticket' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=ticket"><i class="fa fa-circle"></i>تکت جدید</a></li>
-          <li <?php echo is_get('all') == 'tickets' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=tickets&all=tickets"><i class="fa fa-circle"></i>همه تکتها</a></li>
-            <li <?php echo is_get('s_completed') == '99' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=tickets&s_completed=99"><i class="fa fa-circle"></i>تکتهای باز</a></li>
-            <li <?php echo is_get('s_tag') == '1268' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=tickets&s_tag=1268"><i class="fa fa-circle"></i>تکتهای در حال اجراء</a></li>
-            <li <?php echo is_get('s_completed') == '100' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=tickets&s_completed=100"><i class="fa fa-circle"></i>تکتهای بسته شده</a></li>
+          <li <?php echo is_get('pg') == 'ticket' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=ticket"><i class="fa fa-plus"></i>تکت جدید</a></li>
+          <li <?php echo is_get('all') == 'tickets' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=tickets&all=tickets"><i class="far fa-list-alt"></i> همه تکتها</a></li>
+            <li <?php echo is_get('s_completed') == '99' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=tickets&s_completed=99"><i class="far fa-list-alt"></i> تکتهای باز</a></li>
+            <li <?php echo is_get('s_tag') == '1268' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=tickets&s_tag=1268"><i class="far fa-list-alt"></i> تکتهای در حال اجراء</a></li>
+            <li <?php echo is_get('s_completed') == '100' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=tickets&s_completed=100"><i class="far fa-list-alt"></i> تکتهای بسته شده</a></li>
           </ul>
         </li>
 
@@ -67,13 +69,13 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li <?php echo is_get('newcustomer') == '1' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=customer&newcustomer=1"><i class="fa fa-plus"></i>ثبت مشتری جدید</a></li>
-          <li <?php echo is_get('all') == '1' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=customers&all=1"><i class="fa fa-circle"></i>همه مشتریان</a></li>
-          <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_active=1"><i class="fa fa-circle"></i>مشتریان غیر فعال</a></li>
-            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_active=0"><i class="fa fa-circle"></i>مشتریان فعال</a></li>
-            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_site=herat"><i class="fa fa-circle"></i>مشتریان هرات</a></li>
-            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_site=herat"><i class="fa fa-circle"></i>مشتریان مزار</a></li>
-            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_site=herat"><i class="fa fa-circle"></i>مشتریان پروان</a></li>
+          <li <?php echo is_get('newcustomer') == '1' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=customer&newcustomer=1"><i class="fa fa-plus"></i> ثبت مشتری جدید</a></li>
+          <li <?php echo is_get('all') == '1' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=customers&all=1"><i class="far fa-list-alt"></i> همه مشتریان</a></li>
+          <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_active=1"><i class="far fa-list-alt"></i> مشتریان غیر فعال</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_active=0"><i class="far fa-list-alt"></i> مشتریان فعال</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_site=herat"><i class="fas fa-atlas"></i> مشتریان هرات</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_site=herat"><i class="fas fa-atlas"></i> مشتریان مزار</a></li>
+            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_site=herat"><i class="fas fa-atlas"></i> مشتریان پروان</a></li>
 
           </ul>
         </li>
