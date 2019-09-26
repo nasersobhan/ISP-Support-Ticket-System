@@ -105,7 +105,7 @@
         </li>
 
 
-        <li class="<?php echo is_get('pg')=='hr' ? 'active' : ''; ?> <?php echo is_get('list')=='leaves' ? 'active' : ''; ?> treeview">
+        <li class="<?php echo is_get('leave')=='addnew' ? 'active' : ''; ?> <?php echo is_get('list')=='leaves' ? 'active' : ''; ?> treeview">
           <a href="#">
           <i class="fas fa-user-alt-slash"></i>
             <span>رخصتی ها</span>
@@ -114,7 +114,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li <?php echo is_get('pg')=='hr' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=hr"><i class="fa fa-circle"></i>درخواست رخصتی جدید</a></li>
+          <li <?php echo is_get('pg')=='hr' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=hr&leave=addnew"><i class="fa fa-circle"></i>درخواست رخصتی جدید</a></li>
             <li <?php echo is_get('requests')=='100' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=leaves&requests=100"><i class="fa fa-circle"></i>درخواستیهای من</a></li>
             <li <?php echo is_get('requests')=='1' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=leaves&requests=1"><i class="fa fa-circle"></i>درخواست جایگزینی</a></li>
             <li <?php echo is_get('requests')=='2' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=leaves&requests=2"><i class="fa fa-circle"></i>درخواستهای رخصتی</a></li>
@@ -123,7 +123,7 @@
         </li>
 
 
-        <li class="treeview">
+        <li class="<?php echo is_get('overtime')=='addnew' ? 'active' : ''; ?> <?php echo is_get('list')=='overtime' ? 'active' : ''; ?> treeview">
           <a href="#">
           <i class="fas fa-user-clock"></i>
             <span>اضافه کاری ها</span>
@@ -132,11 +132,10 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <li><a href="<?php echo HOME ?>?pg=hr&overtime=addnew"><i class="fa fa-circle"></i>درخواست اضافه کاری جدید</a></li>
-          <li><a href="<?php echo HOME ?>?pg=list"><i class="fa fa-circle"></i>لیست اضافه کاریهای من</a></li>
-            <li><a href="<?php echo HOME ?>?pg=list&s_completed=99"><i class="fa fa-circle"></i>درخواستهای اضافه کاری</a></li>
-
-            <li><a href="<?php echo HOME ?>?pg=list&s_completed=100"><i class="fa fa-circle"></i>لیست اضافه کاریها</a></li>
+          <li <?php echo is_get('overtime')=='addnew' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=hr&overtime=addnew"><i class="fa fa-circle"></i>درخواست اضافه کاری جدید</a></li>
+          <li <?php echo is_get('my')=='yes' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=overtime&my=yes"><i class="fa fa-circle"></i>لیست اضافه کاریهای من</a></li>
+            <li <?php echo is_get('need')=='approve' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=overtime&need=approve"><i class="fa fa-circle"></i>درخواستهای اضافه کاری</a></li>
+            <li <?php echo is_get('all')=='yes' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=overtime&all=yes"><i class="fa fa-circle"></i>لیست اضافه کاریها</a></li>
           </ul>
         </li>
 

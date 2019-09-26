@@ -9,6 +9,8 @@ if (is_get('list')=='customers') {
     page_include('pages/lists/customers.php');
 }elseif(is_get('list')=='leaves'){
         page_include('pages/lists/leaves.php');
+    }elseif(is_get('list')=='overtime'){
+        page_include('pages/lists/overtime');
 } else {
     
     page_include('pages/lists/tickets.php');
