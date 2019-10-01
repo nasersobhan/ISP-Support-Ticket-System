@@ -75,6 +75,89 @@
             <ul id="not-list" class="dropdown-menu">
             </ul>
           </li>
+
+          <li class="dropdown tasks-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <?php
+                    global $dbase;
+$uid = user_uid();
+$site = user_site();
+$dep = user_dep();
+                    $datasin = [];
+                    $counter = 0;
+                    //lea_uid <> {$uid} AND
+                    $where = " WHERE  lea_replaceaccept=0  AND lea_replacement ='{$uid}' ORDER BY lea_id";
+                    $rows = $dbase->tbl2array2('sob_leaves','*',$where);
+                    foreach($rows as $row){
+                        $time = strtotime($row['lea_time']);
+                        $datasin[$time] = '<a  data-toggle="modal" data-target="#Uni-modal"    href="'.HOME.'?pg=hr&lid='.$row['lea_id'].' #main-form" class="leavesu">
+                        جایگزینی: '.user_name_ex($row['lea_uid']).'
+                        <span class="label label-warning">نیاز به تایید</span>
+                        </a>';
+                        $counter++;
+                    } 
+ 
+                    //AND ove_uid <> {$uid}
+                    $where = " WHERE ove_status=1 and ove_approve=0  AND ove_site='{$site}' AND ove_dep ='{$dep}' ORDER BY ove_id ";
+                    $rows = $dbase->tbl2array2('sob_overtime','*',$where);
+                    foreach($rows as $row){
+                        $time = strtotime($row['ove_time']);
+                        $datasin[$time] = '<a data-toggle="modal" data-target="#Uni-modal"  href="'.HOME.'?pg=hr&overtime=view&oid='.$row['ove_id'].' #main-form" class="overtime">
+                       اضافه کاری: '.user_name_ex($row['ove_uid']).'
+                        <span class="label label-warning">نیاز به تایید شما.</span>
+                        </a>';
+                        $counter++;
+                    } 
+    
+                    //lea_uid <> {$uid} AND
+                    $where = " WHERE lea_accepted=0 AND  lea_site='{$site}' AND lea_replaceaccept=1 AND lea_dep ='{$dep}' ORDER BY lea_id ";
+                    $rows = $dbase->tbl2array2('sob_leaves','*',$where);
+                    foreach($rows as $row){
+                        $time = strtotime($row['lea_time']);
+                        $datasin[$time] = '<a class="leaves" data-toggle="modal" data-target="#Uni-modal"  href="'.HOME.'?pg=hr&lid='.$row['lea_id'].' #main-form" >
+                        رخصتی: '.user_name_ex($row['lea_uid']).'
+                        <span class="label label-warning">نیاز به تایید</span>
+                        </a>';
+                        $counter++;
+                    } 
+    
+                    $where = " WHERE tic_progress<>100 AND tic_site='{$site}' AND tic_assigned ='' ORDER BY tic_priority DESC";
+                    $rows = $dbase->tbl2array2('sob_tickets','*',$where);
+                    foreach($rows as $row){
+                        $time = strtotime($row['tic_time']);
+                        $datasin[$time] = '<a class="tickets" href="'.HOME.'?pg=ticket&id='.$row['tic_id'].'" >
+                        تکت: '.$row['tic_title'].'
+                        <span class="label label-danger">نیاز به تغیین مسئول</span>
+                        </a>';
+                        $counter++;
+                    } 
+
+                    ?>
+              <i class="fa fa-flag"></i>
+              <span class="label label-danger"><?Php echo $counter; ?></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">وظایت قابل اجراء</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+
+                    <?php
+                    krsort($datasin);
+                    
+                    foreach($datasin as $datax){
+                        echo '<li>'.$datax.'</li>';
+                    }
+                        
+                    ?>
+             
+                </ul>
+              </li>
+              <!-- <li class="footer">
+                <a href="#">View all tasks</a>
+              </li> -->
+            </ul>
+          </li>
           
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
