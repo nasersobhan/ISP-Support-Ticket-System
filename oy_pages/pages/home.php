@@ -5,5 +5,5 @@ loginrequired();
 // $sizetype = (get_setting('sizetype'));
 // checkforupdate();
 
-redirect_to(HOME.'?pg=my');
+redirect_to(HOME.'?pg=my&dash=2');
 ?>

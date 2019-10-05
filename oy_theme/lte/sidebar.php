@@ -36,10 +36,11 @@
           </a>
           <ul class="treeview-menu">
       
-            <li><a href="<?php echo HOME ?>?pg=my"><i class="fa fa-circle"></i> دسترسی آسان</a></li>
+            <li><a href="<?php echo HOME ?>?pg=my&dash=1"><i class="fa fa-circle"></i> دسترسی آسان</a></li>
+            <li class="active"><a href="<?php echo HOME ?>?pg=my&dash=2"><i class="fa fa-circle"></i> داشبرد راپور</a></li>
             <li><a href="<?php echo HOME ?>?pg=todo"><i class="fa fa-circle"></i> کارها برای انجام</a></li>
-            <li class="active"><a href="<?php theme_path() ?>"><i class="fa fa-circle"></i> داشبرد راپور</a></li>
-            <li><a href="<?php echo HOME ?>"><i class="fa fa-circle"></i> داشبرد کاری</a></li>
+          
+            <!-- <li><a href="<?php echo HOME ?>"><i class="fa fa-circle"></i> داشبرد کاری</a></li> -->
           </ul>
         </li>
         <li class="<?php echo is_get('pg') == 'ticket' ? 'active' : ''; ?> <?php echo is_get('list') == 'tickets' ? 'active' : ''; ?> treeview">
