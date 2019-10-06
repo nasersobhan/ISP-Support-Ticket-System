@@ -63,7 +63,7 @@
           <li class="dropdown messages-menu">
             <a href="<?Php echo HOME.'?pg=inbox'; ?>" >
               <i class="fa fa-envelope"></i>
-              <span class="label label-success">4</span>
+              <!-- <span class="label label-success">4</span> -->
             </a>
             
           </li>

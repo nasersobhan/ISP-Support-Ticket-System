@@ -93,7 +93,7 @@
           <i class="fas fa-toolbox"></i>
             <span>انبار</span>
             <span class="pull-left-container">
-              <span class="label label-primary pull-left">4</span>
+            <i class="fa fa-angle-right pull-left"></i>
             </span>
           </a>
           <ul class="treeview-menu">
@@ -111,7 +111,7 @@
           <i class="fas fa-user-alt-slash"></i>
             <span>رخصتی ها</span>
             <span class="pull-left-container">
-              <span class="label label-primary pull-left">4</span>
+            <i class="fa fa-angle-right pull-left"></i>
             </span>
           </a>
           <ul class="treeview-menu">
@@ -129,7 +129,7 @@
           <i class="fas fa-user-clock"></i>
             <span>اضافه کاری ها</span>
             <span class="pull-left-container">
-              <span class="label label-primary pull-left">4</span>
+            <i class="fa fa-angle-right pull-left"></i>
             </span>
           </a>
           <ul class="treeview-menu">
