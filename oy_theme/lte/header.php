@@ -85,8 +85,8 @@ $site = user_site();
 $dep = user_dep();
                     $datasin = [];
                     $counter = 0;
-                    //lea_uid <> {$uid} AND
-                    $where = " WHERE  lea_replaceaccept=0  AND lea_replacement ='{$uid}' ORDER BY lea_id";
+                    //
+                    $where = " WHERE  lea_replaceaccept=0 AND lea_uid <> {$uid}  AND lea_replacement ='{$uid}' ORDER BY lea_id";
                     $rows = $dbase->tbl2array2('sob_leaves','*',$where);
                     foreach($rows as $row){
                         $time = strtotime($row['lea_time']);
@@ -98,7 +98,7 @@ $dep = user_dep();
                     } 
  
                     //AND ove_uid <> {$uid}
-                    $where = " WHERE ove_status=1 and ove_approve=0  AND ove_site='{$site}' AND ove_dep ='{$dep}' ORDER BY ove_id ";
+                    $where = " WHERE ove_status=1 and ove_approve=0  AND ove_uid <> {$uid} AND ove_site='{$site}' AND ove_dep ='{$dep}' ORDER BY ove_id ";
                     $rows = $dbase->tbl2array2('sob_overtime','*',$where);
                     foreach($rows as $row){
                         $time = strtotime($row['ove_time']);
@@ -110,7 +110,7 @@ $dep = user_dep();
                     } 
     
                     //lea_uid <> {$uid} AND
-                    $where = " WHERE lea_accepted=0 AND  lea_site='{$site}' AND lea_replaceaccept=1 AND lea_dep ='{$dep}' ORDER BY lea_id ";
+                    $where = " WHERE lea_accepted=0 AND  lea_site='{$site}' AND lea_uid <> {$uid} AND lea_replaceaccept=1 AND lea_dep ='{$dep}' ORDER BY lea_id ";
                     $rows = $dbase->tbl2array2('sob_leaves','*',$where);
                     foreach($rows as $row){
                         $time = strtotime($row['lea_time']);
@@ -121,7 +121,7 @@ $dep = user_dep();
                         $counter++;
                     } 
     
-                    $where = " WHERE tic_progress<>100 AND tic_site='{$site}' AND tic_assigned ='' ORDER BY tic_priority DESC";
+                    $where = " WHERE tic_progress<>100 AND tic_site='{$site}' AND tic_uid <> {$uid} AND tic_assigned ='' ORDER BY tic_priority DESC";
                     $rows = $dbase->tbl2array2('sob_tickets','*',$where);
                     foreach($rows as $row){
                         $time = strtotime($row['tic_time']);
