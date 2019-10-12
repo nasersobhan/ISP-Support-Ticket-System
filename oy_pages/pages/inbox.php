@@ -3,6 +3,7 @@ loginrequired();
 global $dbase,$curr,$sizetype;
 $uid = user_uid();
 $curr = ' '.get_cate_name(get_setting('currency'));
+set_pgtitle('پیامها');
 $sizetype = ' '.(get_setting('sizetype'));
 //echo ($_GET['eoe']==1? EXOIL : IMOIL);
 $myhome = HOME.'?pg=inbox';

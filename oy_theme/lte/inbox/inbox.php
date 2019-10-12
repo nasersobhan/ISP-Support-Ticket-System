@@ -19,11 +19,13 @@
             </div>
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="<?php echo get_link('inbox'); ?>"><i class="fa fa-inbox"></i> ابنباکس
+                <li class="<?php echo is_get('inbox')=='1' ? 'active' : ''; ?>"><a href="<?php echo get_link('inbox','inbox','1'); ?>"><i class="fa fa-inbox"></i> اینباکس
                   <span class="label label-primary pull-left">12</span></a></li>
-                <li><a href="<?php echo get_link('inbox','sent','1'); ?>"><i class="fa fa-envelope-o"></i> ارسال شده</a></li>
+                  <li class="<?php echo is_get('unread')=='1' ? 'active' : ''; ?>"><a href="<?php echo get_link('inbox'); ?>&unread=1"><i class="fa fa-inbox"></i> خوانده نشده ها
+                  <span class="label label-primary pull-left">12</span></a></li>
+                <li class="<?php echo is_get('sent')=='1' ? 'active' : ''; ?>"><a href="<?php echo get_link('inbox','sent','1'); ?>"><i class="fa fa-envelope-o"></i> ارسال شده</a></li>
                 </li>
-                <li><a href="<?php echo get_link('inbox','deleted','1'); ?>"><i class="fa fa-trash-o"></i> سطح زباله</a></li>
+                <li class="<?php echo is_get('deleted')=='1' ? 'active' : ''; ?>"><a href="<?php echo get_link('inbox','deleted','1'); ?>"><i class="fa fa-trash-o"></i> سطح زباله</a></li>
               </ul>
             </div>
             <!-- /.box-body -->

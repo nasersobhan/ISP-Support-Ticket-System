@@ -1,4 +1,9 @@
 
+  <?php 
+$rank = user_rank();
+$dep = user_dep();
+$sites =  cat_2arr_l('site',0,'fa_AF');
+  ?>
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -57,6 +62,13 @@
             <li <?php echo is_get('s_completed') == '99' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=tickets&s_completed=99"><i class="far fa-list-alt"></i> تکتهای باز</a></li>
             <li <?php echo is_get('s_tag') == '1268' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=tickets&s_tag=1268"><i class="far fa-list-alt"></i> تکتهای در حال اجراء</a></li>
             <li <?php echo is_get('s_completed') == '100' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=tickets&s_completed=100"><i class="far fa-list-alt"></i> تکتهای بسته شده</a></li>
+            <?php
+            if($rank >= 3 && ($dep == get_setting('techdep') || $rank==99)){
+              foreach($sites as $id => $label){
+                echo '<li '.(is_get('s_site') == $id ? 'class="active" ' : '').'><a href="'.HOME.'?pg=list&list=tickets&s_site='.$id.'"><i class="fas fa-atlas"></i> تکتهای '.$label.'</a></li>';   
+              }
+            }
+            ?>
           </ul>
         </li>
 
@@ -72,11 +84,15 @@
           <ul class="treeview-menu">
           <li <?php echo is_get('newcustomer') == '1' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=customer&newcustomer=1"><i class="fa fa-plus"></i> ثبت مشتری جدید</a></li>
           <li <?php echo is_get('all') == '1' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=customers&all=1"><i class="far fa-list-alt"></i> همه مشتریان</a></li>
-          <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_active=1"><i class="far fa-list-alt"></i> مشتریان غیر فعال</a></li>
-            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_active=0"><i class="far fa-list-alt"></i> مشتریان فعال</a></li>
-            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_site=herat"><i class="fas fa-atlas"></i> مشتریان هرات</a></li>
-            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_site=herat"><i class="fas fa-atlas"></i> مشتریان مزار</a></li>
-            <li><a href="<?php echo HOME ?>?pg=list&list=customers&s_site=herat"><i class="fas fa-atlas"></i> مشتریان پروان</a></li>
+          <li <?php echo is_get('s_active') == 'no' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=customers&s_active=no"><i class="far fa-list-alt"></i> مشتریان غیر فعال</a></li>
+            <li <?php echo is_get('s_active') == '1' ? 'class="active"' : ''; ?>><a href="<?php echo HOME ?>?pg=list&list=customers&s_active=1"><i class="far fa-list-alt"></i> مشتریان فعال</a></li>
+            <?php
+            if($rank >= 3 && ($dep == get_setting('salesdep') || $rank==99)){
+              foreach($sites as $id => $label){
+                echo '<li '.(is_get('s_site') == $id ? 'class="active" ' : '').'><a href="'.HOME.'?pg=list&list=customers&s_site='.$id.'"><i class="fas fa-atlas"></i> مشتریان '.$label.'</a></li>';   
+              }
+            }
+            ?>
 
           </ul>
         </li>
@@ -167,13 +183,6 @@ global $dbase;
                         //echo '<span class="list-group-item"><a href="'.HOME.'?pg=groups&id='.$row['ugr_gid'].'" ><i class="fas fa-users"></i> '.get_cate_name($row['ugr_gid']).'</a><span class="label label-info pull-left">'.$num .' نفر</span></span>';
                     } 
                     ?>
-
-
-          <!-- <li><a href="<?php echo HOME ?>?pg=ticket"><i class="fa fa-circle"></i>درخواست اضافه کاری جدید</a></li>
-          <li><a href="<?php echo HOME ?>?pg=list"><i class="fa fa-circle"></i>لیست اضافه کاریهای من</a></li>
-            <li><a href="<?php echo HOME ?>?pg=list&s_completed=99"><i class="fa fa-circle"></i>درخواستهای اضافه کاری</a></li>
-
-            <li><a href="<?php echo HOME ?>?pg=list&s_completed=100"><i class="fa fa-circle"></i>لیست اضافه کاریها</a></li> -->
           </ul>
         </li>
 
@@ -181,26 +190,10 @@ global $dbase;
 
 
 
-        
-<!--         
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>رخصتی/ اضافه کاری</span>
-            <span class="pull-left-container">
-              <i class="fa fa-angle-right pull-left"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-                            
-          <li><a href="<?php echo get_link('hr'); ?>">فرم درخواست رخصتی<i class="fa fa-users pull-left" aria-hidden="true"></i></a></li>
-          <li><a href="<?php echo get_link('users'); ?>">فرم اضافه کار <i class="fa fa-users pull-left" aria-hidden="true"></i></a></li>
-
-          </ul>
-        </li> -->
     
-        <li>
+        <li class="<?php echo is_get('pg')=='inbox' ? 'active' : ''; ?>">
           <a href="<?php echo get_link('inbox'); ?>">
-          <i class="fa fa-envelope"></i>
+          <i class="fas fa-envelope"></i>
              <span>پیامها</span>
             <!-- <span class="pull-left-container">
               <small class="label pull-left bg-yellow">۱۲</small>

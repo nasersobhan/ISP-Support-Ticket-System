@@ -1,6 +1,10 @@
 <?php 
  global $dbase; 
+
 ifhave_premssion('customer-list');
+$rank = user_rank();
+$dep = user_dep();
+$site = user_site();
     if(is_get('lim'))
         $max_num = is_get('lim');
     else
@@ -27,7 +31,26 @@ ifhave_premssion('customer-list');
         $query = is_get('s_cid');
         $where .=" AND cus_cid = $query ";
     }
- 
+
+    if (is_get('s_active')) {
+        if (is_get('s_active') ==  'no') {
+            $query = is_get('s_active');
+            $where .=" AND cus_active = 0 ";
+        }else{
+            $query = is_get('s_active');
+            $where .=" AND cus_active = 1 ";
+        }
+    }
+
+    if($rank < 3){
+        $where .=" AND cus_site = {$site} ";
+    }
+
+    if (is_get('s_site') && $rank >= 3 && ($dep == get_setting('salesdep') || $rank==99)) {
+        $query = is_get('s_site');
+        $where .=" AND cus_site = {$query} ";
+    }
+
 
     if (is_get('order_time')) {
         if (is_get('order_time')=='a') {

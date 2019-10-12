@@ -2,6 +2,9 @@
  global $dbase; 
 
 ifhave_premssion('ticket-list');
+$rank = user_rank();
+$dep = user_dep();
+$site = user_site();
     if(is_get('lim'))
         $max_num = is_get('lim');
     else
@@ -19,6 +22,18 @@ ifhave_premssion('ticket-list');
     $main_query ="SELECT * FROM sob_tickets where tic_status=1";
 
     $where = "";
+
+
+    if($rank < 3){
+        $where .=" AND tic_site = {$site} ";
+    }
+
+    if (is_get('s_site') && $rank >= 3 && ($dep == get_setting('techdep') || $rank==99)) {
+        $query = is_get('s_site');
+        $where .=" AND tic_site = {$query} ";
+    }
+
+
     // Searches
     if (is_get('s_text')) {
         $query = is_get('s_text');

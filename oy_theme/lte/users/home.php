@@ -32,8 +32,10 @@ $view = true;
 <div class="modal fade" id="modalusers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div id="main-form" class="modal-content">
-    <form method="post" action="<?php echo HOME ?>?pg=users&<?php echo ($edit ? 'edit='.$user['sob_id'] : 'add=1'); ?>" data-source="<?php echo HOME ?>?pg=users #datatbl" data-selector="#reportx > div > div > div.panel-body" ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="adduser" lang="fa">
-
+    <form method="post" 
+    action="<?php echo HOME ?>?pg=users&<?php echo ($edit ? 'edit='.$user['sob_id'] : 'add=1'); ?>" 
+    data-source="<?php echo HOME ?>?pg=users #usertable" data-selector="#userlist" 
+    ajaxform reset  enctype="application/x-www-form-urlencoded" name="add"  id="adduser" lang="fa">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">ایجاد یوزر جدید</h4>
@@ -63,7 +65,7 @@ $view = true;
 
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label">شماره تماس :</label>
-                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_phone'].'"' : ''; ?> autocomplete="off" oninvalid="setCustomValidity('شماره مبایل را این صورت بنویسید 0711111111')" pattern="[0-9]{9}([0-9]{1})?" required type="tel" class="form-control col-md-12" name="phone" id="phone">
+                    <input <?php echo $view ? 'disabled' : ''; ?> <?php echo $edit ? 'value="'.$user['sob_phone'].'"' : ''; ?> autocomplete="off"  required type="tel" class="form-control col-md-12" name="phone" id="phone">
                   </div>
   <?php if($edit==false) { ?>
                   <div class="form-group row">
