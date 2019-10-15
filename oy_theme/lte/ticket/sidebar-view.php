@@ -78,7 +78,7 @@
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
-        <a id="customer-info" data-id="<?php echo $customer['cus_id']; ?>" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <a id="customer-info" data-id="<?php echo $row['tic_cid']; ?>" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
           مشخصات مشتری
         </a>
       </h4>

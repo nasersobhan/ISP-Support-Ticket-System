@@ -11,7 +11,7 @@ if(isset($rows[0])) {
   if(!empty($row['tic_cid'])){
       $id = $row['tic_cid'];
       $tbl = 'sob_customerinfo';
-      $customers = $dbase->tbl2array2($tbl,'*',' WHERE cus_id='.$id);
+      $customers = $dbase->tbl2array2($tbl,'*',' WHERE cus_cid='.$id);
       if(isset($customers[0])){
         $customer = $customers[0];
         //$title = 'نصب جدید مشتری '. $customer['cus_name'];
