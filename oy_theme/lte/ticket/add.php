@@ -23,7 +23,7 @@ if(is_get('eid')) {
 }
 ?>
 
-<form method="post" action="<?php echo HOME ?>?pg=ticket&add=new<?Php echo ($customer ? '&cid='.$customer['cus_id'] : ''); ?>" name="add"  id="addticket">
+<form method="post" action="<?php echo HOME ?>?pg=ticket&add=new<?Php echo ($customer ? '&cid='.$customer['cus_cid'] : ''); ?>" name="add"  id="addticket">
       
   <div class="modal-header">
     <h4 class="modal-title" id="myModalLabel">فرم درخواست خدمات تخنیکی</h4>

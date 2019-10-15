@@ -5,6 +5,12 @@ $uid = user_uid();
 $site = user_site();
 $dep = user_dep();
 
+// ifhave_premssion('ticket-view');
+load_jsplug('jquery-ui') ;
+load_jsplug('uicomplete') ;    
+load_jsplug('form');
+addjs(HOME . "oy_custom/js/groups.js");
+
 if(is_get('add')){
     unset($_POST['Send']);
     $data = $_POST;
@@ -105,5 +111,6 @@ if(is_get('add')){
 
 }
 else {
+
     theme_pg_include('home');
 }
