@@ -139,7 +139,7 @@ $view = true;
                   <div class="form-group row">
                     <label for="recipient-name" class="control-label col-md-12">تصویر :</label>
                     <input type="button" id="loadFileXml" value="انتخاب" class="btn btn-success col-md-2" onclick="document.getElementById('user-avatar').click();" />
-                    <input  type="file"  style="display:none;" required name="fileupload" id="user-avatar">
+                    <input  type="file"  style="display:none;" name="fileupload" id="user-avatar">
              
                     <div id="progress-wrp" class="col-md-10" >
     <div class="progress-bar"></div>
