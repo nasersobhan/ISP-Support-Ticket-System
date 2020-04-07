@@ -3,7 +3,6 @@
 
 
 function add_parts($foods,$type,$id,$xtype){
-     //$foods = $_POST['cat_food'];
     global $dbase;
     $uid = user_uid();
            if(is_array($foods))

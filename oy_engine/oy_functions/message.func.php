@@ -7,8 +7,8 @@
  */
 
    define ('M_SVR', "ssl://smtp.gmail.com");
-          define ('M_USR', "ShamalAdmin@irdglobal.org");
-          define ('M_PASS', "Goblin001");
+          define ('M_USR', "youmail@gmail");
+          define ('M_PASS', "YourPassword");
           define ('M_PORT', 587);
           define ('M_AUTH', TRUE);
           

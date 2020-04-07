@@ -59,13 +59,6 @@ function get_cat2dd($type = '', $parent = 'parent', $selattr = '', $settings = a
             else
                 $where .= " AND cat_type='" . $type . "'";
     }
-//    }else{
-//        $where = '';
-//        if($type != '%ALL'){
-//            if(!empty($type))
-//                $where .= " WHERE cat_type='" . $type . "'";
-//        }
-//    }
 $tbl = TBL_PIX. 'categories_oy';
     $query = "SELECT * FROM {$tbl} " . $where;
     $res = $dbase->query($query);
