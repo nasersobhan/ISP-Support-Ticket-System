@@ -1,5 +1,4 @@
 <?php
-set_time_limit (0);
 //URis
 define("RHOME", dirname(__FILE__) . DIRECTORY_SEPARATOR);
 define('HOME', 'http://stark.test/'); // Public URL For Core
@@ -11,10 +10,8 @@ define('TBL_LIMITE', 20); ///need to get fixed
 define('THEME', 'lte');
 define('DYNAMIC_URL', FALSE); ///need to get fixed
 define('ENVIRONMENT', 'development');
-
-
 //Defulte Values
-define('DEF_PGDESC', 'خدمات انترنت استارک');
+define('DEF_PGDESC', 'خدمات انترنت من');
 define('DEF_PGKEYWORD', 'keywords,for,ooyta');
 define("DEF_IMG", COREHOME . "oy_core/oy_theme/def/images/def/404-img.gif");
 define("DEF_AVTAR", HOME . "uploads/def/avatar.png");
@@ -22,14 +19,10 @@ define("DEF_COVER", HOME . "uploads/def/avatar.png");
 
 //SECURITY Configurations
 define("HASH_COST_FACTOR", "10");
-//define("COOKIE_RUNTIME", 1209600);
-//define("COOKIE_DOMAIN", ".*");
-//ini_set('session.cookie_domain', '.*');
-//session_set_cookie_params(0, '/', '.*');
-//  session.cookie_domain = ".qd.sobhansoft.com";
+define("COOKIE_RUNTIME", 1209600);
+define("COOKIE_DOMAIN", ".*");
 define("COOKIE_SECRET_KEY", "1gp@TMPS{+$78sfpMJFe-92s");
 
-//define('PUBLIC_FILES_PATH',DATA_CORE_PATH.'/upload/');
 /// BUILT-IN Databse{
 define('BDB', TRUE); // Active Built-in Database System but can be deffrint database from system database
 define('TDB', FALSE); // access built-in data using Access Token
@@ -39,7 +32,6 @@ define('USER_TYPE', 'DB'); // BDB = get from deffrent databse, TDB = get from UR
 define('BTBL_PIX', 'oyt_');
 define('AUTOLOADER', TRUE);
 $autoloader = AUTOLOADER;
-//$user_arr = array("TYPE"=>"CUSTOM", "USER_TBL"=>"","USER_TBL"=>"","USER_TBL"=>"","USER_TBL"=>"","USER_TBL"=>"","USER_TBL"=>"","USER_TBL"=>"","USER_TBL"=>"","USER_TBL"=>"",);
 define('HAS_DB', TRUE);
 $constring = 'localhost:stark_sys:root:';
 define('TYPE_DB', 'MYSQL'); //MYSQL, SQLITE, MSSQL
